@@ -61,5 +61,15 @@ namespace EnrollmentSystem
                 return false;
             }
         }
+        public void EditCourse(string coursecode, string coursename, string temp)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE tbl_course SET [Course Code] = @ccode, [Course Name] = @cname WHERE [Course Code] = @tcode", con);
+            cmd.Parameters.AddWithValue("@ccode", coursecode);
+            cmd.Parameters.AddWithValue("@cname", coursename);
+            cmd.Parameters.AddWithValue("@tcode", temp);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

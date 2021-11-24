@@ -107,13 +107,7 @@ namespace EnrollmentSystem
                 {
                     try
                     {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("UPDATE tbl_course SET [Course Code] = @ccode, [Course Name] = @cname WHERE [Course Code] = @tcode", con);
-                        cmd.Parameters.AddWithValue("@ccode", coursec);
-                        cmd.Parameters.AddWithValue("@cname", coursen);
-                        cmd.Parameters.AddWithValue("@tcode", tempcc);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                        checker.EditCourse(coursec, coursen, tempcc);
                         MessageBox.Show("Course updated successfully.", "Course Updated");
                         ClearData();
                     }
