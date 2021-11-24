@@ -16,6 +16,7 @@ namespace EnrollmentSystem
         static string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
         SqlConnection con = new SqlConnection(cs);
         string tempcc, tempcn;
+        checkDB checker = new checkDB();
 
         public coursemenu()
         {
@@ -43,12 +44,7 @@ namespace EnrollmentSystem
         {
             try
             {
-                con.Open();
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tbl_course", con);
-                DataSet ds = new DataSet();
-                sda.Fill(ds, "Courses");
-                dataGridViewcourse.DataSource = ds.Tables["Courses"].DefaultView;
-                con.Close();
+                dataGridViewcourse.DataSource = checker.DisplayCourse().DefaultView;
             }
             catch (Exception ex)
             {
@@ -75,16 +71,15 @@ namespace EnrollmentSystem
             {
                 MessageBox.Show("Please porvide course code and course name.", "Add Course Error");
             }
+            else if (checker.IfCourseExist(coursec))
+            {
+                MessageBox.Show("Course code already exist", "Add Course Error");
+            }
             else
             {
                 try
                 {
-                    con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO tbl_course ([Course Code], [Course Name]) VALUES (@ccode,@cname)", con);
-                    cmd.Parameters.AddWithValue("@ccode", coursec);
-                    cmd.Parameters.AddWithValue("@cname", coursen);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
+                    checker.AddCourse(coursec, coursen);
                     MessageBox.Show("Course added successfully.", "Course Added");
                     ClearData();
                 }
