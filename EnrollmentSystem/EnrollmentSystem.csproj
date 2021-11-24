@@ -72,6 +72,12 @@
     <Compile Include="studentmenu.Designer.cs">
       <DependentUpon>studentmenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="subjectmenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="subjectmenu.Designer.cs">
+      <DependentUpon>subjectmenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="coursemenu.resx">
       <DependentUpon>coursemenu.cs</DependentUpon>
     </EmbeddedResource>
