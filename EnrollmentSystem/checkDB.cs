@@ -35,7 +35,7 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Courses"];
         }
-        public void AddCourse(string coursecode,string coursename)
+        public void AddCourse(string coursecode, string coursename)
         {
             con.Open();
             SqlCommand cmd = new SqlCommand("INSERT INTO tbl_course ([Course Code], [Course Name]) VALUES (@ccode,@cname)", con);
@@ -85,6 +85,14 @@ namespace EnrollmentSystem
             SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tbl_course WHERE [Course Code] LIKE '%" + sc + "%' OR [Course Name] LIKE '%" + sc + "%'", con);
             DataSet ds = new DataSet();
             sda.Fill(ds, "Courses");
+            con.Close();
+            return ds.Tables["Courses"];
+        }
+        public DataTable FillCourseStudentAdd()
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT [Course code] FROM tbl_course", con);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Courses");
             con.Close();
             return ds.Tables["Courses"];
         }

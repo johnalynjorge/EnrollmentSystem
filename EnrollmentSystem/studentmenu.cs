@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace EnrollmentSystem
 {
     public partial class studentmenu : Form
     {
-        string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
+        checkDB checker = new checkDB();
+        ArrayList arrayList = new ArrayList();
         public studentmenu()
         {
             InitializeComponent();
@@ -21,37 +23,28 @@ namespace EnrollmentSystem
 
         private void studentmenu_Load(object sender, EventArgs e)
         {
-            SYcb.Items.Add("2021-2022");
-            SYcb.Items.Add("2022-2023");
+            string[] sys = {"2021-2022", "2022-2023"};
+            SYcb.Items.AddRange(sys);
 
-            YLcb.Items.Add("First Year");
-            YLcb.Items.Add("Second  Year");
-            YLcb.Items.Add("Third Year");
-            YLcb.Items.Add("Fourth Year");
+            string[] yls = {"First Year","Second  Year","Third Year","Fourth Year" };
+            YLcb.Items.AddRange(yls);
 
-            semcb.Items.Add("First Sem");
-            semcb.Items.Add("Second Sem");
+            string[] sems = {"First Sem","Second Sem"};
+            semcb.Items.AddRange(sems);
 
-            Statuscb.Items.Add("Regular");
-            Statuscb.Items.Add("Irregular");
+            string[] stats = {"Regular","Irregular"};
+            Statuscb.Items.AddRange(stats);
 
-            Gendercb.Items.Add("Male");
-            Gendercb.Items.Add("Female");
+            string[] genders = {"Male","Female"}; 
+            Gendercb.Items.AddRange(genders);
 
             try
             {
-                //Course add
-                SqlConnection con = new SqlConnection(cs);
-                con.Open();
-                string comm = "SELECT [Course Code] FROM tbl_course";
-                SqlCommand cmd = new SqlCommand(comm, con);
-                SqlDataReader DR = cmd.ExecuteReader();
-                while (DR.Read())
+                foreach(DataRow dset in checker.FillCourseStudentAdd().Rows)
                 {
-                    Coursecb.Items.Add(DR[0]);
-
+                    arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
                 }
-                con.Close();
+                Coursecb.Items.AddRange(arrayList.ToArray());
             }
             catch(Exception ex)
             {
