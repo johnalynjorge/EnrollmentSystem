@@ -45,14 +45,9 @@ namespace EnrollmentSystem
             {
                 try
                 {
-                    string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
-                    SqlConnection con = new SqlConnection(cs);
-                    SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM tbl_user WHERE usernames = '" + username + "' and passwords = '" + password + "'", con);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    if (dt.Rows[0][0].ToString() == "1")
+                    checkDB checker = new checkDB();
+                    if (checker.checkAccount(username, password))
                     {
-                        con.Close();
                         loggedon();
                     }
                     else
