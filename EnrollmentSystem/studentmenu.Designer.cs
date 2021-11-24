@@ -62,6 +62,9 @@ namespace EnrollmentSystem
             this.backbtn = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.semcb = new System.Windows.Forms.ComboBox();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.editbtn = new System.Windows.Forms.Button();
+            this.addbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -331,11 +334,41 @@ namespace EnrollmentSystem
             this.semcb.Size = new System.Drawing.Size(87, 21);
             this.semcb.TabIndex = 32;
             // 
+            // deletebtn
+            // 
+            this.deletebtn.Location = new System.Drawing.Point(718, 368);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(104, 23);
+            this.deletebtn.TabIndex = 35;
+            this.deletebtn.Text = "Delete Student";
+            this.deletebtn.UseVisualStyleBackColor = true;
+            // 
+            // editbtn
+            // 
+            this.editbtn.Location = new System.Drawing.Point(600, 368);
+            this.editbtn.Name = "editbtn";
+            this.editbtn.Size = new System.Drawing.Size(104, 23);
+            this.editbtn.TabIndex = 34;
+            this.editbtn.Text = "Edit Student";
+            this.editbtn.UseVisualStyleBackColor = true;
+            // 
+            // addbtn
+            // 
+            this.addbtn.Location = new System.Drawing.Point(482, 368);
+            this.addbtn.Name = "addbtn";
+            this.addbtn.Size = new System.Drawing.Size(104, 23);
+            this.addbtn.TabIndex = 33;
+            this.addbtn.Text = "Add Student";
+            this.addbtn.UseVisualStyleBackColor = true;
+            // 
             // studentmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1528, 448);
+            this.Controls.Add(this.deletebtn);
+            this.Controls.Add(this.editbtn);
+            this.Controls.Add(this.addbtn);
             this.Controls.Add(this.semcb);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.backbtn);
@@ -413,5 +446,8 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox semcb;
+        private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button editbtn;
+        private System.Windows.Forms.Button addbtn;
     }
 }
