@@ -29,6 +29,7 @@ namespace EnrollmentSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
             this.StudentMngt = new System.Windows.Forms.Button();
             this.CourseMngt = new System.Windows.Forms.Button();
             this.SubjectMngt = new System.Windows.Forms.Button();
@@ -116,6 +117,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.SubjectMngt);
             this.Controls.Add(this.CourseMngt);
             this.Controls.Add(this.StudentMngt);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

@@ -133,11 +133,7 @@ namespace EnrollmentSystem
                 {
                     try
                     {
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("DELETE tbl_course WHERE [Course Code] = @ccode", con);
-                        cmd.Parameters.AddWithValue("@ccode", coursec);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                        checker.DeleteCourse(coursec);
                         MessageBox.Show("Course deleted successfully.", "Course Deleted");
                         ClearData();
                     }
@@ -154,12 +150,8 @@ namespace EnrollmentSystem
             try
             {
                 string sc = searchtxt.Text.Trim();
-            con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tbl_course WHERE [Course Code] LIKE '%" + sc + "%' OR [Course Name] LIKE '%" + sc + "%'", con);
-            DataSet ds = new DataSet();
-            sda.Fill(ds, "Courses");
-            dataGridViewcourse.DataSource = ds.Tables["Courses"].DefaultView;
-            con.Close();
+                dataGridViewcourse.DataSource = checker.SearchCourse(sc).DefaultView;
+                
             }
             catch (Exception ex)
             {

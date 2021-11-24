@@ -71,5 +71,22 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        public void DeleteCourse(string coursec)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE tbl_course WHERE [Course Code] = @ccode", con);
+            cmd.Parameters.AddWithValue("@ccode", coursec);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable SearchCourse(string sc)
+        {
+            con.Open();
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tbl_course WHERE [Course Code] LIKE '%" + sc + "%' OR [Course Name] LIKE '%" + sc + "%'", con);
+            DataSet ds = new DataSet();
+            sda.Fill(ds, "Courses");
+            con.Close();
+            return ds.Tables["Courses"];
+        }
     }
 }

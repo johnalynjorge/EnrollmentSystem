@@ -100,6 +100,9 @@
     <EmbeddedResource Include="studentmenu.resx">
       <DependentUpon>studentmenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="subjectmenu.resx">
+      <DependentUpon>subjectmenu.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
