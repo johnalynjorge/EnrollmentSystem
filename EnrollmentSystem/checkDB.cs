@@ -11,12 +11,10 @@ namespace EnrollmentSystem
     class checkDB
     {
         static string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
-        static string cs2 = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\admin\source\repos\EnrollmentSystem\EnrollmentSystem\DB\EnrollDB.mdf;Integrated Security=True;Connect Timeout=30";
         SqlConnection con = new SqlConnection(cs);
-        SqlConnection con2 = new SqlConnection(cs2);
         public Boolean checkAccount(string username, string password)
         {
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM tbl_users WHERE usernames = '" + username + "' and passwords = '" + password + "'", con2);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT COUNT(*) FROM tbl_user WHERE usernames = '" + username + "' and passwords = '" + password + "'", con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             if (dt.Rows[0][0].ToString() == "1")
