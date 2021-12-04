@@ -26,9 +26,14 @@ namespace EnrollmentSystem
 
         public void loggedon()
         {
+            //this.Hide();
+            //menu menuform = new menu();
+            //menuform.ShowDialog();
+            //this.Close();
+
             this.Hide();
-            menu menuform = new menu();
-            menuform.ShowDialog();
+            MainMenu mm = new MainMenu();
+            mm.ShowDialog();
             this.Close();
         }
 

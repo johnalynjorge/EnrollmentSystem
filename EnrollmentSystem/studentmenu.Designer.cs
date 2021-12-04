@@ -59,7 +59,6 @@ namespace EnrollmentSystem
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.backbtn = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.semcb = new System.Windows.Forms.ComboBox();
             this.deletebtn = new System.Windows.Forms.Button();
@@ -306,17 +305,6 @@ namespace EnrollmentSystem
             this.textBox8.Size = new System.Drawing.Size(504, 20);
             this.textBox8.TabIndex = 29;
             // 
-            // backbtn
-            // 
-            this.backbtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.backbtn.Location = new System.Drawing.Point(13, 13);
-            this.backbtn.Name = "backbtn";
-            this.backbtn.Size = new System.Drawing.Size(75, 23);
-            this.backbtn.TabIndex = 30;
-            this.backbtn.Text = "Back";
-            this.backbtn.UseVisualStyleBackColor = true;
-            this.backbtn.Click += new System.EventHandler(this.backbtn_Click);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -365,13 +353,12 @@ namespace EnrollmentSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1528, 448);
+            this.ClientSize = new System.Drawing.Size(979, 566);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.addbtn);
             this.Controls.Add(this.semcb);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.backbtn);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.dateTimePicker2);
@@ -443,7 +430,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button backbtn;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox semcb;
         private System.Windows.Forms.Button deletebtn;

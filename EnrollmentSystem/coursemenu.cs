@@ -13,22 +13,13 @@ namespace EnrollmentSystem
 {
     public partial class coursemenu : Form
     {
-        static string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
-        SqlConnection con = new SqlConnection(cs);
+        
         string tempcc, tempcn;
         checkDB checker = new checkDB();
 
         public coursemenu()
         {
             InitializeComponent();
-        }
-
-        private void backbtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            menu mn = new menu();
-            mn.ShowDialog();
-            this.Close();
         }
         
 
