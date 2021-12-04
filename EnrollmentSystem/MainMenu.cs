@@ -53,6 +53,7 @@ namespace EnrollmentSystem
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            
             st = new studentmenu();
             st.TopLevel = false;
             st.AutoScroll = true;
