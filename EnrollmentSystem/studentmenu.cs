@@ -40,7 +40,7 @@ namespace EnrollmentSystem
 
             try
             {
-                foreach(DataRow dset in checker.FillCourseStudentAdd().Rows)
+                foreach(DataRow dset in checker.FillCourse().Rows)
                 {
                     arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
                 }

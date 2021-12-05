@@ -43,6 +43,10 @@ namespace EnrollmentSystem
             this.deletebtn = new System.Windows.Forms.Button();
             this.editbtn = new System.Windows.Forms.Button();
             this.createbtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.searchtxt = new System.Windows.Forms.TextBox();
+            this.dataGridViewcurr = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -148,6 +152,7 @@ namespace EnrollmentSystem
             this.deletebtn.TabIndex = 41;
             this.deletebtn.Text = "Delete Curriculum";
             this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
             // editbtn
             // 
@@ -157,6 +162,7 @@ namespace EnrollmentSystem
             this.editbtn.TabIndex = 40;
             this.editbtn.Text = "Edit Curriculum";
             this.editbtn.UseVisualStyleBackColor = true;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
             // 
             // createbtn
             // 
@@ -168,11 +174,47 @@ namespace EnrollmentSystem
             this.createbtn.UseVisualStyleBackColor = true;
             this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(187, 237);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Search:";
+            // 
+            // searchtxt
+            // 
+            this.searchtxt.Location = new System.Drawing.Point(237, 234);
+            this.searchtxt.Name = "searchtxt";
+            this.searchtxt.Size = new System.Drawing.Size(554, 20);
+            this.searchtxt.TabIndex = 43;
+            this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
+            // 
+            // dataGridViewcurr
+            // 
+            this.dataGridViewcurr.AllowUserToAddRows = false;
+            this.dataGridViewcurr.AllowUserToDeleteRows = false;
+            this.dataGridViewcurr.AllowUserToResizeRows = false;
+            this.dataGridViewcurr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewcurr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewcurr.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewcurr.Location = new System.Drawing.Point(31, 292);
+            this.dataGridViewcurr.Name = "dataGridViewcurr";
+            this.dataGridViewcurr.RowHeadersVisible = false;
+            this.dataGridViewcurr.Size = new System.Drawing.Size(910, 224);
+            this.dataGridViewcurr.TabIndex = 45;
+            this.dataGridViewcurr.VirtualMode = true;
+            this.dataGridViewcurr.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewcurr_CellDoubleClick);
+            // 
             // curriculummenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.dataGridViewcurr);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.searchtxt);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.createbtn);
@@ -190,6 +232,7 @@ namespace EnrollmentSystem
             this.Name = "curriculummenu";
             this.Text = "Curriculumn Menu";
             this.Load += new System.EventHandler(this.curriculummenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +254,8 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button createbtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox searchtxt;
+        private System.Windows.Forms.DataGridView dataGridViewcurr;
     }
 }

@@ -104,7 +104,7 @@ namespace EnrollmentSystem
             // 
             // searchtxt
             // 
-            this.searchtxt.Location = new System.Drawing.Point(268, 250);
+            this.searchtxt.Location = new System.Drawing.Point(268, 257);
             this.searchtxt.Name = "searchtxt";
             this.searchtxt.Size = new System.Drawing.Size(554, 20);
             this.searchtxt.TabIndex = 8;
@@ -113,7 +113,7 @@ namespace EnrollmentSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(218, 257);
+            this.label4.Location = new System.Drawing.Point(218, 260);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 9;
