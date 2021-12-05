@@ -70,6 +70,7 @@ namespace EnrollmentSystem
             this.curBtn.TabIndex = 14;
             this.curBtn.Text = "Curriculum Management";
             this.curBtn.UseVisualStyleBackColor = false;
+            this.curBtn.Click += new System.EventHandler(this.curBtn_Click);
             // 
             // Logoutbtn
             // 

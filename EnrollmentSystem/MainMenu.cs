@@ -15,6 +15,7 @@ namespace EnrollmentSystem
         static int formnum = 1;
         studentmenu st;
         coursemenu cm;
+        curriculummenu crm;
         public MainMenu()
         {
             InitializeComponent();
@@ -86,14 +87,46 @@ namespace EnrollmentSystem
             {
                 cm.Close();
             }
+            else if (formnum == 3)
+            {
+                
+            }
+            else if (formnum == 4)
+            {
+               
+            }
+            else if (formnum == 5)
+            {
+                crm.Close();
+            }
+            else if (formnum == 6)
+            {
+
+            }
+            else if (formnum == 7)
+            {
+
+            }
         }
 
         public void setFormNum(int value)
         {
             formnum = value;
         }
-        
 
+        private void curBtn_Click(object sender, EventArgs e)
+        {
+            mainpanel.Controls.Clear();
+            closeForm();
+            crm = new curriculummenu();
+            crm.TopLevel = false;
+            crm.AutoScroll = true;
+            crm.FormBorderStyle = FormBorderStyle.None;
+            crm.Dock = DockStyle.Fill;
+            mainpanel.Controls.Add(crm);
+            crm.Show();
+            setFormNum(5);
+        }
     }
     
 }

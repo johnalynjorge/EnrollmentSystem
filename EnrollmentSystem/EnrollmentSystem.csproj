@@ -53,6 +53,12 @@
     <Compile Include="coursemenu.Designer.cs">
       <DependentUpon>coursemenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="curriculummenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="curriculummenu.Designer.cs">
+      <DependentUpon>curriculummenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </Compile>
     <EmbeddedResource Include="coursemenu.resx">
       <DependentUpon>coursemenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="curriculummenu.resx">
+      <DependentUpon>curriculummenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

@@ -62,5 +62,10 @@ namespace EnrollmentSystem
             mn.ShowDialog();
             this.Close();
         }
+
+        private void addbtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

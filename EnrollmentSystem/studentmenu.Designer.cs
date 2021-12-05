@@ -70,7 +70,7 @@ namespace EnrollmentSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(320, 52);
+            this.label1.Location = new System.Drawing.Point(320, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(190, 24);
             this.label1.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace EnrollmentSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 111);
+            this.label2.Location = new System.Drawing.Point(61, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 1;
@@ -88,7 +88,7 @@ namespace EnrollmentSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 163);
+            this.label3.Location = new System.Drawing.Point(61, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 2;
@@ -97,7 +97,7 @@ namespace EnrollmentSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(321, 163);
+            this.label4.Location = new System.Drawing.Point(321, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 3;
@@ -106,7 +106,7 @@ namespace EnrollmentSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(597, 163);
+            this.label5.Location = new System.Drawing.Point(597, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 13);
             this.label5.TabIndex = 4;
@@ -114,28 +114,28 @@ namespace EnrollmentSystem
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 179);
+            this.textBox1.Location = new System.Drawing.Point(64, 142);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(232, 20);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(324, 179);
+            this.textBox2.Location = new System.Drawing.Point(324, 142);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(238, 20);
             this.textBox2.TabIndex = 6;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(600, 179);
+            this.textBox3.Location = new System.Drawing.Point(600, 142);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(228, 20);
             this.textBox3.TabIndex = 7;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(64, 127);
+            this.textBox4.Location = new System.Drawing.Point(64, 90);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(148, 20);
             this.textBox4.TabIndex = 8;
@@ -143,7 +143,7 @@ namespace EnrollmentSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(235, 111);
+            this.label6.Location = new System.Drawing.Point(235, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 9;
@@ -152,7 +152,7 @@ namespace EnrollmentSystem
             // SYcb
             // 
             this.SYcb.FormattingEnabled = true;
-            this.SYcb.Location = new System.Drawing.Point(238, 128);
+            this.SYcb.Location = new System.Drawing.Point(238, 91);
             this.SYcb.Name = "SYcb";
             this.SYcb.Size = new System.Drawing.Size(118, 21);
             this.SYcb.TabIndex = 10;
@@ -160,7 +160,7 @@ namespace EnrollmentSystem
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(377, 112);
+            this.label7.Location = new System.Drawing.Point(377, 75);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 11;
@@ -169,7 +169,7 @@ namespace EnrollmentSystem
             // YLcb
             // 
             this.YLcb.FormattingEnabled = true;
-            this.YLcb.Location = new System.Drawing.Point(380, 128);
+            this.YLcb.Location = new System.Drawing.Point(380, 91);
             this.YLcb.Name = "YLcb";
             this.YLcb.Size = new System.Drawing.Size(94, 21);
             this.YLcb.TabIndex = 12;
@@ -177,7 +177,7 @@ namespace EnrollmentSystem
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(597, 112);
+            this.label8.Location = new System.Drawing.Point(597, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 13);
             this.label8.TabIndex = 13;
@@ -186,7 +186,7 @@ namespace EnrollmentSystem
             // Statuscb
             // 
             this.Statuscb.FormattingEnabled = true;
-            this.Statuscb.Location = new System.Drawing.Point(600, 128);
+            this.Statuscb.Location = new System.Drawing.Point(600, 91);
             this.Statuscb.Name = "Statuscb";
             this.Statuscb.Size = new System.Drawing.Size(95, 21);
             this.Statuscb.TabIndex = 14;
@@ -194,7 +194,7 @@ namespace EnrollmentSystem
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(711, 111);
+            this.label9.Location = new System.Drawing.Point(711, 74);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 13);
             this.label9.TabIndex = 15;
@@ -203,7 +203,7 @@ namespace EnrollmentSystem
             // Coursecb
             // 
             this.Coursecb.FormattingEnabled = true;
-            this.Coursecb.Location = new System.Drawing.Point(714, 128);
+            this.Coursecb.Location = new System.Drawing.Point(714, 91);
             this.Coursecb.Name = "Coursecb";
             this.Coursecb.Size = new System.Drawing.Size(114, 21);
             this.Coursecb.TabIndex = 16;
@@ -211,7 +211,7 @@ namespace EnrollmentSystem
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(61, 216);
+            this.label10.Location = new System.Drawing.Point(61, 179);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 13);
             this.label10.TabIndex = 17;
@@ -219,7 +219,7 @@ namespace EnrollmentSystem
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(64, 232);
+            this.textBox5.Location = new System.Drawing.Point(64, 195);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 18;
@@ -227,7 +227,7 @@ namespace EnrollmentSystem
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(199, 216);
+            this.label11.Location = new System.Drawing.Point(199, 179);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 13);
             this.label11.TabIndex = 19;
@@ -236,7 +236,7 @@ namespace EnrollmentSystem
             // Gendercb
             // 
             this.Gendercb.FormattingEnabled = true;
-            this.Gendercb.Location = new System.Drawing.Point(202, 231);
+            this.Gendercb.Location = new System.Drawing.Point(202, 194);
             this.Gendercb.Name = "Gendercb";
             this.Gendercb.Size = new System.Drawing.Size(118, 21);
             this.Gendercb.TabIndex = 20;
@@ -244,7 +244,7 @@ namespace EnrollmentSystem
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(346, 216);
+            this.label12.Location = new System.Drawing.Point(346, 179);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 13);
             this.label12.TabIndex = 21;
@@ -252,7 +252,7 @@ namespace EnrollmentSystem
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(349, 232);
+            this.textBox6.Location = new System.Drawing.Point(349, 195);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(148, 20);
             this.textBox6.TabIndex = 22;
@@ -260,7 +260,7 @@ namespace EnrollmentSystem
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(534, 216);
+            this.label13.Location = new System.Drawing.Point(534, 179);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(39, 13);
             this.label13.TabIndex = 23;
@@ -268,7 +268,7 @@ namespace EnrollmentSystem
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(537, 231);
+            this.textBox7.Location = new System.Drawing.Point(537, 194);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(291, 20);
             this.textBox7.TabIndex = 24;
@@ -276,7 +276,7 @@ namespace EnrollmentSystem
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(61, 273);
+            this.label14.Location = new System.Drawing.Point(61, 236);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 13);
             this.label14.TabIndex = 25;
@@ -284,7 +284,7 @@ namespace EnrollmentSystem
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(64, 290);
+            this.dateTimePicker2.Location = new System.Drawing.Point(64, 253);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(239, 20);
             this.dateTimePicker2.TabIndex = 27;
@@ -292,7 +292,7 @@ namespace EnrollmentSystem
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(321, 273);
+            this.label15.Location = new System.Drawing.Point(321, 236);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(48, 13);
             this.label15.TabIndex = 28;
@@ -300,7 +300,7 @@ namespace EnrollmentSystem
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(324, 293);
+            this.textBox8.Location = new System.Drawing.Point(324, 256);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(504, 20);
             this.textBox8.TabIndex = 29;
@@ -308,7 +308,7 @@ namespace EnrollmentSystem
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(491, 111);
+            this.label16.Location = new System.Drawing.Point(491, 74);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 31;
@@ -317,14 +317,14 @@ namespace EnrollmentSystem
             // semcb
             // 
             this.semcb.FormattingEnabled = true;
-            this.semcb.Location = new System.Drawing.Point(494, 128);
+            this.semcb.Location = new System.Drawing.Point(494, 91);
             this.semcb.Name = "semcb";
             this.semcb.Size = new System.Drawing.Size(87, 21);
             this.semcb.TabIndex = 32;
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(718, 368);
+            this.deletebtn.Location = new System.Drawing.Point(718, 301);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(104, 23);
             this.deletebtn.TabIndex = 35;
@@ -333,7 +333,7 @@ namespace EnrollmentSystem
             // 
             // editbtn
             // 
-            this.editbtn.Location = new System.Drawing.Point(600, 368);
+            this.editbtn.Location = new System.Drawing.Point(600, 301);
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(104, 23);
             this.editbtn.TabIndex = 34;
@@ -342,12 +342,13 @@ namespace EnrollmentSystem
             // 
             // addbtn
             // 
-            this.addbtn.Location = new System.Drawing.Point(482, 368);
+            this.addbtn.Location = new System.Drawing.Point(482, 301);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(104, 23);
             this.addbtn.TabIndex = 33;
             this.addbtn.Text = "Add Student";
             this.addbtn.UseVisualStyleBackColor = true;
+            this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
             // studentmenu
             // 

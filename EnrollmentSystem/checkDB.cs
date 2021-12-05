@@ -96,5 +96,33 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Courses"];
         }
+        public Boolean IfCurrCodeExist(string code)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_curriculums WHERE ([Curriculum Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void CreateCurr(string currc, string ccode, string yl, string sem)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO tbl_curriculums ([Curriculum Code], [Course Code], [Year Level], [Semester]) VALUES (@cur,@course,@yl,@sem)", con);
+            cmd.Parameters.AddWithValue("@cur", currc);
+            cmd.Parameters.AddWithValue("@course", ccode);
+            cmd.Parameters.AddWithValue("@yl", yl);
+            cmd.Parameters.AddWithValue("@sem", sem);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
