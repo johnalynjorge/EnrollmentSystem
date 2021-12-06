@@ -120,6 +120,7 @@ namespace EnrollmentSystem
             this.FacultyMngt.TabIndex = 9;
             this.FacultyMngt.Text = "Faculty Management";
             this.FacultyMngt.UseVisualStyleBackColor = false;
+            this.FacultyMngt.Click += new System.EventHandler(this.FacultyMngt_Click);
             // 
             // SubjectMngt
             // 
@@ -132,6 +133,7 @@ namespace EnrollmentSystem
             this.SubjectMngt.TabIndex = 8;
             this.SubjectMngt.Text = "Subject Management";
             this.SubjectMngt.UseVisualStyleBackColor = false;
+            this.SubjectMngt.Click += new System.EventHandler(this.SubjectMngt_Click);
             // 
             // CourseMngt
             // 

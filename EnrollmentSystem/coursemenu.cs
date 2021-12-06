@@ -25,9 +25,7 @@ namespace EnrollmentSystem
 
         private void coursemenu_Load(object sender, EventArgs e)
         {
-            DisplayData();
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
+            ClearData();
 
         }
 
@@ -51,6 +49,7 @@ namespace EnrollmentSystem
             deletebtn.Enabled = false;
             addbtn.Enabled = true;
             cctxt.Enabled = true;
+            clearbtn.Enabled = false;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -60,7 +59,7 @@ namespace EnrollmentSystem
 
             if (coursec == "" || coursen == "")
             {
-                MessageBox.Show("Please porvide course code and course name.", "Add Course Error");
+                MessageBox.Show("Please check all the information you entered.", "Missing Information");
             }
             else if (checker.IfCourseExist(coursec))
             {
@@ -113,7 +112,7 @@ namespace EnrollmentSystem
         private void deletebtn_Click(object sender, EventArgs e)
         {
             string coursec = cctxt.Text.Trim();
-            DialogResult result = MessageBox.Show("Do you want to delete to the course '" + coursec + "' ?", "Delete Course?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the course '" + coursec + "' ?", "Delete Course?", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 if (coursec == "")
@@ -152,7 +151,15 @@ namespace EnrollmentSystem
 
         private void dataGridViewcourse_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            getTempVal(e);
+            if (e.RowIndex != -1)
+            {
+                getTempVal(e);
+            }
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
 
         public void getTempVal(DataGridViewCellEventArgs e)
@@ -165,6 +172,7 @@ namespace EnrollmentSystem
             editbtn.Enabled = true;
             deletebtn.Enabled = true;
             cctxt.Enabled = false;
+            clearbtn.Enabled = true;
         }
     }
 }

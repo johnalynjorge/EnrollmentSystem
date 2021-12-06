@@ -90,7 +90,7 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete to the curriculum '" + tempcur + "' ?", "Delete Curriculum?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the curriculum '" + tempcur + "' ?", "Delete Curriculum?", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                try
@@ -141,6 +141,17 @@ namespace EnrollmentSystem
                 }
             }
         }
+
+        private void Coursecb_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            clearData();
+        }
+
         public void DisplayData()
         {
             try
@@ -168,12 +179,17 @@ namespace EnrollmentSystem
             unitstxt.Enabled = false;
             createbtn.Enabled = true;
             Coursecb.Enabled = true;
+            clearbtn.Enabled = false;
             DisplayData();
         }
 
         private void dataGridViewcurr_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            getTempVal(e);
+            if (e.RowIndex != -1)
+            {
+                getTempVal(e);
+            }
+           
         }
         public void getTempVal(DataGridViewCellEventArgs e)
         {
@@ -191,6 +207,7 @@ namespace EnrollmentSystem
             createbtn.Enabled = false;
             editbtn.Enabled = true;
             deletebtn.Enabled = true;
+            clearbtn.Enabled = true;
             
         }
     }

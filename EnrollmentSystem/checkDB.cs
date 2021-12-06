@@ -165,5 +165,143 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        public Boolean IfInsCodeExist(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_faculty WHERE ([InstructorID] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public DataTable DisplayFaculty()
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_faculty", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Faculty");
+            con.Close();
+            return ds.Tables["Faculty"];
+        }
+        public void Addfaculty(string id, string first, string last, string num, string dep)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_faculty ([InstructorID], [First Name], [Last Name], [Contact Num], [Department]) " +
+                "VALUES (@id,@first,@last,@num,@dep)", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@first", first);
+            cmd.Parameters.AddWithValue("@last", last);
+            cmd.Parameters.AddWithValue("@num", num);
+            cmd.Parameters.AddWithValue("@dep", dep);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable SearchFaculty(string sc)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_faculty WHERE [InstructorID] LIKE '%" + sc + "%' OR [First Name] LIKE '%" + sc + "%' " +
+                "OR [Last Name] LIKE '%" + sc + "%' OR [Contact Num] LIKE '%" + sc + "%' OR [Department] LIKE '%" + sc + "%'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Faculty");
+            con.Close();
+            return ds.Tables["Faculty"];
+        }
+        public void DeleteFaculty(string cc)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_faculty WHERE [InstructorID] = @ccode", con);
+            cmd.Parameters.AddWithValue("@ccode", cc);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void Editfaculty(string id, string first, string last, string num, string dep)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_faculty SET [First Name] = @first, [Last Name] = @last, [Contact Num] = @num, [Department] = @dep " +
+                "WHERE [InstructorID] = @id", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@first", first);
+            cmd.Parameters.AddWithValue("@last", last);
+            cmd.Parameters.AddWithValue("@num", num);
+            cmd.Parameters.AddWithValue("@dep", dep);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean IfSubCodeExist(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_subject WHERE ([Subject Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void AddSubject(string sc, string sn, int u, string cat)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_subject ([Subject Code], [Subject Name], [Units], [Category]) " +
+                "VALUES (@sc,@sn,@u,@cat)", con);
+            cmd.Parameters.AddWithValue("@sc", sc);
+            cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@u", u);
+            cmd.Parameters.AddWithValue("@cat", cat);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable DisplaySubjects()
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_subject", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Subject");
+            con.Close();
+            return ds.Tables["Subject"];
+        }
+        public void DeleteSubject(string cc)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_subject WHERE [Subject Code] = @ccode", con);
+            cmd.Parameters.AddWithValue("@ccode", cc);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void EditSubject(string sc, string sn, int u)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_subject SET [Subject Name] = @sn, [Units] = @u" +
+                "WHERE [Subject Code] = @sc", con);
+            cmd.Parameters.AddWithValue("@sc", sc);
+            cmd.Parameters.AddWithValue("@sn", sn);
+            cmd.Parameters.AddWithValue("@u", u);
+            //cmd.Parameters.AddWithValue("@cat", cat);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable SearchSubject(string sc)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_subject WHERE [Subject Code] LIKE '%" + sc + "%' OR [Subject Name] LIKE '%" + sc + "%' " +
+                "OR [Units] LIKE '%" + sc + "%' OR [Category] LIKE '%" + sc + "%'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Subject");
+            con.Close();
+            return ds.Tables["Subject"];
+        }
     }
 }

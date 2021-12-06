@@ -40,12 +40,13 @@ namespace EnrollmentSystem
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.unitstxt = new System.Windows.Forms.TextBox();
-            this.deletebtn = new System.Windows.Forms.Button();
-            this.editbtn = new System.Windows.Forms.Button();
-            this.createbtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.dataGridViewcurr = new System.Windows.Forms.DataGridView();
+            this.createbtn = new System.Windows.Forms.Button();
+            this.editbtn = new System.Windows.Forms.Button();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.clearbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +85,7 @@ namespace EnrollmentSystem
             this.Coursecb.Size = new System.Drawing.Size(114, 21);
             this.Coursecb.TabIndex = 18;
             this.Coursecb.SelectedIndexChanged += new System.EventHandler(this.Coursecb_SelectedIndexChanged);
+            this.Coursecb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label9
             // 
@@ -101,6 +103,7 @@ namespace EnrollmentSystem
             this.semcb.Name = "semcb";
             this.semcb.Size = new System.Drawing.Size(87, 21);
             this.semcb.TabIndex = 36;
+            this.semcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label16
             // 
@@ -118,6 +121,7 @@ namespace EnrollmentSystem
             this.YLcb.Name = "YLcb";
             this.YLcb.Size = new System.Drawing.Size(94, 21);
             this.YLcb.TabIndex = 34;
+            this.YLcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label7
             // 
@@ -133,9 +137,9 @@ namespace EnrollmentSystem
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(699, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 37;
-            this.label3.Text = "Units:";
+            this.label3.Text = "Total Units:";
             // 
             // unitstxt
             // 
@@ -143,36 +147,6 @@ namespace EnrollmentSystem
             this.unitstxt.Name = "unitstxt";
             this.unitstxt.Size = new System.Drawing.Size(187, 20);
             this.unitstxt.TabIndex = 38;
-            // 
-            // deletebtn
-            // 
-            this.deletebtn.Location = new System.Drawing.Point(753, 148);
-            this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(104, 23);
-            this.deletebtn.TabIndex = 41;
-            this.deletebtn.Text = "Delete Curriculum";
-            this.deletebtn.UseVisualStyleBackColor = true;
-            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
-            // 
-            // editbtn
-            // 
-            this.editbtn.Location = new System.Drawing.Point(599, 148);
-            this.editbtn.Name = "editbtn";
-            this.editbtn.Size = new System.Drawing.Size(104, 23);
-            this.editbtn.TabIndex = 40;
-            this.editbtn.Text = "Edit Curriculum";
-            this.editbtn.UseVisualStyleBackColor = true;
-            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
-            // 
-            // createbtn
-            // 
-            this.createbtn.Location = new System.Drawing.Point(445, 148);
-            this.createbtn.Name = "createbtn";
-            this.createbtn.Size = new System.Drawing.Size(104, 23);
-            this.createbtn.TabIndex = 39;
-            this.createbtn.Text = "Create Curriculum";
-            this.createbtn.UseVisualStyleBackColor = true;
-            this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
             // 
             // label4
             // 
@@ -202,16 +176,58 @@ namespace EnrollmentSystem
             this.dataGridViewcurr.Location = new System.Drawing.Point(31, 292);
             this.dataGridViewcurr.Name = "dataGridViewcurr";
             this.dataGridViewcurr.RowHeadersVisible = false;
+            this.dataGridViewcurr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewcurr.Size = new System.Drawing.Size(910, 224);
             this.dataGridViewcurr.TabIndex = 45;
             this.dataGridViewcurr.VirtualMode = true;
             this.dataGridViewcurr.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewcurr_CellDoubleClick);
+            // 
+            // createbtn
+            // 
+            this.createbtn.Location = new System.Drawing.Point(469, 147);
+            this.createbtn.Name = "createbtn";
+            this.createbtn.Size = new System.Drawing.Size(114, 23);
+            this.createbtn.TabIndex = 39;
+            this.createbtn.Text = "Create Curriculum";
+            this.createbtn.UseVisualStyleBackColor = true;
+            this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
+            // 
+            // editbtn
+            // 
+            this.editbtn.Location = new System.Drawing.Point(622, 147);
+            this.editbtn.Name = "editbtn";
+            this.editbtn.Size = new System.Drawing.Size(114, 23);
+            this.editbtn.TabIndex = 40;
+            this.editbtn.Text = "Edit Curriculum";
+            this.editbtn.UseVisualStyleBackColor = true;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
+            // 
+            // deletebtn
+            // 
+            this.deletebtn.Location = new System.Drawing.Point(775, 147);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(114, 23);
+            this.deletebtn.TabIndex = 41;
+            this.deletebtn.Text = "Delete Curriculum";
+            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.Location = new System.Drawing.Point(316, 146);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(114, 23);
+            this.clearbtn.TabIndex = 46;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // curriculummenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.dataGridViewcurr);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.searchtxt);
@@ -251,11 +267,12 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox unitstxt;
-        private System.Windows.Forms.Button deletebtn;
-        private System.Windows.Forms.Button editbtn;
-        private System.Windows.Forms.Button createbtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox searchtxt;
         private System.Windows.Forms.DataGridView dataGridViewcurr;
+        private System.Windows.Forms.Button createbtn;
+        private System.Windows.Forms.Button editbtn;
+        private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button clearbtn;
     }
 }

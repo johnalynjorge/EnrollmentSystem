@@ -41,6 +41,7 @@ namespace EnrollmentSystem
             this.addbtn = new System.Windows.Forms.Button();
             this.editbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
+            this.clearbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +98,7 @@ namespace EnrollmentSystem
             this.dataGridViewcourse.Location = new System.Drawing.Point(41, 294);
             this.dataGridViewcourse.Name = "dataGridViewcourse";
             this.dataGridViewcourse.RowHeadersVisible = false;
+            this.dataGridViewcourse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewcourse.Size = new System.Drawing.Size(910, 224);
             this.dataGridViewcourse.TabIndex = 7;
             this.dataGridViewcourse.VirtualMode = true;
@@ -121,9 +123,9 @@ namespace EnrollmentSystem
             // 
             // addbtn
             // 
-            this.addbtn.Location = new System.Drawing.Point(268, 175);
+            this.addbtn.Location = new System.Drawing.Point(497, 178);
             this.addbtn.Name = "addbtn";
-            this.addbtn.Size = new System.Drawing.Size(104, 23);
+            this.addbtn.Size = new System.Drawing.Size(114, 23);
             this.addbtn.TabIndex = 11;
             this.addbtn.Text = "Add Course";
             this.addbtn.UseVisualStyleBackColor = true;
@@ -131,9 +133,9 @@ namespace EnrollmentSystem
             // 
             // editbtn
             // 
-            this.editbtn.Location = new System.Drawing.Point(422, 175);
+            this.editbtn.Location = new System.Drawing.Point(644, 178);
             this.editbtn.Name = "editbtn";
-            this.editbtn.Size = new System.Drawing.Size(104, 23);
+            this.editbtn.Size = new System.Drawing.Size(114, 23);
             this.editbtn.TabIndex = 12;
             this.editbtn.Text = "Edit Course";
             this.editbtn.UseVisualStyleBackColor = true;
@@ -141,19 +143,30 @@ namespace EnrollmentSystem
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(576, 175);
+            this.deletebtn.Location = new System.Drawing.Point(791, 178);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(104, 23);
+            this.deletebtn.Size = new System.Drawing.Size(114, 23);
             this.deletebtn.TabIndex = 13;
             this.deletebtn.Text = "Delete Course";
             this.deletebtn.UseVisualStyleBackColor = true;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.Location = new System.Drawing.Point(350, 178);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(114, 23);
+            this.clearbtn.TabIndex = 47;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // coursemenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.addbtn);
@@ -189,5 +202,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button addbtn;
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button clearbtn;
     }
 }

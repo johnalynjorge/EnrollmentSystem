@@ -16,6 +16,8 @@ namespace EnrollmentSystem
         studentmenu st;
         coursemenu cm;
         curriculummenu crm;
+        facultymenu fm;
+        subjectmenu sbm;
         public MainMenu()
         {
             InitializeComponent();
@@ -23,16 +25,19 @@ namespace EnrollmentSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainpanel.Controls.Clear();
-            closeForm();
-            st = new studentmenu();
-            st.TopLevel = false;
-            st.AutoScroll = true;
-            st.FormBorderStyle = FormBorderStyle.None;
-            st.Dock = DockStyle.Fill;
-            mainpanel.Controls.Add(st);
-            st.Show();
-            setFormNum(1);
+            if (checknum(1) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                st = new studentmenu();
+                st.TopLevel = false;
+                st.AutoScroll = true;
+                st.FormBorderStyle = FormBorderStyle.None;
+                st.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(st);
+                st.Show();
+                setFormNum(1);
+            }
         }
 
         private void btnmin_Click(object sender, EventArgs e)
@@ -66,16 +71,19 @@ namespace EnrollmentSystem
 
         private void CourseMngt_Click(object sender, EventArgs e)
         {
-            mainpanel.Controls.Clear();
-            closeForm();
-            cm = new coursemenu();
-            cm.TopLevel = false;
-            cm.AutoScroll = true;
-            cm.FormBorderStyle = FormBorderStyle.None;
-            cm.Dock = DockStyle.Fill;
-            mainpanel.Controls.Add(cm);
-            cm.Show();
-            setFormNum(2);
+            if (checknum(2) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                cm = new coursemenu();
+                cm.TopLevel = false;
+                cm.AutoScroll = true;
+                cm.FormBorderStyle = FormBorderStyle.None;
+                cm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(cm);
+                cm.Show();
+                setFormNum(2);
+            }
         }
         public void closeForm()
         {
@@ -89,11 +97,11 @@ namespace EnrollmentSystem
             }
             else if (formnum == 3)
             {
-                
+                sbm.Close();
             }
             else if (formnum == 4)
             {
-               
+                fm.Close();
             }
             else if (formnum == 5)
             {
@@ -113,20 +121,68 @@ namespace EnrollmentSystem
         {
             formnum = value;
         }
-
+        public bool checknum(int value)
+        {
+            if (value == formnum)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         private void curBtn_Click(object sender, EventArgs e)
         {
-            mainpanel.Controls.Clear();
-            closeForm();
-            crm = new curriculummenu();
-            crm.TopLevel = false;
-            crm.AutoScroll = true;
-            crm.FormBorderStyle = FormBorderStyle.None;
-            crm.Dock = DockStyle.Fill;
-            mainpanel.Controls.Add(crm);
-            crm.Show();
-            setFormNum(5);
+            if (checknum(5) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                crm = new curriculummenu();
+                crm.TopLevel = false;
+                crm.AutoScroll = true;
+                crm.FormBorderStyle = FormBorderStyle.None;
+                crm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(crm);
+                crm.Show();
+                setFormNum(5);
+            }
         }
+
+        private void FacultyMngt_Click(object sender, EventArgs e)
+        {
+            if (checknum(4) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                fm = new facultymenu();
+                fm.TopLevel = false;
+                fm.AutoScroll = true;
+                fm.FormBorderStyle = FormBorderStyle.None;
+                fm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(fm);
+                fm.Show();
+                setFormNum(4);
+            }
+        }
+
+        private void SubjectMngt_Click(object sender, EventArgs e)
+        {
+            if (checknum(3)== false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                sbm = new subjectmenu();
+                sbm.TopLevel = false;
+                sbm.AutoScroll = true;
+                sbm.FormBorderStyle = FormBorderStyle.None;
+                sbm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(sbm);
+                sbm.Show();
+                setFormNum(3);
+            }
+        }
+        
     }
     
 }
