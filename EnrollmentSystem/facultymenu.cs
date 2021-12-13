@@ -14,9 +14,11 @@ namespace EnrollmentSystem
     {
         static string fstart = "F-";
         static int fend = 1;
+        bool beingEdit = false;
         static string finalfcode;
         checkDB checker = new checkDB();
-        string temid, tempfirst, templast, tempnum, tempdep;
+        string temid;
+        formFuncs funcs = new formFuncs();
         public facultymenu()
         {
             InitializeComponent();
@@ -31,19 +33,22 @@ namespace EnrollmentSystem
 
         private void fLasttxt_TextChanged(object sender, EventArgs e)
         {
-            if (fLasttxt.Text.Trim() !="")
+            if (beingEdit == false)
             {
-                fend = 1;
-                while (checker.IfInsCodeExist(fstart + fend))
+                if (fLasttxt.Text.Trim() != "")
                 {
-                    fend++;
+                    fend = 1;
+                    while (checker.IfInsCodeExist(fstart + fend))
+                    {
+                        fend++;
+                    }
+                    finalfcode = fstart + fend;
+                    fIDtxt.Text = finalfcode;
                 }
-                finalfcode = fstart + fend;
-                fIDtxt.Text = finalfcode;
-            }
-            else
-            {
-                fIDtxt.Text = "";
+                else
+                {
+                    fIDtxt.Text = "";
+                }
             }
         }
         public void DisplayData()
@@ -135,11 +140,9 @@ namespace EnrollmentSystem
             DisplayData();
             finalfcode = "";
             fend = 1;
-            fIDtxt.Text = "";
-            fLasttxt.Text = "";
-            fFirsttxt.Text = "";
-            contacttxt.Text = "";
-            Depcombo.SelectedItem = null;
+            funcs.ClearTextboxes(this.Controls);
+            funcs.ClearCombobox(this.Controls);
+            beingEdit = false;
             editbtn.Enabled = false;
             deletebtn.Enabled = false;
             fIDtxt.Enabled = false;
@@ -182,19 +185,16 @@ namespace EnrollmentSystem
         public void getTempVal(DataGridViewCellEventArgs e)
         {
             temid = dataGridViewfaculty.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tempfirst = dataGridViewfaculty.Rows[e.RowIndex].Cells[1].Value.ToString();
-            templast = dataGridViewfaculty.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tempnum = dataGridViewfaculty.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tempdep = dataGridViewfaculty.Rows[e.RowIndex].Cells[4].Value.ToString();
-            fFirsttxt.Text = tempfirst;
-            fLasttxt.Text = templast;
-            contacttxt.Text = tempnum;
+            fFirsttxt.Text = dataGridViewfaculty.Rows[e.RowIndex].Cells[1].Value.ToString();
+            fLasttxt.Text = dataGridViewfaculty.Rows[e.RowIndex].Cells[2].Value.ToString();
+            contacttxt.Text = dataGridViewfaculty.Rows[e.RowIndex].Cells[3].Value.ToString();
+            Depcombo.SelectedItem = dataGridViewfaculty.Rows[e.RowIndex].Cells[4].Value.ToString();
             fIDtxt.Text = temid;
-            Depcombo.SelectedItem = tempdep;
             createbtn.Enabled = false;
             editbtn.Enabled = true;
             deletebtn.Enabled = true;
             clearbtn.Enabled = true;
+            beingEdit = true;
         }
     }
 }

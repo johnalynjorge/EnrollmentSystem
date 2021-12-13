@@ -103,6 +103,7 @@ namespace EnrollmentSystem
             this.semcb.Name = "semcb";
             this.semcb.Size = new System.Drawing.Size(87, 21);
             this.semcb.TabIndex = 36;
+            this.semcb.SelectedIndexChanged += new System.EventHandler(this.semcb_SelectedIndexChanged);
             this.semcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label16
@@ -121,6 +122,7 @@ namespace EnrollmentSystem
             this.YLcb.Name = "YLcb";
             this.YLcb.Size = new System.Drawing.Size(94, 21);
             this.YLcb.TabIndex = 34;
+            this.YLcb.SelectedIndexChanged += new System.EventHandler(this.YLcb_SelectedIndexChanged);
             this.YLcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label7

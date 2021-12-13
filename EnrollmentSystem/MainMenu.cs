@@ -18,6 +18,8 @@ namespace EnrollmentSystem
         curriculummenu crm;
         facultymenu fm;
         subjectmenu sbm;
+        sectionmenu scm;
+        schedulemenu sdm;
         public MainMenu()
         {
             InitializeComponent();
@@ -109,11 +111,11 @@ namespace EnrollmentSystem
             }
             else if (formnum == 6)
             {
-
+                scm.Close();
             }
             else if (formnum == 7)
             {
-
+                sdm.Close();
             }
         }
 
@@ -182,7 +184,40 @@ namespace EnrollmentSystem
                 setFormNum(3);
             }
         }
-        
+
+        private void SectionMngt_Click(object sender, EventArgs e)
+        {
+            if (checknum(6) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                scm = new sectionmenu();
+                scm.TopLevel = false;
+                scm.AutoScroll = true;
+                scm.FormBorderStyle = FormBorderStyle.None;
+                scm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(scm);
+                scm.Show();
+                setFormNum(6);
+            }
+        }
+
+        private void ScheduleMngt_Click(object sender, EventArgs e)
+        {
+            if (checknum(7) == false)
+            {
+                mainpanel.Controls.Clear();
+                closeForm();
+                sdm = new schedulemenu();
+                sdm.TopLevel = false;
+                sdm.AutoScroll = true;
+                sdm.FormBorderStyle = FormBorderStyle.None;
+                sdm.Dock = DockStyle.Fill;
+                mainpanel.Controls.Add(sdm);
+                sdm.Show();
+                setFormNum(7);
+            }
+        }
     }
     
 }

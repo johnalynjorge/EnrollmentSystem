@@ -16,7 +16,8 @@ namespace EnrollmentSystem
         static int subend = 1;
         static string finalsubcode;
         checkDB checker = new checkDB();
-        string tempsc, tempsn, tempu, tempcat;
+        formFuncs funcs = new formFuncs();
+        string tempsc;
         public subjectmenu()
         {
             InitializeComponent();
@@ -48,9 +49,8 @@ namespace EnrollmentSystem
             substart = "";
             subend = 1;
             finalsubcode = "";
-            finalsubcode = "";
-            sntxt.Text = "";
-            utxt.Text = "";
+            funcs.ClearTextboxes(this.Controls);
+            funcs.ClearCombobox(this.Controls);
             DisplayData();
             categorycb.SelectedItem = null;
             editbtn.Enabled = false;
@@ -59,7 +59,6 @@ namespace EnrollmentSystem
             sctxt.Enabled = false;
             addbtn.Enabled = true;
             clearbtn.Enabled = false;
-            sctxt.Text = "";
         }
 
         private void categorycb_KeyDown(object sender, KeyEventArgs e)
@@ -78,10 +77,9 @@ namespace EnrollmentSystem
             else
             {
                 string cat = categorycb.SelectedItem.ToString();
-                int uni; 
-                if (int.TryParse(un, out uni))
+                double uni; 
+                if (double.TryParse(un, out uni))
                 {
-                    uni = Convert.ToInt32(un);
                     try
                     {
                         checker.AddSubject(finalsubcode, sn, uni, cat);
@@ -139,10 +137,9 @@ namespace EnrollmentSystem
                 }
                 else
                 {
-                    int uni;
-                    if (int.TryParse(un, out uni))
+                    double uni;
+                    if (double.TryParse(un, out uni))
                     {
-                        uni = Convert.ToInt32(un);
                         try
                         {
                             checker.EditSubject(tempsc, sn, uni);
@@ -199,12 +196,9 @@ namespace EnrollmentSystem
         public void getTempVal(DataGridViewCellEventArgs e)
         {
             tempsc = dataGridViewsubs.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tempsn = dataGridViewsubs.Rows[e.RowIndex].Cells[1].Value.ToString();
-            tempu = dataGridViewsubs.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tempcat = dataGridViewsubs.Rows[e.RowIndex].Cells[3].Value.ToString();
-            sntxt.Text = tempsn;
-            utxt.Text = tempu;
-            categorycb.SelectedItem = tempcat;
+            sntxt.Text = dataGridViewsubs.Rows[e.RowIndex].Cells[1].Value.ToString();
+            utxt.Text = dataGridViewsubs.Rows[e.RowIndex].Cells[2].Value.ToString();
+            categorycb.SelectedItem = dataGridViewsubs.Rows[e.RowIndex].Cells[3].Value.ToString();
             sctxt.Text = tempsc;
             addbtn.Enabled = false;
             editbtn.Enabled = true;

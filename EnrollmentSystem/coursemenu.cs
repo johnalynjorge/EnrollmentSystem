@@ -13,9 +13,10 @@ namespace EnrollmentSystem
 {
     public partial class coursemenu : Form
     {
-        
-        string tempcc, tempcn;
+
+        string tempcc;
         checkDB checker = new checkDB();
+        formFuncs funcs = new formFuncs();
 
         public coursemenu()
         {
@@ -42,8 +43,7 @@ namespace EnrollmentSystem
         }
         public void ClearData()
         {
-            cctxt.Text = "";
-            cntxt.Text = "";
+            funcs.ClearTextboxes(this.Controls);
             DisplayData();
             editbtn.Enabled = false;
             deletebtn.Enabled = false;
@@ -56,49 +56,23 @@ namespace EnrollmentSystem
         {
             string coursec = cctxt.Text.Trim();
             string coursen = cntxt.Text.Trim();
+            double years, sems, rus;
 
-            if (coursec == "" || coursen == "")
-            {
-                MessageBox.Show("Please check all the information you entered.", "Missing Information");
-            }
-            else if (checker.IfCourseExist(coursec))
-            {
-                MessageBox.Show("Course code already exist", "Add Course Error");
-            }
-            else
-            {
-                try
-                {
-                    checker.AddCourse(coursec, coursen);
-                    MessageBox.Show("Course added successfully.", "Course Added");
-                    ClearData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-        }
-
-        private void editbtn_Click(object sender, EventArgs e)
-        {
-            string coursec = cctxt.Text.Trim();
-            string coursen = cntxt.Text.Trim();
-
-            DialogResult result = MessageBox.Show("Do you want to save changes to the course '" + coursec + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
+            if ((double.TryParse(yearstxt.Text, out years)) && (double.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus))){
                 if (coursec == "" || coursen == "")
                 {
-                    MessageBox.Show("Please provide course code and course name.", "Edit Course Error");
+                    MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                }
+                else if (checker.IfCourseExist(coursec))
+                {
+                    MessageBox.Show("Course code already exist", "Add Course Error");
                 }
                 else
                 {
                     try
                     {
-                        checker.EditCourse(coursec, coursen, tempcc);
-                        MessageBox.Show("Course updated successfully.", "Course Updated");
+                        checker.AddCourse(coursec, coursen, years,sems,rus);
+                        MessageBox.Show("Course added successfully.", "Course Added");
                         ClearData();
                     }
                     catch (Exception ex)
@@ -106,6 +80,49 @@ namespace EnrollmentSystem
                         MessageBox.Show(ex.Message);
                     }
                 }
+
+            }
+            else
+            {
+                MessageBox.Show("Please check all the information you entered.", "Wrong Information");
+            }
+        }
+
+        private void editbtn_Click(object sender, EventArgs e)
+        {
+            string coursec = cctxt.Text.Trim();
+            string coursen = cntxt.Text.Trim();
+
+            double years, sems, rus;
+
+            if ((double.TryParse(yearstxt.Text, out years)) && (double.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus)))
+            {
+
+                DialogResult result = MessageBox.Show("Do you want to save changes to the course '" + coursec + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    if (coursec == "" || coursen == "")
+                    {
+                        MessageBox.Show("Please provide course code and course name.", "Edit Course Error");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            checker.EditCourse(coursec, coursen, years, sems, rus, tempcc);
+                            MessageBox.Show("Course updated successfully.", "Course Updated");
+                            ClearData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please check all the information you entered.", "Wrong Information");
             }
         }
 
@@ -165,14 +182,17 @@ namespace EnrollmentSystem
         public void getTempVal(DataGridViewCellEventArgs e)
         {
             tempcc = dataGridViewcourse.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tempcn = dataGridViewcourse.Rows[e.RowIndex].Cells[1].Value.ToString();
+            cntxt.Text = dataGridViewcourse.Rows[e.RowIndex].Cells[1].Value.ToString();
+            yearstxt.Text = dataGridViewcourse.Rows[e.RowIndex].Cells[2].Value.ToString();
+            semstxt.Text = dataGridViewcourse.Rows[e.RowIndex].Cells[3].Value.ToString();
+            rutxt.Text = dataGridViewcourse.Rows[e.RowIndex].Cells[4].Value.ToString();
             cctxt.Text = tempcc;
-            cntxt.Text = tempcn;
             addbtn.Enabled = false;
             editbtn.Enabled = true;
             deletebtn.Enabled = true;
             cctxt.Enabled = false;
             clearbtn.Enabled = true;
         }
+        
     }
 }

@@ -14,11 +14,13 @@ namespace EnrollmentSystem
     public partial class curriculummenu : Form
     {
         static string currcodestart;
-        static int currcodeend = 1;
+        static int curyear = 0, cursem= 0;
         static string finalcurrcode;
         checkDB checker = new checkDB();
         ArrayList arraylist = new ArrayList();
-        static string tempcur, tempcourse, tempyl, tempsem, tempunit;
+        formFuncs funcs = new formFuncs();
+        editcurriculum editor;
+        static string tempcur;
         public curriculummenu()
         {
             InitializeComponent();
@@ -50,13 +52,8 @@ namespace EnrollmentSystem
         {
             if (Coursecb.SelectedItem != null)
             {
-                currcodeend = 1;
                 currcodestart = Coursecb.SelectedItem.ToString();
-                while (checker.IfCurrCodeExist(currcodestart + "-" + currcodeend))
-                {
-                    currcodeend++;
-                }
-                finalcurrcode = currcodestart + "-" + currcodeend;
+                finalcurrcode = currcodestart + "-Y" + curyear + "-S" + cursem;
                 curriculumcodetxt.Text = finalcurrcode;
             }
            
@@ -67,6 +64,10 @@ namespace EnrollmentSystem
             if ((Coursecb.SelectedItem ==  null) || (YLcb.SelectedItem == null) || (semcb.SelectedItem == null))
             {
                 MessageBox.Show("Please check all the information you entered.", "Missing Information");
+            }
+            else if (checker.IfCurrCodeExist(finalcurrcode))
+            {
+                MessageBox.Show("The curriculum already exist.", "Already exist");
             }
             else
             {
@@ -123,23 +124,8 @@ namespace EnrollmentSystem
 
         private void editbtn_Click(object sender, EventArgs e)
         {
-            string yearC = YLcb.SelectedItem.ToString();
-            string semc = semcb.SelectedItem.ToString();
-
-            DialogResult result = MessageBox.Show("Do you want to save changes to the curriculum '" + tempcur + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    checker.editcurr(tempcur, yearC, semc);
-                    MessageBox.Show("Curriculum updated successfully.", "Curriculum Updated");
-                    clearData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+            editor = new editcurriculum(finalcurrcode);
+            editor.Show();
         }
 
         private void Coursecb_KeyDown(object sender, KeyEventArgs e)
@@ -166,19 +152,19 @@ namespace EnrollmentSystem
         public  void clearData()
         {
             currcodestart = "";
-            currcodeend = 1;
+            curyear = 0;
+            cursem = 0;
             finalcurrcode = "";
-            curriculumcodetxt.Text = "";
-            unitstxt.Text = "";
-            Coursecb.SelectedItem = null;
-            YLcb.SelectedItem = null;
-            semcb.SelectedItem = null;
+            funcs.ClearTextboxes(this.Controls);
+            funcs.ClearCombobox(this.Controls);
             editbtn.Enabled = false;
             deletebtn.Enabled = false;
             curriculumcodetxt.Enabled = false;
             unitstxt.Enabled = false;
             createbtn.Enabled = true;
             Coursecb.Enabled = true;
+            YLcb.Enabled = true;
+            semcb.Enabled = true;
             clearbtn.Enabled = false;
             DisplayData();
         }
@@ -191,24 +177,43 @@ namespace EnrollmentSystem
             }
            
         }
+
+        private void semcb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (semcb.SelectedItem != null)
+            {
+                cursem = semcb.SelectedIndex + 1;
+                finalcurrcode = currcodestart + "-Y" + curyear + "-S" + cursem;
+                curriculumcodetxt.Text = finalcurrcode;
+            }
+        }
+
         public void getTempVal(DataGridViewCellEventArgs e)
         {
             tempcur = dataGridViewcurr.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tempcourse = dataGridViewcurr.Rows[e.RowIndex].Cells[1].Value.ToString();
-            tempyl = dataGridViewcurr.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tempsem = dataGridViewcurr.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tempunit = dataGridViewcurr.Rows[e.RowIndex].Cells[4].Value.ToString();
-            unitstxt.Text = tempunit;
-            Coursecb.SelectedItem = tempcourse;
-            YLcb.SelectedItem = tempyl;
-            semcb.SelectedItem = tempsem;
-            curriculumcodetxt.Text = tempcur;
+            Coursecb.SelectedItem = dataGridViewcurr.Rows[e.RowIndex].Cells[1].Value.ToString();
+            YLcb.SelectedItem = dataGridViewcurr.Rows[e.RowIndex].Cells[2].Value.ToString();
+            semcb.SelectedItem = dataGridViewcurr.Rows[e.RowIndex].Cells[3].Value.ToString();
+            unitstxt.Text = dataGridViewcurr.Rows[e.RowIndex].Cells[4].Value.ToString();
             Coursecb.Enabled = false;
+            YLcb.Enabled = false; 
+            semcb.Enabled = false;
             createbtn.Enabled = false;
             editbtn.Enabled = true;
             deletebtn.Enabled = true;
             clearbtn.Enabled = true;
+            curriculumcodetxt.Text = tempcur;
             
+        }
+
+        private void YLcb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (YLcb.SelectedItem != null)
+            {
+                curyear = YLcb.SelectedIndex + 1;
+                finalcurrcode = currcodestart + "-Y" + curyear + "-S" + cursem;
+                curriculumcodetxt.Text= finalcurrcode;
+            }
         }
     }
 }

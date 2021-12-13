@@ -42,6 +42,12 @@ namespace EnrollmentSystem
             this.editbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.yearstxt = new System.Windows.Forms.TextBox();
+            this.semstxt = new System.Windows.Forms.TextBox();
+            this.rutxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +64,7 @@ namespace EnrollmentSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(106, 112);
+            this.label2.Location = new System.Drawing.Point(106, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
@@ -67,7 +73,7 @@ namespace EnrollmentSystem
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(516, 112);
+            this.label3.Location = new System.Drawing.Point(516, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 4;
@@ -75,14 +81,14 @@ namespace EnrollmentSystem
             // 
             // cctxt
             // 
-            this.cctxt.Location = new System.Drawing.Point(109, 137);
+            this.cctxt.Location = new System.Drawing.Point(109, 94);
             this.cctxt.Name = "cctxt";
             this.cctxt.Size = new System.Drawing.Size(343, 20);
             this.cctxt.TabIndex = 5;
             // 
             // cntxt
             // 
-            this.cntxt.Location = new System.Drawing.Point(519, 137);
+            this.cntxt.Location = new System.Drawing.Point(519, 94);
             this.cntxt.Name = "cntxt";
             this.cntxt.Size = new System.Drawing.Size(386, 20);
             this.cntxt.TabIndex = 6;
@@ -161,11 +167,65 @@ namespace EnrollmentSystem
             this.clearbtn.UseVisualStyleBackColor = true;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
+            // yearstxt
+            // 
+            this.yearstxt.Location = new System.Drawing.Point(109, 142);
+            this.yearstxt.Name = "yearstxt";
+            this.yearstxt.Size = new System.Drawing.Size(227, 20);
+            this.yearstxt.TabIndex = 48;
+            // 
+            // semstxt
+            // 
+            this.semstxt.Location = new System.Drawing.Point(393, 142);
+            this.semstxt.Name = "semstxt";
+            this.semstxt.Size = new System.Drawing.Size(227, 20);
+            this.semstxt.TabIndex = 49;
+            // 
+            // rutxt
+            // 
+            this.rutxt.Location = new System.Drawing.Point(677, 142);
+            this.rutxt.Name = "rutxt";
+            this.rutxt.Size = new System.Drawing.Size(227, 20);
+            this.rutxt.TabIndex = 50;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(106, 126);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "Years:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(390, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.TabIndex = 52;
+            this.label6.Text = "Semesters:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(674, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 13);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Required units:";
+            // 
             // coursemenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.rutxt);
+            this.Controls.Add(this.semstxt);
+            this.Controls.Add(this.yearstxt);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
@@ -203,5 +263,11 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.TextBox yearstxt;
+        private System.Windows.Forms.TextBox semstxt;
+        private System.Windows.Forms.TextBox rutxt;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

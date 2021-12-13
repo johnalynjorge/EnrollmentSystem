@@ -96,6 +96,7 @@ namespace EnrollmentSystem
             this.ScheduleMngt.TabIndex = 11;
             this.ScheduleMngt.Text = "Schedule Management";
             this.ScheduleMngt.UseVisualStyleBackColor = false;
+            this.ScheduleMngt.Click += new System.EventHandler(this.ScheduleMngt_Click);
             // 
             // SectionMngt
             // 
@@ -108,6 +109,7 @@ namespace EnrollmentSystem
             this.SectionMngt.TabIndex = 10;
             this.SectionMngt.Text = "Section Management";
             this.SectionMngt.UseVisualStyleBackColor = false;
+            this.SectionMngt.Click += new System.EventHandler(this.SectionMngt_Click);
             // 
             // FacultyMngt
             // 
