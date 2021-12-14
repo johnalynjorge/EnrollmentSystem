@@ -125,14 +125,15 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public void CreateCurr(string currc, string ccode, string yl, string sem)
+        public void CreateCurr(string currc, string ccode, string yl, string sem, double u)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO tbl_curriculum ([Curriculum Code], [Course Code], [Year Level], [Semester]) VALUES (@cur,@course,@yl,@sem)", con);
+            cmd = new SqlCommand("INSERT INTO tbl_curriculum ([Curriculum Code], [Course Code], [Year Level], [Semester],[Total Units] ) VALUES (@cur,@course,@yl,@sem,@u)", con);
             cmd.Parameters.AddWithValue("@cur", currc);
             cmd.Parameters.AddWithValue("@course", ccode);
             cmd.Parameters.AddWithValue("@yl", yl);
             cmd.Parameters.AddWithValue("@sem", sem);
+            cmd.Parameters.AddWithValue("@u", u);
             cmd.ExecuteNonQuery();
             con.Close();
         }

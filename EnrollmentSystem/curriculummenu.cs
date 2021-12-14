@@ -77,7 +77,7 @@ namespace EnrollmentSystem
                 string semc = semcb.SelectedItem.ToString();
                 try
                 {
-                    checker.CreateCurr(currc, coursec, yearC, semc);
+                    checker.CreateCurr(currc, coursec, yearC, semc,0);
                     MessageBox.Show("Curriculum created successfully.", "Curriculum Created");
                     clearData();
                 }
