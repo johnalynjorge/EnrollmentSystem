@@ -15,7 +15,7 @@ namespace EnrollmentSystem
         {
             foreach (Control ctrl in ctrls)
             {
-                if (ctrl is TextBox)
+                if (ctrl is TextBox) 
                     ((TextBox)ctrl).Text = string.Empty;
                 ClearTextboxes(ctrl.Controls);
             }
@@ -76,6 +76,14 @@ namespace EnrollmentSystem
             string[] array = { "LEC", "LAB" };
             return array;
         }
-
+        public ArrayList Schoolyear()
+        {
+            arrayList = new ArrayList();
+            for (int a = 2021; a <= 2030; a++)
+            {
+                arrayList.Add(a);
+            }
+            return arrayList;
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +15,10 @@ namespace EnrollmentSystem
     {
         checkDB checker = new checkDB();
         formFuncs f = new formFuncs();
+        ArrayList arraylist = new ArrayList();
         string currcode;
         string[] values;
-        double units, TotalU;
+        double units;
         
         public editcurriculum(string currcodes)
         {
@@ -26,22 +28,32 @@ namespace EnrollmentSystem
 
         private void editcurriculum_Load(object sender, EventArgs e)
         {
+            curriculumcodetxt.Text = currcode;
             DisplaySubs();
             DisplayCurSub();
+            string[] yls = { "First Year", "Second  Year", "Third Year", "Fourth Year" };
+            ylcb.Items.AddRange(yls);
+
+            string[] sems = { "First Sem", "Second Sem" };
+            semcb.Items.AddRange(sems);
             try
             {
-                values = (string[])checker.returnCurr(currcode);
-                curriculumcodetxt.Text = values[0];
-                coursetxt.Text = values[1];
-                yeartxt.Text = values[2];
-                semstxt.Text = values[3];
-                TotalU = Convert.ToDouble(values[4]);
-                unitstxt.Text = TotalU.ToString();
+                foreach (DataRow dset in checker.FillCourse().Rows)
+                {
+                    arraylist.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
+                }
+                coursecb.Items.AddRange(arraylist.ToArray());
+                arraylist.Clear();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        public void ComputeUnits()
+        {
+            totalunits.Text = checker.returnCurrSum(currcode,coursecb.SelectedItem.ToString()).ToString();
         }
         public void DisplaySubs()
         {
@@ -86,6 +98,8 @@ namespace EnrollmentSystem
         {
             sntxt.Clear();
             sctxt.Clear();
+            semcb.SelectedItem = null;
+            ylcb.SelectedItem = null;
             addbtn.Enabled = false;
             deletebtn.Enabled = false;
             clearbtn.Enabled = false;
@@ -96,6 +110,9 @@ namespace EnrollmentSystem
         private void clearbtn_Click(object sender, EventArgs e)
         {
             ClearData();
+            coursecb.SelectedItem = null;
+            totalunits.Text = null;
+            required.Text = null;
         }
 
         private void dataGridViewAddedSub_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -114,20 +131,23 @@ namespace EnrollmentSystem
                 {
                     MessageBox.Show("Subject is already added to the curriculum.", "Subject already added");
                 }
+                else if (coursecb.SelectedItem == null || ylcb.SelectedItem == null || semcb.SelectedItem == null)
+                {
+                    MessageBox.Show("Empty fields.", "Missing Information");
+                }
                 else
                 {
-                    checker.AddCurrSub(currcode, sctxt.Text);
+                    checker.AddCurrSub(currcode,coursecb.SelectedItem.ToString(), sctxt.Text, ylcb.SelectedItem.ToString(), semcb.SelectedItem.ToString());
                     MessageBox.Show("Subject added successfully.", "Subject Added");
                     ClearData();
-                    TotalU += units;
-                    checker.EditCurrUnits(currcode, TotalU);
+                    ComputeUnits();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            unitstxt.Text = TotalU.ToString();
+            
         }
 
         private void deletebtn_Click(object sender, EventArgs e)
@@ -137,17 +157,16 @@ namespace EnrollmentSystem
             {
                 try
                 {
-                    checker.RemoveSubCurr(currcode, sctxt.Text);
+                    checker.RemoveSubCurr(currcode, sctxt.Text, coursecb.SelectedItem.ToString());
                     MessageBox.Show("Subject removed successfully.", "Subject Removed");
                     ClearData();
-                    TotalU -= units;
-                    checker.EditCurrUnits(currcode, TotalU);
+                    ComputeUnits();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                unitstxt.Text = TotalU.ToString();
+                
             }
         }
 
@@ -156,7 +175,7 @@ namespace EnrollmentSystem
             try
             {
                 string sc = searchalready.Text.Trim();
-                dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc).DefaultView;
+                dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc, currcode).DefaultView;
 
             }
             catch (Exception ex)
@@ -179,11 +198,33 @@ namespace EnrollmentSystem
             }
         }
 
+        private void courcecb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (coursecb.SelectedItem != null)
+            {
+                required.Text = checker.returnCourseUnits(coursecb.SelectedItem.ToString());
+                ComputeUnits();
+            }
+        }
+
+        private void sctxt_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                sntxt.Text = checker.returnSubjectName(sctxt.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public void getTempValAddedSubs(DataGridViewCellEventArgs e)
         {
-            sctxt.Text = dataGridViewAddedSub.Rows[e.RowIndex].Cells[0].Value.ToString();
-            sntxt.Text = dataGridViewAddedSub.Rows[e.RowIndex].Cells[1].Value.ToString();
-            units = Convert.ToDouble(dataGridViewAddedSub.Rows[e.RowIndex].Cells[2].Value.ToString());
+            coursecb.SelectedItem = dataGridViewAddedSub.Rows[e.RowIndex].Cells[1].Value.ToString();
+            sctxt.Text = dataGridViewAddedSub.Rows[e.RowIndex].Cells[2].Value.ToString();
+            ylcb.SelectedItem = dataGridViewAddedSub.Rows[e.RowIndex].Cells[3].Value.ToString();
+            semcb.SelectedItem = dataGridViewAddedSub.Rows[e.RowIndex].Cells[4].Value.ToString();
             deletebtn.Enabled = true;
             clearbtn.Enabled = true;
             addbtn.Enabled = false;

@@ -15,7 +15,6 @@ namespace EnrollmentSystem
     {
         checkDB checker = new checkDB();
         ArrayList arrayList = new ArrayList();
-        static string section, subject;
         string[] instructorvalues;
         formFuncs f = new formFuncs();
         bool flag;
@@ -47,12 +46,6 @@ namespace EnrollmentSystem
             }
             
             daycb.Items.AddRange((object[])f.DaysValues());
-            starth.Items.AddRange(f.Hours().ToArray());
-            endh.Items.AddRange(f.Hours().ToArray());
-            startm.Items.AddRange(f.Minutes().ToArray());
-            endm.Items.AddRange(f.Minutes().ToArray());
-            startt.Items.AddRange((object[])f.TimeValues());
-            endt.Items.AddRange((object[])f.TimeValues());
             typecb.Items.AddRange((object[])f.TypeValues());
 
         }
@@ -79,6 +72,7 @@ namespace EnrollmentSystem
                     MessageBox.Show(ex.Message);
                 }
                 DisplayData();
+                clearbtn.Enabled = true;
             }
         }
 
@@ -120,10 +114,12 @@ namespace EnrollmentSystem
                 MessageBox.Show("Please check all information", "Missing information");
                 flag = false;
             }
+            else if (checker.IfScheduleExist(sectioncb.SelectedItem.ToString(),subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString()))
+            {
+                MessageBox.Show("The schedule for that subject already exist.", "Already exist");
+            }
             else
             {
-                string start = starth.SelectedItem.ToString() + ":" + startm.SelectedItem.ToString() + " " + startt.SelectedItem.ToString();
-                string end = endh.SelectedItem.ToString() + ":" + endm.SelectedItem.ToString() + " " + endt.SelectedItem.ToString();
                 string section = sectioncb.SelectedItem.ToString();
                 string subject = subjectcb.SelectedItem.ToString();
                 string ins = inscb.SelectedItem.ToString();
@@ -132,9 +128,10 @@ namespace EnrollmentSystem
                 string type = typecb.SelectedItem.ToString();
                 try
                 {
-                    checker.AddSchedule(section, subject, ins, day, start, end, room, type);
+                    checker.AddSchedule(section, subject, ins, day, starttime.Text.ToString(), endtime.Text.ToString(), room, type);
                     MessageBox.Show("Schedule created successfully", "Schedule Created");
                     clearData();
+                    sectioncb.SelectedItem = section;
                 }
                 catch (Exception ex)
                 {
@@ -187,6 +184,111 @@ namespace EnrollmentSystem
         {
             f.ClearCombobox(this.Controls);
             f.ClearTextboxes(this.Controls);
+            
+        }
+
+        private void dataGridViewsched_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                getTempVal(e);
+            }
+        }
+        public void getTempVal(DataGridViewCellEventArgs e)
+        {
+
+            sectioncb.SelectedItem = dataGridViewsched.Rows[e.RowIndex].Cells[0].Value.ToString();
+            subjectcb.SelectedItem = dataGridViewsched.Rows[e.RowIndex].Cells[1].Value.ToString();
+            inscb.SelectedItem = dataGridViewsched.Rows[e.RowIndex].Cells[2].Value.ToString();
+            daycb.SelectedItem = dataGridViewsched.Rows[e.RowIndex].Cells[3].Value.ToString();
+            starttime.Text = dataGridViewsched.Rows[e.RowIndex].Cells[4].Value.ToString();
+            endtime.Text = dataGridViewsched.Rows[e.RowIndex].Cells[5].Value.ToString();
+            roomtxt.Text = dataGridViewsched.Rows[e.RowIndex].Cells[6].Value.ToString();
+            typecb.SelectedItem = dataGridViewsched.Rows[e.RowIndex].Cells[7].Value.ToString();
+            sectioncb.Enabled = false;
+            subjectcb.Enabled = false;
+            typecb.Enabled = false;
+            deletebtn.Enabled = true;
+            clearbtn.Enabled = true;
+            createbtn.Enabled = false;
+            editbtn.Enabled = true;
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            clearData();
+            buttonDone();
+            dataGridViewsched.DataSource = null;
+        }
+        public void buttonDone()
+        {
+            deletebtn.Enabled = false;
+            clearbtn.Enabled = false;
+            createbtn.Enabled = true;
+            editbtn.Enabled = false;
+            sectioncb.Enabled = true;
+            subjectcb.Enabled = true;
+            typecb.Enabled = true;
+        }
+
+        private void deletebtn_Click(object sender, EventArgs e)
+        {
+            string section = sectioncb.SelectedItem.ToString();
+;            DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + sectioncb.SelectedItem.ToString() + " / " + 
+                subjectcb.SelectedItem.ToString() + " / "+ typecb.SelectedItem.ToString() + "' ?", "Delete Schedule?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    checker.DeleteSched(sectioncb.SelectedItem.ToString(), subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString());
+                    MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted");
+                    clearData();
+                    buttonDone();
+                    sectioncb.SelectedItem = section;
+                    DisplayData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+
+        private void editbtn_Click(object sender, EventArgs e)
+        {
+            string section = sectioncb.SelectedItem.ToString();
+            ; DialogResult result = MessageBox.Show("Do you want to save changes the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
+                 subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                if (checkParts()) {
+                    MessageBox.Show("Please check all information", "Missing information");
+                    flag = false;
+                }
+                else
+                {
+                    try
+                    {
+                        checker.EditSchedule(section, subjectcb.SelectedItem.ToString(), inscb.SelectedItem.ToString(), daycb.SelectedItem.ToString(), starttime.Text.ToString(), endtime.Text.ToString(), roomtxt.Text, typecb.SelectedItem.ToString());
+                        MessageBox.Show("Schedule edited successfully.", "Schedule Edited");
+                        clearData();
+                        buttonDone();
+                        sectioncb.SelectedItem = section;
+                        DisplayData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+
+            }
             
         }
     }

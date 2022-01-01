@@ -30,16 +30,13 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.label5 = new System.Windows.Forms.Label();
-            this.unitstxt = new System.Windows.Forms.TextBox();
+            this.totalunits = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.curriculumcodetxt = new System.Windows.Forms.TextBox();
-            this.coursetxt = new System.Windows.Forms.TextBox();
-            this.yeartxt = new System.Windows.Forms.TextBox();
-            this.semstxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.sntxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,6 +52,11 @@ namespace EnrollmentSystem
             this.label10 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.coursecb = new System.Windows.Forms.ComboBox();
+            this.ylcb = new System.Windows.Forms.ComboBox();
+            this.semcb = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.required = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsubs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddedSub)).BeginInit();
             this.SuspendLayout();
@@ -70,13 +72,13 @@ namespace EnrollmentSystem
             this.label5.TabIndex = 48;
             this.label5.Text = "Edit Curriculum";
             // 
-            // unitstxt
+            // totalunits
             // 
-            this.unitstxt.Enabled = false;
-            this.unitstxt.Location = new System.Drawing.Point(702, 116);
-            this.unitstxt.Name = "unitstxt";
-            this.unitstxt.Size = new System.Drawing.Size(187, 20);
-            this.unitstxt.TabIndex = 58;
+            this.totalunits.Enabled = false;
+            this.totalunits.Location = new System.Drawing.Point(702, 116);
+            this.totalunits.Name = "totalunits";
+            this.totalunits.Size = new System.Drawing.Size(75, 20);
+            this.totalunits.TabIndex = 58;
             // 
             // label3
             // 
@@ -131,30 +133,6 @@ namespace EnrollmentSystem
             this.curriculumcodetxt.Size = new System.Drawing.Size(187, 20);
             this.curriculumcodetxt.TabIndex = 49;
             // 
-            // coursetxt
-            // 
-            this.coursetxt.Enabled = false;
-            this.coursetxt.Location = new System.Drawing.Point(291, 116);
-            this.coursetxt.Name = "coursetxt";
-            this.coursetxt.Size = new System.Drawing.Size(101, 20);
-            this.coursetxt.TabIndex = 59;
-            // 
-            // yeartxt
-            // 
-            this.yeartxt.Enabled = false;
-            this.yeartxt.Location = new System.Drawing.Point(428, 116);
-            this.yeartxt.Name = "yeartxt";
-            this.yeartxt.Size = new System.Drawing.Size(101, 20);
-            this.yeartxt.TabIndex = 60;
-            // 
-            // semstxt
-            // 
-            this.semstxt.Enabled = false;
-            this.semstxt.Location = new System.Drawing.Point(565, 116);
-            this.semstxt.Name = "semstxt";
-            this.semstxt.Size = new System.Drawing.Size(101, 20);
-            this.semstxt.TabIndex = 61;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -188,6 +166,7 @@ namespace EnrollmentSystem
             this.sctxt.Name = "sctxt";
             this.sctxt.Size = new System.Drawing.Size(187, 20);
             this.sctxt.TabIndex = 62;
+            this.sctxt.TextChanged += new System.EventHandler(this.sctxt_TextChanged);
             // 
             // deletebtn
             // 
@@ -312,11 +291,58 @@ namespace EnrollmentSystem
             this.label11.TabIndex = 78;
             this.label11.Text = "Search:";
             // 
+            // coursecb
+            // 
+            this.coursecb.FormattingEnabled = true;
+            this.coursecb.Location = new System.Drawing.Point(291, 116);
+            this.coursecb.Name = "coursecb";
+            this.coursecb.Size = new System.Drawing.Size(98, 21);
+            this.coursecb.TabIndex = 79;
+            this.coursecb.SelectedIndexChanged += new System.EventHandler(this.courcecb_SelectedIndexChanged);
+            // 
+            // ylcb
+            // 
+            this.ylcb.FormattingEnabled = true;
+            this.ylcb.Location = new System.Drawing.Point(428, 116);
+            this.ylcb.Name = "ylcb";
+            this.ylcb.Size = new System.Drawing.Size(98, 21);
+            this.ylcb.TabIndex = 80;
+            // 
+            // semcb
+            // 
+            this.semcb.FormattingEnabled = true;
+            this.semcb.Location = new System.Drawing.Point(565, 116);
+            this.semcb.Name = "semcb";
+            this.semcb.Size = new System.Drawing.Size(98, 21);
+            this.semcb.TabIndex = 81;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(804, 100);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(80, 13);
+            this.label12.TabIndex = 82;
+            this.label12.Text = "Units Required:";
+            // 
+            // required
+            // 
+            this.required.Enabled = false;
+            this.required.Location = new System.Drawing.Point(807, 117);
+            this.required.Name = "required";
+            this.required.Size = new System.Drawing.Size(75, 20);
+            this.required.TabIndex = 83;
+            // 
             // editcurriculum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.required);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.semcb);
+            this.Controls.Add(this.ylcb);
+            this.Controls.Add(this.coursecb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.searchtxt);
             this.Controls.Add(this.label10);
@@ -332,10 +358,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.sntxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.sctxt);
-            this.Controls.Add(this.semstxt);
-            this.Controls.Add(this.yeartxt);
-            this.Controls.Add(this.coursetxt);
-            this.Controls.Add(this.unitstxt);
+            this.Controls.Add(this.totalunits);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label7);
@@ -357,16 +380,13 @@ namespace EnrollmentSystem
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox unitstxt;
+        private System.Windows.Forms.TextBox totalunits;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox curriculumcodetxt;
-        private System.Windows.Forms.TextBox coursetxt;
-        private System.Windows.Forms.TextBox yeartxt;
-        private System.Windows.Forms.TextBox semstxt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox sntxt;
         private System.Windows.Forms.Label label4;
@@ -382,5 +402,10 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox searchtxt;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox coursecb;
+        private System.Windows.Forms.ComboBox ylcb;
+        private System.Windows.Forms.ComboBox semcb;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox required;
     }
 }

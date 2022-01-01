@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EnrollmentSystem
 {
@@ -125,15 +121,11 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public void CreateCurr(string currc, string ccode, string yl, string sem, double u)
+        public void CreateCurr(string currc)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO tbl_curriculum ([Curriculum Code], [Course Code], [Year Level], [Semester],[Total Units] ) VALUES (@cur,@course,@yl,@sem,@u)", con);
+            cmd = new SqlCommand("INSERT INTO tbl_curriculum ([Curriculum Code]) VALUES (@cur)", con);
             cmd.Parameters.AddWithValue("@cur", currc);
-            cmd.Parameters.AddWithValue("@course", ccode);
-            cmd.Parameters.AddWithValue("@yl", yl);
-            cmd.Parameters.AddWithValue("@sem", sem);
-            cmd.Parameters.AddWithValue("@u", u);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -157,14 +149,13 @@ namespace EnrollmentSystem
         public DataTable SearchCurr(string sc)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum WHERE [Curriculum Code] LIKE '%" + sc + "%' OR [Course Code] LIKE '%" + sc + "%' " +
-                "OR [Year Level] LIKE '%" + sc + "%' OR [Semester] LIKE '%" + sc + "%' OR [Total Units] LIKE '%" + sc + "%'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum WHERE [Curriculum Code] LIKE '%" + sc + "%'", con);
             ds = new DataSet();
             sda.Fill(ds, "Curr");
             con.Close();
             return ds.Tables["Curr"];
         }
-        public void editcurr(string curr,double units)
+        public void editcurr(string curr, double units)
         {
             con.Open();
             cmd = new SqlCommand("UPDATE tbl_curriculum SET [Total Units] = @units WHERE [Curriculum Code] = @curr", con);
@@ -314,7 +305,7 @@ namespace EnrollmentSystem
         public DataTable DisplayCurrSub(string code)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT S.[Subject Code], S.[Subject Name], S.[Units], S.[Category] FROM[tbl_curriculum_subject] CS JOIN tbl_subject S ON CS.[Subject Code] = S.[Subject Code] WHERE CS.[Curriculum Code] = '"+ code+ "'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum_subject WHERE  [Curriculum Code] = '" + code + "'", con);
             ds = new DataSet();
             sda.Fill(ds, "CurrSub");
             con.Close();
@@ -323,7 +314,7 @@ namespace EnrollmentSystem
         public Array returnCurr(string code)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum WHERE [Curriculum Code] = '"+ code + "'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum WHERE [Curriculum Code] = '" + code + "'", con);
             dt = new DataTable();
             sda.Fill(dt);
             con.Close();
@@ -332,22 +323,26 @@ namespace EnrollmentSystem
             return array;
 
         }
-        public void AddCurrSub(string cc, string sc)
+        public void AddCurrSub(string cc, string course, string sub, string yl, string sem)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO tbl_curriculum_subject ([Curriculum Code], [Subject Code] ) " +
-                "VALUES (@cc,@sc)", con);
-            cmd.Parameters.AddWithValue("@sc", sc);
+            cmd = new SqlCommand("INSERT INTO tbl_curriculum_subject ([Curriculum Code], [Course Code], [Subject Code], [Year Level], [Semester] ) " +
+                "VALUES (@cc,@course,@sub,@yl,@sem)", con);
+            cmd.Parameters.AddWithValue("@course", course);
             cmd.Parameters.AddWithValue("@cc", cc);
+            cmd.Parameters.AddWithValue("@sub", sub);
+            cmd.Parameters.AddWithValue("@yl", yl);
+            cmd.Parameters.AddWithValue("@sem", sem);
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void RemoveSubCurr(string cc, string sc)
+        public void RemoveSubCurr(string cc, string sc, string course)
         {
             con.Open();
-            cmd = new SqlCommand("DELETE tbl_curriculum_subject WHERE [Subject Code] = @scode AND [Curriculum Code] = @ccode", con);
+            cmd = new SqlCommand("DELETE tbl_curriculum_subject WHERE [Subject Code] = @scode AND [Curriculum Code] = @ccode AND [Course Code] = @course", con);
             cmd.Parameters.AddWithValue("@ccode", cc);
             cmd.Parameters.AddWithValue("@scode", sc);
+            cmd.Parameters.AddWithValue("@course", course);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -379,11 +374,11 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public DataTable SearchCurrSub(string sc)
+        public DataTable SearchCurrSub(string sc, string curr)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT S.[Subject Code], S.[Subject Name], S.[Units], S.[Category] FROM[tbl_curriculum_subject] CS JOIN tbl_subject S ON CS.[Subject Code] = S.[Subject Code] " +
-                "WHERE S.[Subject Code] LIKE '%" + sc + "%' OR S.[Subject Name] LIKE '%" + sc + "%' OR  S.[Units] LIKE '%" + sc + "%' OR S.[Category] LIKE '%" + sc + "%'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum_subject " +
+                "WHERE  [Curriculum Code] = '" + curr + "' AND  ([Subject Code] LIKE '%" + sc + "%' OR [Curriculum Code] LIKE '%" + sc + "%' OR [Course Code] LIKE '%" + sc + "%' OR  [Year Level] LIKE '%" + sc + "%' OR [Semester] LIKE '%" + sc + "%')", con);
             ds = new DataSet();
             sda.Fill(ds, "CurrSub");
             con.Close();
@@ -415,13 +410,17 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public void AddSection(string sc, string cc)
+        public void AddSection(string sc, string cc,string course, string yl, string sem, int num)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO tbl_section ([Section Code], [Curriculum Code]) " +
-                "VALUES (@sc,@cc)", con);
+            cmd = new SqlCommand("INSERT INTO tbl_section ([Section Code], [Curriculum Code], [Course Code], [Year Level], [Semester], [Number of Students]) " +
+                "VALUES (@sc,@cc, @course, @yl, @sem, @num)", con);
             cmd.Parameters.AddWithValue("@sc", sc);
             cmd.Parameters.AddWithValue("@cc", cc);
+            cmd.Parameters.AddWithValue("@course", course);
+            cmd.Parameters.AddWithValue("@yl", yl);
+            cmd.Parameters.AddWithValue("@sem", sem);
+            cmd.Parameters.AddWithValue("@num", num);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -436,7 +435,8 @@ namespace EnrollmentSystem
         public DataTable SearchSection(string sc)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT * FROM tbl_section WHERE [Section Code] LIKE '%" + sc + "%' OR [Curriculum Code] LIKE '%" + sc + "%'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_section WHERE [Section Code] LIKE '%" + sc + "%' OR [Curriculum Code] LIKE '%" + sc + "%' OR  [Course Code] LIKE '%" + sc + "%'" +
+                "OR  [Year Level] LIKE '%" + sc + "%' OR  [Semester] LIKE '%" + sc + "%' OR [Number of Students] LIKE '%" + sc + "%'", con);
             ds = new DataSet();
             sda.Fill(ds, "Section");
             con.Close();
@@ -450,9 +450,17 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Section"];
         }
+        public DataTable FillCurriculum()
+        {
+            sda = new SqlDataAdapter("SELECT [Curriculum Code] FROM tbl_curriculum", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Curr");
+            con.Close();
+            return ds.Tables["Curr"];
+        }
         public DataTable FillSubject(string section)
         {
-            sda = new SqlDataAdapter("SELECT CS.[Subject Code] FROM [tbl_section] S JOIN tbl_curriculum_subject CS ON S.[Curriculum Code] = CS.[Curriculum Code] WHERE S.[Section Code] = '"+ section + "'", con);
+            sda = new SqlDataAdapter("SELECT CS.[Subject Code] FROM [tbl_section] S JOIN tbl_curriculum_subject CS ON S.[Curriculum Code] = CS.[Curriculum Code] WHERE S.[Section Code] = '" + section + "'", con);
             ds = new DataSet();
             sda.Fill(ds, "Subjects");
             con.Close();
@@ -502,7 +510,7 @@ namespace EnrollmentSystem
                 "VALUES (@section,@subject,@ins,@day,@start,@end,@room,@type)", con);
             cmd.Parameters.AddWithValue("@section", section);
             cmd.Parameters.AddWithValue("@subject", subject);
-            cmd.Parameters.AddWithValue("@ins", ins); 
+            cmd.Parameters.AddWithValue("@ins", ins);
             cmd.Parameters.AddWithValue("@day", day);
             cmd.Parameters.AddWithValue("@start", start);
             cmd.Parameters.AddWithValue("@end", end);
@@ -511,6 +519,141 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
-
+        public DataTable FillSchoolYear()
+        {
+            sda = new SqlDataAdapter("SELECT [Curriculum Code] FROM tbl_curriculum", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Curr");
+            con.Close();
+            return ds.Tables["Curr"];
+        }
+        public string returnCurrSum(string code, string course)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT ISNULL(SUM(S.[Units]),0) FROM[tbl_curriculum_subject] CS JOIN tbl_subject S ON CS.[Subject Code] = S.[Subject Code] WHERE CS.[Curriculum Code] = '" + code + "' AND CS.[Course Code] = '" + course + "'", con);
+            string sum = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return sum;
+        }
+        public string returnCourseUnits(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT [Required Units] FROM tbl_course WHERE [Course Code] = '" + code + "'", con);
+            string units = cmd.ExecuteScalar().ToString();
+            con.Close();
+            return units;
+        }
+        public Boolean IfScheduleExist(string sec, string sub, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_schedule WHERE ([Section Code] = @section AND [Subject Code] = @subject AND [Type] = @type)", con);
+            cmd.Parameters.AddWithValue("@section", sec);
+            cmd.Parameters.AddWithValue("@subject", sub);
+            cmd.Parameters.AddWithValue("@type", type);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteSched(string sec, string sub, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_schedule WHERE [Section Code] = @sec AND [Subject Code] = @sub AND [Type] = @type", con);
+            cmd.Parameters.AddWithValue("@sec", sec);
+            cmd.Parameters.AddWithValue("@sub", sub);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void EditSchedule(string section, string subject, string ins, string day, string start, string end, string room, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_schedule SET [InstructorID] = @ins, [Day] = @day, [Start Time] = @start, [End Time] = @end, [Room] = @room" +
+                " WHERE [Section Code] = @section AND [Subject Code] = @subject AND [Type] = @type", con);
+            cmd.Parameters.AddWithValue("@section", section);
+            cmd.Parameters.AddWithValue("@subject", subject);
+            cmd.Parameters.AddWithValue("@ins", ins);
+            cmd.Parameters.AddWithValue("@day", day);
+            cmd.Parameters.AddWithValue("@start", start);
+            cmd.Parameters.AddWithValue("@end", end);
+            cmd.Parameters.AddWithValue("@room", room);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable DisplayStudents()
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_student", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public Boolean IfStudentMain(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_student WHERE ([StudentID] = @user)", con);
+            cmd.Parameters.AddWithValue("@user", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public Boolean IfStudentArchive(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_archive WHERE ([StudentID] = @user)", con);
+            cmd.Parameters.AddWithValue("@user", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void AddStudent(string id, string last, string first, string middle, string schoolyear, string level, string sem, string status, string course, int age, string gender,
+            string number, string email, string birth,string address)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_student ([StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semster], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address]) " +
+                "VALUES (@id,@last,@first,@middle,@school,@year,@sem,@status,@course,@age,@gender,@num,@email,@birth,@address)", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@last", last);
+            cmd.Parameters.AddWithValue("@first", first);
+            cmd.Parameters.AddWithValue("@middle", middle);
+            cmd.Parameters.AddWithValue("@school", schoolyear);
+            cmd.Parameters.AddWithValue("@year", level);
+            cmd.Parameters.AddWithValue("@sem", sem);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@course", course);
+            cmd.Parameters.AddWithValue("@age", age);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@num", number);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@birth", birth);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

@@ -44,18 +44,17 @@ namespace EnrollmentSystem
             this.roomtxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.starth = new System.Windows.Forms.ComboBox();
-            this.startm = new System.Windows.Forms.ComboBox();
-            this.startt = new System.Windows.Forms.ComboBox();
-            this.endt = new System.Windows.Forms.ComboBox();
-            this.endm = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.endh = new System.Windows.Forms.ComboBox();
             this.inscb = new System.Windows.Forms.ComboBox();
             this.instxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.createbtn = new System.Windows.Forms.Button();
             this.dataGridViewsched = new System.Windows.Forms.DataGridView();
+            this.starttime = new System.Windows.Forms.DateTimePicker();
+            this.endtime = new System.Windows.Forms.DateTimePicker();
+            this.deletebtn = new System.Windows.Forms.Button();
+            this.editbtn = new System.Windows.Forms.Button();
+            this.clearbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsched)).BeginInit();
             this.SuspendLayout();
             // 
@@ -195,68 +194,14 @@ namespace EnrollmentSystem
             this.label9.TabIndex = 70;
             this.label9.Text = "Start Time:";
             // 
-            // starth
-            // 
-            this.starth.FormattingEnabled = true;
-            this.starth.Location = new System.Drawing.Point(487, 205);
-            this.starth.Name = "starth";
-            this.starth.Size = new System.Drawing.Size(50, 21);
-            this.starth.TabIndex = 69;
-            this.starth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
-            // 
-            // startm
-            // 
-            this.startm.FormattingEnabled = true;
-            this.startm.Location = new System.Drawing.Point(552, 205);
-            this.startm.Name = "startm";
-            this.startm.Size = new System.Drawing.Size(50, 21);
-            this.startm.TabIndex = 71;
-            this.startm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
-            // 
-            // startt
-            // 
-            this.startt.FormattingEnabled = true;
-            this.startt.Location = new System.Drawing.Point(617, 205);
-            this.startt.Name = "startt";
-            this.startt.Size = new System.Drawing.Size(50, 21);
-            this.startt.TabIndex = 72;
-            this.startt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
-            // 
-            // endt
-            // 
-            this.endt.FormattingEnabled = true;
-            this.endt.Location = new System.Drawing.Point(842, 205);
-            this.endt.Name = "endt";
-            this.endt.Size = new System.Drawing.Size(50, 21);
-            this.endt.TabIndex = 76;
-            this.endt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
-            // 
-            // endm
-            // 
-            this.endm.FormattingEnabled = true;
-            this.endm.Location = new System.Drawing.Point(777, 205);
-            this.endm.Name = "endm";
-            this.endm.Size = new System.Drawing.Size(50, 21);
-            this.endm.TabIndex = 75;
-            this.endm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(709, 189);
+            this.label10.Location = new System.Drawing.Point(630, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 74;
             this.label10.Text = "End Time:";
-            // 
-            // endh
-            // 
-            this.endh.FormattingEnabled = true;
-            this.endh.Location = new System.Drawing.Point(712, 205);
-            this.endh.Name = "endh";
-            this.endh.Size = new System.Drawing.Size(50, 21);
-            this.endh.TabIndex = 73;
-            this.endh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
             // 
             // inscb
             // 
@@ -266,6 +211,7 @@ namespace EnrollmentSystem
             this.inscb.Size = new System.Drawing.Size(121, 21);
             this.inscb.TabIndex = 78;
             this.inscb.SelectedIndexChanged += new System.EventHandler(this.inscb_SelectedIndexChanged);
+            this.inscb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sectioncb_KeyDown);
             // 
             // instxt
             // 
@@ -286,7 +232,7 @@ namespace EnrollmentSystem
             // 
             // createbtn
             // 
-            this.createbtn.Location = new System.Drawing.Point(633, 252);
+            this.createbtn.Location = new System.Drawing.Point(485, 253);
             this.createbtn.Name = "createbtn";
             this.createbtn.Size = new System.Drawing.Size(114, 23);
             this.createbtn.TabIndex = 81;
@@ -309,25 +255,78 @@ namespace EnrollmentSystem
             this.dataGridViewsched.Size = new System.Drawing.Size(910, 224);
             this.dataGridViewsched.TabIndex = 82;
             this.dataGridViewsched.VirtualMode = true;
+            this.dataGridViewsched.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewsched_CellDoubleClick);
+            // 
+            // starttime
+            // 
+            this.starttime.CustomFormat = "hh:mm tt";
+            this.starttime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.starttime.Location = new System.Drawing.Point(487, 206);
+            this.starttime.Name = "starttime";
+            this.starttime.ShowUpDown = true;
+            this.starttime.Size = new System.Drawing.Size(118, 20);
+            this.starttime.TabIndex = 83;
+            // 
+            // endtime
+            // 
+            this.endtime.CustomFormat = "hh:mm tt";
+            this.endtime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.endtime.Location = new System.Drawing.Point(633, 205);
+            this.endtime.Name = "endtime";
+            this.endtime.ShowUpDown = true;
+            this.endtime.Size = new System.Drawing.Size(118, 20);
+            this.endtime.TabIndex = 84;
+            // 
+            // deletebtn
+            // 
+            this.deletebtn.Enabled = false;
+            this.deletebtn.Location = new System.Drawing.Point(781, 253);
+            this.deletebtn.Name = "deletebtn";
+            this.deletebtn.Size = new System.Drawing.Size(114, 23);
+            this.deletebtn.TabIndex = 86;
+            this.deletebtn.Text = "Delete Schedule";
+            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
+            // 
+            // editbtn
+            // 
+            this.editbtn.Enabled = false;
+            this.editbtn.Location = new System.Drawing.Point(633, 253);
+            this.editbtn.Name = "editbtn";
+            this.editbtn.Size = new System.Drawing.Size(114, 23);
+            this.editbtn.TabIndex = 85;
+            this.editbtn.Text = "Edit Schedule";
+            this.editbtn.UseVisualStyleBackColor = true;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
+            // 
+            // clearbtn
+            // 
+            this.clearbtn.Enabled = false;
+            this.clearbtn.Location = new System.Drawing.Point(337, 253);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(114, 23);
+            this.clearbtn.TabIndex = 87;
+            this.clearbtn.Text = "Clear";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // schedulemenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.clearbtn);
+            this.Controls.Add(this.deletebtn);
+            this.Controls.Add(this.editbtn);
+            this.Controls.Add(this.endtime);
+            this.Controls.Add(this.starttime);
             this.Controls.Add(this.dataGridViewsched);
             this.Controls.Add(this.createbtn);
             this.Controls.Add(this.instxt);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.inscb);
-            this.Controls.Add(this.endt);
-            this.Controls.Add(this.endm);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.endh);
-            this.Controls.Add(this.startt);
-            this.Controls.Add(this.startm);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.starth);
             this.Controls.Add(this.roomtxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label8);
@@ -368,17 +367,16 @@ namespace EnrollmentSystem
         private System.Windows.Forms.TextBox roomtxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox starth;
-        private System.Windows.Forms.ComboBox startm;
-        private System.Windows.Forms.ComboBox startt;
-        private System.Windows.Forms.ComboBox endt;
-        private System.Windows.Forms.ComboBox endm;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox endh;
         private System.Windows.Forms.ComboBox inscb;
         private System.Windows.Forms.TextBox instxt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button createbtn;
         private System.Windows.Forms.DataGridView dataGridViewsched;
+        private System.Windows.Forms.DateTimePicker starttime;
+        private System.Windows.Forms.DateTimePicker endtime;
+        private System.Windows.Forms.Button deletebtn;
+        private System.Windows.Forms.Button editbtn;
+        private System.Windows.Forms.Button clearbtn;
     }
 }

@@ -16,6 +16,7 @@ namespace EnrollmentSystem
     {
         checkDB checker = new checkDB();
         ArrayList arrayList = new ArrayList();
+
         public studentmenu()
         {
             InitializeComponent();
@@ -23,8 +24,7 @@ namespace EnrollmentSystem
 
         private void studentmenu_Load(object sender, EventArgs e)
         {
-            string[] sys = {"2021-2022", "2022-2023"};
-            SYcb.Items.AddRange(sys);
+           
 
             string[] yls = {"First Year","Second  Year","Third Year","Fourth Year" };
             YLcb.Items.AddRange(yls);
@@ -45,6 +45,12 @@ namespace EnrollmentSystem
                     arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
                 }
                 Coursecb.Items.AddRange(arrayList.ToArray());
+                arrayList.Clear();
+                foreach (DataRow dset in checker.FillSchoolYear().Rows)
+                {
+                    arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
+                }
+                SYcb.Items.AddRange(arrayList.ToArray());
             }
             catch(Exception ex)
             {

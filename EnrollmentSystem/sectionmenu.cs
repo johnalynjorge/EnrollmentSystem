@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,8 @@ namespace EnrollmentSystem
         checkDB checker = new checkDB();
         formFuncs f = new formFuncs();
         char letter = 'A';
-        static string curr, section;
+        static string sectioncode;
+        ArrayList arrayList = new ArrayList();
         public sectionmenu()
         {
             InitializeComponent();
@@ -23,50 +25,37 @@ namespace EnrollmentSystem
 
         private void sectionmenu_Load(object sender, EventArgs e)
         {
-            DisplayCurr();
+            
             DisplaySections();
-        }
-        public void DisplayCurr()
-        {
-            try
+            foreach (DataRow dset in checker.FillCurriculum().Rows)
             {
-                dataGridViewcurr.DataSource = checker.DisplayCurr().DefaultView;
+                arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
             }
-            catch (Exception ex)
+            Currrcb.Items.AddRange(arrayList.ToArray());
+            arrayList.Clear();
+            foreach (DataRow dset in checker.FillCourse().Rows)
             {
-                MessageBox.Show(ex.Message);
+                arrayList.Add(string.Join(";", dset.ItemArray.Select(item => item.ToString())));
             }
+            coursecb.Items.AddRange(arrayList.ToArray());
+            arrayList.Clear();
+            string[] yls = { "First Year", "Second  Year", "Third Year", "Fourth Year" };
+            ylcb.Items.AddRange(yls);
+
+            string[] sems = { "First Sem", "Second Sem" };
+            semcb.Items.AddRange(sems);
         }
 
-        private void dataGridViewcurr_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1)
-            {
-                getTempValCurr(e);
-            }
-        }
-        public void getTempValCurr(DataGridViewCellEventArgs e)
-        {
-            curr = dataGridViewcurr.Rows[e.RowIndex].Cells[0].Value.ToString();
-            addbtn.Enabled = true;
-            clearbtn.Enabled = true;
-            curriculumtxt.Text = curr;
-
-            while (checker.IfSectionExist(curr+letter))
-            {
-                letter++;
-            }
-            section = curr + letter;
-            sectiontxt.Text = section;
-        }
         public void clearData()
         {
             f.ClearTextboxes(this.Controls);
-            addbtn.Enabled = false;
+            f.ClearCombobox(this.Controls);
+            addbtn.Enabled = true;
             clearbtn.Enabled = false;
             editbtn.Enabled = false;
             deletebtn.Enabled = false;
-            DisplayCurr();
+            sectioncode = "";
+            letter = 'A';
             DisplaySections();
         }
 
@@ -74,10 +63,17 @@ namespace EnrollmentSystem
         {
             try
             {
-                checker.AddSection(section, curr);
-                MessageBox.Show("Section created successfully.", "Section Created");
-                clearData();
-            }
+                if (sectioncode != null)
+                {
+                    checker.AddSection(sectioncode, Currrcb.SelectedItem.ToString(), coursecb.SelectedItem.ToString(), ylcb.SelectedItem.ToString(), semcb.SelectedItem.ToString(), 0) ;
+                    MessageBox.Show("Section created successfully.", "Section Created");
+                    clearData();
+                }
+                else
+                {
+                    MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                }
+             }
 
             catch (Exception ex)
             {
@@ -118,26 +114,19 @@ namespace EnrollmentSystem
         }
         public void getTempValSection(DataGridViewCellEventArgs e)
         {
+            
+            Currrcb.SelectedItem = dataGridViewsetion.Rows[e.RowIndex].Cells[1].Value.ToString();
+            coursecb.SelectedItem = dataGridViewsetion.Rows[e.RowIndex].Cells[2].Value.ToString();
+            ylcb.SelectedItem = dataGridViewsetion.Rows[e.RowIndex].Cells[3].Value.ToString();
+            semcb.SelectedItem = dataGridViewsetion.Rows[e.RowIndex].Cells[4].Value.ToString();
+            numtxt.Text = dataGridViewsetion.Rows[e.RowIndex].Cells[5].Value.ToString();
             sectiontxt.Text = dataGridViewsetion.Rows[e.RowIndex].Cells[0].Value.ToString();
-            curriculumtxt.Text = dataGridViewsetion.Rows[e.RowIndex].Cells[1].Value.ToString();
             deletebtn.Enabled = true;
             clearbtn.Enabled = true;
-
+            addbtn.Enabled = false;
         }
 
-        private void searchcurrtxt_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                string sc = searchcurrtxt.Text.Trim();
-                dataGridViewcurr.DataSource = checker.SearchCurr(sc).DefaultView;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+       
 
         private void searchsecttxt_TextChanged(object sender, EventArgs e)
         {
@@ -165,5 +154,24 @@ namespace EnrollmentSystem
             }
         }
 
+        private void Currrcb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            letter = 'A';
+            if (Currrcb.SelectedItem != null && coursecb.SelectedItem != null && ylcb.SelectedItem != null && semcb.SelectedItem != null)
+            {
+                while (checker.IfSectionExist(sectioncode = coursecb.SelectedItem.ToString() + (ylcb.SelectedIndex + 1) + "." + (semcb.SelectedIndex + 1) + letter))
+                {
+                    letter++;
+                }
+                sectioncode = coursecb.SelectedItem.ToString() + (ylcb.SelectedIndex + 1) + "." + (semcb.SelectedIndex + 1) + letter;
+                sectiontxt.Text = sectioncode;
+            }
+            clearbtn.Enabled = true; 
+        }
+
+        private void Currrcb_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 }

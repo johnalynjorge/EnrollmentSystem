@@ -30,16 +30,9 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.curriculumcodetxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Coursecb = new System.Windows.Forms.ComboBox();
+            this.end = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.semcb = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.YLcb = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.unitstxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.dataGridViewcurr = new System.Windows.Forms.DataGridView();
@@ -47,6 +40,7 @@ namespace EnrollmentSystem
             this.editbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.start = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,94 +55,33 @@ namespace EnrollmentSystem
             this.label1.TabIndex = 1;
             this.label1.Text = "Curriculum Management";
             // 
-            // curriculumcodetxt
-            // 
-            this.curriculumcodetxt.Location = new System.Drawing.Point(68, 101);
-            this.curriculumcodetxt.Name = "curriculumcodetxt";
-            this.curriculumcodetxt.Size = new System.Drawing.Size(187, 20);
-            this.curriculumcodetxt.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(65, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(93, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Curriculum Code:";
+            this.label2.Text = "School Year Start:";
             // 
-            // Coursecb
+            // end
             // 
-            this.Coursecb.FormattingEnabled = true;
-            this.Coursecb.Location = new System.Drawing.Point(293, 101);
-            this.Coursecb.Name = "Coursecb";
-            this.Coursecb.Size = new System.Drawing.Size(114, 21);
-            this.Coursecb.TabIndex = 18;
-            this.Coursecb.SelectedIndexChanged += new System.EventHandler(this.Coursecb_SelectedIndexChanged);
-            this.Coursecb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
+            this.end.FormattingEnabled = true;
+            this.end.Location = new System.Drawing.Point(258, 101);
+            this.end.Name = "end";
+            this.end.Size = new System.Drawing.Size(114, 21);
+            this.end.TabIndex = 18;
+            this.end.SelectedIndexChanged += new System.EventHandler(this.Coursecb_SelectedIndexChanged);
+            this.end.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(290, 85);
+            this.label9.Location = new System.Drawing.Point(255, 85);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.Size = new System.Drawing.Size(90, 13);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Course:";
-            // 
-            // semcb
-            // 
-            this.semcb.FormattingEnabled = true;
-            this.semcb.Location = new System.Drawing.Point(577, 101);
-            this.semcb.Name = "semcb";
-            this.semcb.Size = new System.Drawing.Size(87, 21);
-            this.semcb.TabIndex = 36;
-            this.semcb.SelectedIndexChanged += new System.EventHandler(this.semcb_SelectedIndexChanged);
-            this.semcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(574, 85);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
-            this.label16.TabIndex = 35;
-            this.label16.Text = "Semester:";
-            // 
-            // YLcb
-            // 
-            this.YLcb.FormattingEnabled = true;
-            this.YLcb.Location = new System.Drawing.Point(445, 101);
-            this.YLcb.Name = "YLcb";
-            this.YLcb.Size = new System.Drawing.Size(94, 21);
-            this.YLcb.TabIndex = 34;
-            this.YLcb.SelectedIndexChanged += new System.EventHandler(this.YLcb_SelectedIndexChanged);
-            this.YLcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(442, 85);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "Year level:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Total Units:";
-            // 
-            // unitstxt
-            // 
-            this.unitstxt.Location = new System.Drawing.Point(702, 102);
-            this.unitstxt.Name = "unitstxt";
-            this.unitstxt.Size = new System.Drawing.Size(187, 20);
-            this.unitstxt.TabIndex = 38;
+            this.label9.Text = "School Year End:";
             // 
             // label4
             // 
@@ -224,11 +157,22 @@ namespace EnrollmentSystem
             this.clearbtn.UseVisualStyleBackColor = true;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
+            // start
+            // 
+            this.start.FormattingEnabled = true;
+            this.start.Location = new System.Drawing.Point(68, 101);
+            this.start.Name = "start";
+            this.start.Size = new System.Drawing.Size(114, 21);
+            this.start.TabIndex = 47;
+            this.start.SelectedIndexChanged += new System.EventHandler(this.start_SelectedIndexChanged);
+            this.start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
+            // 
             // curriculummenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
+            this.Controls.Add(this.start);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.dataGridViewcurr);
             this.Controls.Add(this.label4);
@@ -236,16 +180,9 @@ namespace EnrollmentSystem
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.createbtn);
-            this.Controls.Add(this.unitstxt);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.semcb);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.YLcb);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.Coursecb);
+            this.Controls.Add(this.end);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.curriculumcodetxt);
             this.Controls.Add(this.label1);
             this.Name = "curriculummenu";
             this.Text = "Curriculumn Menu";
@@ -259,16 +196,9 @@ namespace EnrollmentSystem
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox curriculumcodetxt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox Coursecb;
+        private System.Windows.Forms.ComboBox end;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox semcb;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox YLcb;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox unitstxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox searchtxt;
         private System.Windows.Forms.DataGridView dataGridViewcurr;
@@ -276,5 +206,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.ComboBox start;
     }
 }

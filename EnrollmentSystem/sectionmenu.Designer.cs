@@ -30,23 +30,25 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridViewcurr = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sectiontxt = new System.Windows.Forms.TextBox();
-            this.curriculumtxt = new System.Windows.Forms.TextBox();
             this.clearbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.editbtn = new System.Windows.Forms.Button();
             this.addbtn = new System.Windows.Forms.Button();
             this.dataGridViewsetion = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.searchcurrtxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.searchsecttxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.Currrcb = new System.Windows.Forms.ComboBox();
+            this.coursecb = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ylcb = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.semcb = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.numtxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsetion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,27 +62,10 @@ namespace EnrollmentSystem
             this.label7.TabIndex = 51;
             this.label7.Text = "Section Management";
             // 
-            // dataGridViewcurr
-            // 
-            this.dataGridViewcurr.AllowUserToAddRows = false;
-            this.dataGridViewcurr.AllowUserToDeleteRows = false;
-            this.dataGridViewcurr.AllowUserToResizeRows = false;
-            this.dataGridViewcurr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewcurr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewcurr.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewcurr.Location = new System.Drawing.Point(498, 292);
-            this.dataGridViewcurr.Name = "dataGridViewcurr";
-            this.dataGridViewcurr.RowHeadersVisible = false;
-            this.dataGridViewcurr.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewcurr.Size = new System.Drawing.Size(415, 224);
-            this.dataGridViewcurr.TabIndex = 52;
-            this.dataGridViewcurr.VirtualMode = true;
-            this.dataGridViewcurr.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewcurr_CellDoubleClick);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 113);
+            this.label1.Location = new System.Drawing.Point(43, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 53;
@@ -89,27 +74,19 @@ namespace EnrollmentSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(495, 113);
+            this.label2.Location = new System.Drawing.Point(195, 112);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 54;
-            this.label2.Text = "Curriculum code:";
+            this.label2.Text = "School year:";
             // 
             // sectiontxt
             // 
             this.sectiontxt.Enabled = false;
-            this.sectiontxt.Location = new System.Drawing.Point(64, 129);
+            this.sectiontxt.Location = new System.Drawing.Point(46, 129);
             this.sectiontxt.Name = "sectiontxt";
-            this.sectiontxt.Size = new System.Drawing.Size(415, 20);
+            this.sectiontxt.Size = new System.Drawing.Size(121, 20);
             this.sectiontxt.TabIndex = 55;
-            // 
-            // curriculumtxt
-            // 
-            this.curriculumtxt.Enabled = false;
-            this.curriculumtxt.Location = new System.Drawing.Point(498, 129);
-            this.curriculumtxt.Name = "curriculumtxt";
-            this.curriculumtxt.Size = new System.Drawing.Size(415, 20);
-            this.curriculumtxt.TabIndex = 56;
             // 
             // clearbtn
             // 
@@ -140,12 +117,11 @@ namespace EnrollmentSystem
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(114, 23);
             this.editbtn.TabIndex = 58;
-            this.editbtn.Text = "Edit Section";
+            this.editbtn.Text = "Manage Students";
             this.editbtn.UseVisualStyleBackColor = true;
             // 
             // addbtn
             // 
-            this.addbtn.Enabled = false;
             this.addbtn.Location = new System.Drawing.Point(527, 191);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(114, 23);
@@ -166,27 +142,10 @@ namespace EnrollmentSystem
             this.dataGridViewsetion.Name = "dataGridViewsetion";
             this.dataGridViewsetion.RowHeadersVisible = false;
             this.dataGridViewsetion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewsetion.Size = new System.Drawing.Size(415, 224);
+            this.dataGridViewsetion.Size = new System.Drawing.Size(877, 224);
             this.dataGridViewsetion.TabIndex = 61;
             this.dataGridViewsetion.VirtualMode = true;
             this.dataGridViewsetion.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewsetion_CellDoubleClick);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(497, 269);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 84;
-            this.label11.Text = "Search:";
-            // 
-            // searchcurrtxt
-            // 
-            this.searchcurrtxt.Location = new System.Drawing.Point(547, 266);
-            this.searchcurrtxt.Name = "searchcurrtxt";
-            this.searchcurrtxt.Size = new System.Drawing.Size(352, 20);
-            this.searchcurrtxt.TabIndex = 83;
-            this.searchcurrtxt.TextChanged += new System.EventHandler(this.searchcurrtxt_TextChanged);
             // 
             // label10
             // 
@@ -201,58 +160,122 @@ namespace EnrollmentSystem
             // 
             this.searchsecttxt.Location = new System.Drawing.Point(127, 266);
             this.searchsecttxt.Name = "searchsecttxt";
-            this.searchsecttxt.Size = new System.Drawing.Size(352, 20);
+            this.searchsecttxt.Size = new System.Drawing.Size(779, 20);
             this.searchsecttxt.TabIndex = 81;
             this.searchsecttxt.TextChanged += new System.EventHandler(this.searchsecttxt_TextChanged);
             // 
-            // label8
+            // Currrcb
             // 
-            this.label8.AutoSize = true;
-            this.label8.CausesValidation = false;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(496, 232);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 24);
-            this.label8.TabIndex = 80;
-            this.label8.Text = "Curriculum list:";
+            this.Currrcb.FormattingEnabled = true;
+            this.Currrcb.Location = new System.Drawing.Point(198, 128);
+            this.Currrcb.Name = "Currrcb";
+            this.Currrcb.Size = new System.Drawing.Size(121, 21);
+            this.Currrcb.TabIndex = 83;
+            this.Currrcb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.Currrcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
+            // 
+            // coursecb
+            // 
+            this.coursecb.FormattingEnabled = true;
+            this.coursecb.Location = new System.Drawing.Point(350, 128);
+            this.coursecb.Name = "coursecb";
+            this.coursecb.Size = new System.Drawing.Size(121, 21);
+            this.coursecb.TabIndex = 85;
+            this.coursecb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.coursecb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(347, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 13);
+            this.label3.TabIndex = 84;
+            this.label3.Text = "Course code:";
+            // 
+            // ylcb
+            // 
+            this.ylcb.FormattingEnabled = true;
+            this.ylcb.Location = new System.Drawing.Point(502, 128);
+            this.ylcb.Name = "ylcb";
+            this.ylcb.Size = new System.Drawing.Size(121, 21);
+            this.ylcb.TabIndex = 87;
+            this.ylcb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.ylcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(500, 112);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.TabIndex = 86;
+            this.label4.Text = "Year Level:";
+            // 
+            // semcb
+            // 
+            this.semcb.FormattingEnabled = true;
+            this.semcb.Location = new System.Drawing.Point(654, 128);
+            this.semcb.Name = "semcb";
+            this.semcb.Size = new System.Drawing.Size(121, 21);
+            this.semcb.TabIndex = 89;
+            this.semcb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.semcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(651, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.TabIndex = 88;
+            this.label5.Text = "Semester:";
+            // 
+            // numtxt
+            // 
+            this.numtxt.Enabled = false;
+            this.numtxt.Location = new System.Drawing.Point(806, 129);
+            this.numtxt.Name = "numtxt";
+            this.numtxt.Size = new System.Drawing.Size(121, 20);
+            this.numtxt.TabIndex = 91;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.CausesValidation = false;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(60, 232);
+            this.label6.Location = new System.Drawing.Point(802, 112);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 24);
-            this.label6.TabIndex = 79;
-            this.label6.Text = "Section list:";
+            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.TabIndex = 90;
+            this.label6.Text = "Number of Students:";
             // 
             // sectionmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 566);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.searchcurrtxt);
+            this.Controls.Add(this.numtxt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.semcb);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ylcb);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.coursecb);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Currrcb);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.searchsecttxt);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridViewsetion);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.addbtn);
-            this.Controls.Add(this.curriculumtxt);
             this.Controls.Add(this.sectiontxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewcurr);
             this.Controls.Add(this.label7);
             this.Name = "sectionmenu";
             this.Text = "sectionmenu";
             this.Load += new System.EventHandler(this.sectionmenu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsetion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -262,21 +285,24 @@ namespace EnrollmentSystem
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridViewcurr;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sectiontxt;
-        private System.Windows.Forms.TextBox curriculumtxt;
         private System.Windows.Forms.Button clearbtn;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button addbtn;
         private System.Windows.Forms.DataGridView dataGridViewsetion;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox searchcurrtxt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox searchsecttxt;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox Currrcb;
+        private System.Windows.Forms.ComboBox coursecb;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ylcb;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox semcb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox numtxt;
         private System.Windows.Forms.Label label6;
     }
 }
