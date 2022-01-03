@@ -119,6 +119,7 @@ namespace EnrollmentSystem
             this.editbtn.TabIndex = 58;
             this.editbtn.Text = "Manage Students";
             this.editbtn.UseVisualStyleBackColor = true;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
             // 
             // addbtn
             // 

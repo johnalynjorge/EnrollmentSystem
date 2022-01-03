@@ -698,5 +698,118 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        
+        public DataTable SearchStudent(string sc)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_student WHERE CONCAT([StudentID]+[Last Name]+[First Name]+[Middle Name]+[School Year]+[Year Level]+[Semester]+[Status]+[Course Code],[Age], [Gender]+[Mobile Number]+[Email]+[Birthdate]+[Address]) LIKE '%" + sc + "%'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public DataTable SearchStudentArchive(string sc)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_archive WHERE CONCAT([StudentID]+[Last Name]+[First Name]+[Middle Name]+[School Year]+[Year Level]+[Semester]+[Status]+[Course Code],[Age], [Gender]+[Mobile Number]+[Email]+[Birthdate]+[Address]) LIKE '%" + sc + "%'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public Array returnSection(string code)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_section WHERE [Section Code] = '" + code + "'", con);
+            dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            string[] array;
+            array = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            return array;
+
+        }
+        public DataTable DisplayStudentS(string schoolyear, string course, string yearlevel, string sem)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT [StudentID],[Last Name],[First Name] FROM tbl_student WHERE [School year] = '" + schoolyear + "' AND [Course Code] = '" + course + "' " +
+                "AND [Year Level] = '" + yearlevel + "' AND [Semester] = '" + sem + "'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public DataTable SearchStudentSec (string sc, string schoolyear, string course, string yearlevel, string sem)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT [StudentID],[Last Name],[First Name] FROM tbl_student WHERE CONCAT([StudentID],[Last Name],[First Name],[Middle Name]) LIKE '%" + sc + "%' AND [School year] = '" + schoolyear + "' AND [Course Code] = '" + course + "' " +
+                "AND [Year Level] = '" + yearlevel + "' AND [Semester] = '" + sem + "'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public DataTable DisplayAddedStudents(string section)
+        {
+            sda = new SqlDataAdapter("SELECT S.[StudentID],S.[Last Name],S.[First Name] FROM tbl_section_student SS JOIN tbl_student S ON SS.[StudentID] = S.[StudentID] WHERE SS.[Section Code] = '" + section + "'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Added");
+            con.Close();
+            return ds.Tables["Added"];
+        }
+        public void AddStudentSection(string section, string id)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_section_student ([Section Code], [StudentID]) " +
+                "VALUES (@section,@id)", con);
+            cmd.Parameters.AddWithValue("@section", section);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean IfStudentAlreadyInSection(string id)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_section_student WHERE ([StudentID] = @id)", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void EditNumStudents(string section, int num)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_section SET [Number of Students] = @num WHERE [Section Code] = @section", con);
+            cmd.Parameters.AddWithValue("@num", num);
+            cmd.Parameters.AddWithValue("@section", section);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void RemoveFromSection(string section, string id)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_section_student WHERE [Section Code] = @section AND [StudentID] = @id", con);
+            cmd.Parameters.AddWithValue("@section", section);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable SearchAddedStudents(string section, string sc)
+        {
+            sda = new SqlDataAdapter("SELECT S.[StudentID],S.[Last Name],S.[First Name] FROM tbl_section_student SS JOIN tbl_student S ON SS.[StudentID] = S.[StudentID] WHERE SS.[Section Code] = '" + section + "' AND " +
+                " CONCAT(S.[StudentID],S.[Last Name],S.[First Name] ) LIKE '%" + sc + "%'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Subjects");
+            con.Close();
+            return ds.Tables["Subjects"];
+        }
     }
 }

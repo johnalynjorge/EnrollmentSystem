@@ -378,6 +378,7 @@ namespace EnrollmentSystem
             this.searchsecttxt.Name = "searchsecttxt";
             this.searchsecttxt.Size = new System.Drawing.Size(779, 20);
             this.searchsecttxt.TabIndex = 84;
+            this.searchsecttxt.TextChanged += new System.EventHandler(this.searchsecttxt_TextChanged);
             // 
             // dataGridViewstudent
             // 

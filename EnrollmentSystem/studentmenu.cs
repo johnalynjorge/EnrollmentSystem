@@ -203,6 +203,20 @@ namespace EnrollmentSystem
             DisplayData();
         }
 
+        private void searchsecttxt_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string sc = searchsecttxt.Text.Trim();
+                dataGridViewstudent.DataSource = checker.SearchStudent(sc).DefaultView;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public Boolean checkParts()
         {
             foreach (Control c in this.Controls)

@@ -18,6 +18,7 @@ namespace EnrollmentSystem
         char letter = 'A';
         static string sectioncode;
         ArrayList arrayList = new ArrayList();
+        editsection es;
         public sectionmenu()
         {
             InitializeComponent();
@@ -57,6 +58,10 @@ namespace EnrollmentSystem
             sectioncode = "";
             letter = 'A';
             DisplaySections();
+            Currrcb.Enabled = true;
+            coursecb.Enabled = true;
+            ylcb.Enabled = true;
+            semcb.Enabled = true;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -124,6 +129,11 @@ namespace EnrollmentSystem
             deletebtn.Enabled = true;
             clearbtn.Enabled = true;
             addbtn.Enabled = false;
+            editbtn.Enabled = true;
+            Currrcb.Enabled = false;
+            coursecb.Enabled = false;
+            ylcb.Enabled = false;
+            semcb.Enabled = false;
         }
 
        
@@ -172,6 +182,13 @@ namespace EnrollmentSystem
         private void Currrcb_KeyDown(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
+        }
+
+        private void editbtn_Click(object sender, EventArgs e)
+        {
+            es = new editsection(sectiontxt.Text);
+            es.ShowDialog();
+            clearData();
         }
     }
 }

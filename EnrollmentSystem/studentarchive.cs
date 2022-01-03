@@ -68,9 +68,12 @@ namespace EnrollmentSystem
         }
         public void ClearData()
         {
-            funcs.ClearCombobox(this.Controls);
+            funcs.ClearCombobox2(this.Controls);
             funcs.ClearTextboxes(this.Controls);
             DisplayData();
+            addbtn.Enabled = false;
+            deletebtn.Enabled = false;
+            clearbtn.Enabled = false;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -111,5 +114,20 @@ namespace EnrollmentSystem
                 }
             }
         }
+
+        private void searchsecttxt_TextChanged(object sender, EventArgs e)
+         {
+                try
+                {
+                    string sc = searchsecttxt.Text.Trim();
+                    dataGridViewstudent.DataSource = checker.SearchStudentArchive(sc).DefaultView;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
-}
+

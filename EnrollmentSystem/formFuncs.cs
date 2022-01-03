@@ -29,6 +29,15 @@ namespace EnrollmentSystem
                 ClearCombobox(ctrl.Controls);
             }
         }
+        public void ClearCombobox2(System.Windows.Forms.Control.ControlCollection ctrls)
+        {
+            foreach (Control ctrl in ctrls)
+            {
+                if (ctrl is ComboBox)
+                    ((ComboBox)ctrl).Text = null;
+                ClearCombobox(ctrl.Controls);
+            }
+        }
         public Array DaysValues()
         {
             string[] array = {"Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
