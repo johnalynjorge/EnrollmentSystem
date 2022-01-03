@@ -151,7 +151,7 @@ namespace EnrollmentSystem
                 if (c is TextBox)
                 {
                     TextBox textBox = c as TextBox;
-                    if (textBox.Text == string.Empty)
+                    if (textBox.Text.Trim() == string.Empty)
                     {
                         flag = true;
                         break;
@@ -165,6 +165,10 @@ namespace EnrollmentSystem
                         flag = true;
                         break;
                     }
+                }
+                else
+                {
+                    flag = false;
                 }
             }
             return flag;

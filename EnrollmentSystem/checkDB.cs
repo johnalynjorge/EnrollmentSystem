@@ -597,6 +597,15 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Student"];
         }
+        public DataTable DisplayStudentA()
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_archive", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
         public Boolean IfStudentMain(string code)
         {
             con.Open();
@@ -631,11 +640,11 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public void AddStudent(string id, string last, string first, string middle, string schoolyear, string level, string sem, string status, string course, int age, string gender,
+        public void AddStudentMain(string id, string last, string first, string middle, string schoolyear, string level, string sem, string status, string course, int age, string gender,
             string number, string email, string birth,string address)
         {
             con.Open();
-            cmd = new SqlCommand("INSERT INTO tbl_student ([StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semster], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address]) " +
+            cmd = new SqlCommand("INSERT INTO tbl_student ([StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semester], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address]) " +
                 "VALUES (@id,@last,@first,@middle,@school,@year,@sem,@status,@course,@age,@gender,@num,@email,@birth,@address)", con);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@last", last);
@@ -652,6 +661,40 @@ namespace EnrollmentSystem
             cmd.Parameters.AddWithValue("@email", email);
             cmd.Parameters.AddWithValue("@birth", birth);
             cmd.Parameters.AddWithValue("@address", address);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void DeleteStudentMain(string coursec)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_student WHERE [StudentID] = @ccode", con);
+            cmd.Parameters.AddWithValue("@ccode", coursec);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void AddStudentArchive(string id)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_archive ([StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semester], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address]) " +
+                "SELECT [StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semester], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address] FROM tbl_student WHERE [StudentID] = @id ", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void RestoreStudent(string id)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_student ([StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semester], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address]) " +
+                "SELECT [StudentID], [Last Name], [First Name], [Middle Name], [School Year], [Year Level], [Semester], [Status],[Course Code],[Age],[Gender],[Mobile Number],[Email],[Birthdate],[Address] FROM tbl_archive WHERE [StudentID] = @id ", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void DeleteStudentArchive(string coursec)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_archive WHERE [StudentID] = @ccode", con);
+            cmd.Parameters.AddWithValue("@ccode", coursec);
             cmd.ExecuteNonQuery();
             con.Close();
         }
