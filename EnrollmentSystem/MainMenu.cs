@@ -34,11 +34,12 @@ namespace EnrollmentSystem
                 st = new studentmenu();
                 st.TopLevel = false;
                 st.AutoScroll = true;
-                st.FormBorderStyle = FormBorderStyle.None;
                 st.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(st);
                 st.Show();
                 setFormNum(1);
+                position(studentMbtn);
+                isActive(studentMbtn);
             }
         }
 
@@ -49,7 +50,7 @@ namespace EnrollmentSystem
 
         private void Logoutbtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to log out?", "Log out", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to log out?", "Log out?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
@@ -65,10 +66,11 @@ namespace EnrollmentSystem
             st = new studentmenu();
             st.TopLevel = false;
             st.AutoScroll = true;
-            st.FormBorderStyle = FormBorderStyle.None;
             st.Dock = DockStyle.Fill;
             mainpanel.Controls.Add(st);
             st.Show();
+            position(studentMbtn);
+            isActive(studentMbtn);
         }
 
         private void CourseMngt_Click(object sender, EventArgs e)
@@ -80,11 +82,12 @@ namespace EnrollmentSystem
                 cm = new coursemenu();
                 cm.TopLevel = false;
                 cm.AutoScroll = true;
-                cm.FormBorderStyle = FormBorderStyle.None;
                 cm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(cm);
                 cm.Show();
                 setFormNum(2);
+                position(CourseMngt);
+                isActive(CourseMngt);
             }
         }
         public void closeForm()
@@ -143,11 +146,12 @@ namespace EnrollmentSystem
                 crm = new curriculummenu();
                 crm.TopLevel = false;
                 crm.AutoScroll = true;
-                crm.FormBorderStyle = FormBorderStyle.None;
                 crm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(crm);
                 crm.Show();
                 setFormNum(5);
+                position(curBtn);
+                isActive(curBtn);
             }
         }
 
@@ -160,11 +164,12 @@ namespace EnrollmentSystem
                 fm = new facultymenu();
                 fm.TopLevel = false;
                 fm.AutoScroll = true;
-                fm.FormBorderStyle = FormBorderStyle.None;
                 fm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(fm);
                 fm.Show();
                 setFormNum(4);
+                position(FacultyMngt);
+                isActive(FacultyMngt);
             }
         }
 
@@ -177,11 +182,12 @@ namespace EnrollmentSystem
                 sbm = new subjectmenu();
                 sbm.TopLevel = false;
                 sbm.AutoScroll = true;
-                sbm.FormBorderStyle = FormBorderStyle.None;
                 sbm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(sbm);
                 sbm.Show();
                 setFormNum(3);
+                position(SubjectMngt);
+                isActive(SubjectMngt);
             }
         }
 
@@ -194,11 +200,12 @@ namespace EnrollmentSystem
                 scm = new sectionmenu();
                 scm.TopLevel = false;
                 scm.AutoScroll = true;
-                scm.FormBorderStyle = FormBorderStyle.None;
                 scm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(scm);
                 scm.Show();
                 setFormNum(6);
+                position(SectionMngt);
+                isActive(SectionMngt);
             }
         }
 
@@ -211,13 +218,38 @@ namespace EnrollmentSystem
                 sdm = new schedulemenu();
                 sdm.TopLevel = false;
                 sdm.AutoScroll = true;
-                sdm.FormBorderStyle = FormBorderStyle.None;
                 sdm.Dock = DockStyle.Fill;
                 mainpanel.Controls.Add(sdm);
                 sdm.Show();
                 setFormNum(7);
+                position(ScheduleMngt);
+                isActive(ScheduleMngt);
             }
         }
+            private void position(Button btn)
+        {
+            indicator.Location = new Point(btn.Location.X - indicator.Width, btn.Location.Y);
+        }
+        private void isActive(Button btn)
+        {
+            foreach (Control ctrl in panel1.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    if (ctrl.Name == btn.Name)
+                    {
+                        ctrl.BackColor = Color.FromArgb(112, 169, 165);
+                        ctrl.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        ctrl.BackColor = Color.FromArgb(68, 203, 191);
+                        ctrl.ForeColor = Color.Black;
+                    }
+                }
+            }
+        }
+
     }
     
 }

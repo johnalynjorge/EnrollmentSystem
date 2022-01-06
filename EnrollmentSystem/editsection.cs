@@ -42,6 +42,9 @@ namespace EnrollmentSystem
             }
             DisplayStudents();
             DisplayAlreadyAdded();
+            func.enableShow(clearbtn);
+            func.disableHide(deletebtn);
+            func.disableHide(addbtn);
         }
         public void DisplayStudents()
         {
@@ -92,17 +95,17 @@ namespace EnrollmentSystem
 
             idtxt.Text = dataGridViewstudents.Rows[e.RowIndex].Cells[0].Value.ToString();
             nametxt.Text = dataGridViewstudents.Rows[e.RowIndex].Cells[1].Value.ToString() + " " + dataGridViewstudents.Rows[e.RowIndex].Cells[2].Value.ToString();
-            clearbtn.Enabled = true;
-            addbtn.Enabled = true;
-            deletebtn.Enabled = false;
+            func.enableShow(clearbtn);
+            func.disableHide(deletebtn);
+            func.enableShow(addbtn);
         }
         public void ClearData()
         {
             idtxt.Text = "";
             nametxt.Text = "";
-            clearbtn.Enabled = false;
-            addbtn.Enabled = false;
-            deletebtn.Enabled = false;
+            func.enableShow(clearbtn);
+            func.disableHide(deletebtn);
+            func.disableHide(addbtn);
             DisplayStudents();
             DisplayAlreadyAdded();
         }
@@ -124,9 +127,9 @@ namespace EnrollmentSystem
 
             idtxt.Text = dataGridViewAddedSt.Rows[e.RowIndex].Cells[0].Value.ToString();
             nametxt.Text = dataGridViewAddedSt.Rows[e.RowIndex].Cells[1].Value.ToString() + " " + dataGridViewAddedSt.Rows[e.RowIndex].Cells[2].Value.ToString();
-            clearbtn.Enabled = true;
-            addbtn.Enabled = false;
-            deletebtn.Enabled = true;
+            func.enableShow(clearbtn);
+            func.enableShow(deletebtn);
+            func.disableHide(addbtn);
         }
 
         private void addbtn_Click(object sender, EventArgs e)

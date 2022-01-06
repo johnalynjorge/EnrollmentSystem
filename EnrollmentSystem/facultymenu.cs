@@ -143,11 +143,11 @@ namespace EnrollmentSystem
             funcs.ClearTextboxes(this.Controls);
             funcs.ClearCombobox(this.Controls);
             beingEdit = false;
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
             fIDtxt.Enabled = false;
-            createbtn.Enabled = true;
-            clearbtn.Enabled = false;
+            funcs.enableShow(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(editbtn);
+            funcs.enableShow(createbtn);
         }
 
         private void createbtn_Click(object sender, EventArgs e)
@@ -190,10 +190,10 @@ namespace EnrollmentSystem
             contacttxt.Text = dataGridViewfaculty.Rows[e.RowIndex].Cells[3].Value.ToString();
             Depcombo.SelectedItem = dataGridViewfaculty.Rows[e.RowIndex].Cells[4].Value.ToString();
             fIDtxt.Text = temid;
-            createbtn.Enabled = false;
-            editbtn.Enabled = true;
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
+            funcs.enableShow(clearbtn);
+            funcs.enableShow(deletebtn);
+            funcs.enableShow(editbtn);
+            funcs.disableHide(createbtn);
             beingEdit = true;
         }
     }

@@ -45,16 +45,20 @@ namespace EnrollmentSystem
 
             string[] sems = { "First Sem", "Second Sem" };
             semcb.Items.AddRange(sems);
+            f.enableShow(clearbtn);
+            f.disableHide(deletebtn);
+            f.enableShow(addbtn);
+            f.disableHide(editbtn);
         }
 
         public void clearData()
         {
             f.ClearTextboxes(this.Controls);
             f.ClearCombobox(this.Controls);
-            addbtn.Enabled = true;
-            clearbtn.Enabled = false;
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
+            f.enableShow(clearbtn);
+            f.disableHide(deletebtn);
+            f.enableShow(addbtn);
+            f.disableHide(editbtn);
             sectioncode = "";
             letter = 'A';
             DisplaySections();
@@ -126,10 +130,10 @@ namespace EnrollmentSystem
             semcb.SelectedItem = dataGridViewsetion.Rows[e.RowIndex].Cells[4].Value.ToString();
             numtxt.Text = dataGridViewsetion.Rows[e.RowIndex].Cells[5].Value.ToString();
             sectiontxt.Text = dataGridViewsetion.Rows[e.RowIndex].Cells[0].Value.ToString();
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
-            addbtn.Enabled = false;
-            editbtn.Enabled = true;
+            f.enableShow(clearbtn);
+            f.enableShow(deletebtn);
+            f.disableHide(addbtn);
+            f.enableShow(editbtn);
             Currrcb.Enabled = false;
             coursecb.Enabled = false;
             ylcb.Enabled = false;

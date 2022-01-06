@@ -60,6 +60,9 @@ namespace EnrollmentSystem
             {
                 MessageBox.Show(ex.Message);
             }
+            funcs.enableShow(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(editbtn);
             
 
 
@@ -78,7 +81,7 @@ namespace EnrollmentSystem
             int age;
             if (checkParts())
             {
-                MessageBox.Show("Please check all information", "Missing information");
+                MessageBox.Show("Please check all information", "Missing information",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 flag = false;
             }
             else if (int.TryParse(agetxt.Text, out age))
@@ -88,7 +91,7 @@ namespace EnrollmentSystem
                     checker.AddStudentMain(idtxt.Text, lasttxt.Text, firsttxt.Text, middletxt.Text, SYcb.SelectedItem.ToString(), YLcb.SelectedItem.ToString(),
                         semcb.SelectedItem.ToString(), Statuscb.SelectedItem.ToString(),Coursecb.SelectedItem.ToString(),age,Gendercb.SelectedItem.ToString(),
                         numtxt.Text, emailtxt.Text, bdaytxt.Text.ToString(),addresstxt.Text);
-                    MessageBox.Show("Student added successfully.", "Student Added");
+                    MessageBox.Show("Student added successfully.", "Student Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
                 }
                 catch (Exception ex)
@@ -98,7 +101,7 @@ namespace EnrollmentSystem
             }
             else
             {
-                MessageBox.Show("Invalid age", "Invalid Information");
+                MessageBox.Show("Invalid age", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
         }
@@ -114,12 +117,11 @@ namespace EnrollmentSystem
             semcb.Enabled = true;
             Statuscb.Enabled = true;
             Coursecb.Enabled = true;
-            deletebtn.Enabled = true;
             beingEdit = false;
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
-            addbtn.Enabled = true;
-            clearbtn.Enabled = false;
+            funcs.enableShow(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(editbtn);
+            funcs.enableShow(addbtn);
         }
         public void DisplayData()
         {
@@ -164,10 +166,10 @@ namespace EnrollmentSystem
             semcb.Enabled = false;
             Statuscb.Enabled = false;
             Coursecb.Enabled = false;
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
-            addbtn.Enabled = false;
-            editbtn.Enabled = true;
+            funcs.enableShow(clearbtn);
+            funcs.enableShow(deletebtn);
+            funcs.enableShow(editbtn);
+            funcs.disableHide(addbtn);
             beingEdit = true;
         }
 
@@ -178,14 +180,14 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' ?", "Delete Student?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' ?", "Delete Student?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
                     checker.AddStudentArchive(idtxt.Text);
                     checker.DeleteStudentMain(idtxt.Text);
-                    MessageBox.Show("Student deleted successfully.\nAdded to the archive", "Student Deleted");
+                    MessageBox.Show("Student deleted successfully.\nAdded to the archive", "Student Deleted",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     clearData();
                 }
                 catch (Exception ex)
@@ -215,6 +217,11 @@ namespace EnrollmentSystem
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void SYcb_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
         }
 
         public Boolean checkParts()

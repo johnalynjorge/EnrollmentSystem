@@ -94,5 +94,15 @@ namespace EnrollmentSystem
             }
             return arrayList;
         }
+        public void disableHide(Button btn)
+        {
+            btn.Enabled = false;
+            btn.Hide();
+        }
+        public void enableShow(Button btn)
+        {
+            btn.Enabled = true;
+            btn.Show();
+        }
     }
 }

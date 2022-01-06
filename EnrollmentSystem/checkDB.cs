@@ -460,7 +460,7 @@ namespace EnrollmentSystem
         }
         public DataTable FillSubject(string section)
         {
-            sda = new SqlDataAdapter("SELECT CS.[Subject Code] FROM [tbl_section] S JOIN tbl_curriculum_subject CS ON S.[Curriculum Code] = CS.[Curriculum Code] WHERE S.[Section Code] = '" + section + "'", con);
+            sda = new SqlDataAdapter("SELECT CS.[Subject Code] FROM tbl_curriculum_subject CS  JOIN tbl_section S ON CS.[Course Code] = S.[Course Code] JOIN tbl_curriculum C ON CS.[Curriculum Code] = C.[Curriculum Code] WHERE CS.[Year level] = S.[Year Level] AND CS.Semester = S.[Semester] AND S.[Section Code] = '" +section  +"'", con);
             ds = new DataSet();
             sda.Fill(ds, "Subjects");
             con.Close();

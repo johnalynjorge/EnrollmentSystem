@@ -50,6 +50,9 @@ namespace EnrollmentSystem
             {
                 MessageBox.Show(ex.Message);
             }
+            f.disableHide(clearbtn);
+            f.disableHide(deletebtn);
+            f.disableHide(addbtn);
         }
         public void ComputeUnits()
         {
@@ -82,9 +85,9 @@ namespace EnrollmentSystem
             sctxt.Text = dataGridViewsubs.Rows[e.RowIndex].Cells[0].Value.ToString();
             sntxt.Text = dataGridViewsubs.Rows[e.RowIndex].Cells[1].Value.ToString();
             units = Convert.ToDouble(dataGridViewsubs.Rows[e.RowIndex].Cells[2].Value.ToString());
-            addbtn.Enabled = true;
-            clearbtn.Enabled = true;
-            deletebtn.Enabled = false;
+            f.enableShow(clearbtn);
+            f.disableHide(deletebtn);
+            f.enableShow(addbtn);
         }
 
         private void dataGridViewsubs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -100,9 +103,9 @@ namespace EnrollmentSystem
             sctxt.Clear();
             semcb.SelectedItem = null;
             ylcb.SelectedItem = null;
-            addbtn.Enabled = false;
-            deletebtn.Enabled = false;
-            clearbtn.Enabled = false;
+            f.disableHide(clearbtn);
+            f.disableHide(deletebtn);
+            f.disableHide(addbtn);
             DisplaySubs();
             DisplayCurSub();
         }
@@ -225,9 +228,11 @@ namespace EnrollmentSystem
             sctxt.Text = dataGridViewAddedSub.Rows[e.RowIndex].Cells[2].Value.ToString();
             ylcb.SelectedItem = dataGridViewAddedSub.Rows[e.RowIndex].Cells[3].Value.ToString();
             semcb.SelectedItem = dataGridViewAddedSub.Rows[e.RowIndex].Cells[4].Value.ToString();
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
-            addbtn.Enabled = false;
+            f.enableShow(clearbtn);
+            f.enableShow(deletebtn);
+            f.disableHide(addbtn);
         }
+
+        
     }
 }

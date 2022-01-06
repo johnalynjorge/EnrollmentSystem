@@ -138,12 +138,12 @@ namespace EnrollmentSystem
             tempcur = "";
             finalcurrcode = "";
             funcs.ClearCombobox(this.Controls);
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
             start.Enabled = true;
             end.Enabled = true;
-            createbtn.Enabled = true;
-            clearbtn.Enabled = false;
+            funcs.enableShow(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(editbtn);
+            funcs.enableShow(createbtn);
             DisplayData();
         }
 
@@ -161,15 +161,14 @@ namespace EnrollmentSystem
         public void getTempVal(DataGridViewCellEventArgs e)
         {
             tempcur = dataGridViewcurr.Rows[e.RowIndex].Cells[0].Value.ToString();
-            end.Enabled = false;
-            start.Enabled = false;
-            end.Enabled = false;
-            createbtn.Enabled = false;
-            editbtn.Enabled = true;
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
+            funcs.enableShow(clearbtn);
+            funcs.enableShow(deletebtn);
+            funcs.enableShow(editbtn);
+            funcs.disableHide(createbtn);
             start.Text = tempcur.Substring(0, 4);
             end.Text = tempcur.Substring(5, 4);
+            end.Enabled = false;
+            start.Enabled = false;
 
         }
 

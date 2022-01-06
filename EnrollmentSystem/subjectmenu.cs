@@ -53,12 +53,12 @@ namespace EnrollmentSystem
             funcs.ClearCombobox(this.Controls);
             DisplayData();
             categorycb.SelectedItem = null;
-            editbtn.Enabled = false;
-            deletebtn.Enabled = false;
             categorycb.Enabled = true;
             sctxt.Enabled = false;
-            addbtn.Enabled = true;
-            clearbtn.Enabled = false;
+            funcs.enableShow(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(editbtn);
+            funcs.enableShow(addbtn);
         }
 
         private void categorycb_KeyDown(object sender, KeyEventArgs e)
@@ -200,10 +200,10 @@ namespace EnrollmentSystem
             utxt.Text = dataGridViewsubs.Rows[e.RowIndex].Cells[2].Value.ToString();
             categorycb.SelectedItem = dataGridViewsubs.Rows[e.RowIndex].Cells[3].Value.ToString();
             sctxt.Text = tempsc;
-            addbtn.Enabled = false;
-            editbtn.Enabled = true;
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
+            funcs.enableShow(clearbtn);
+            funcs.enableShow(deletebtn);
+            funcs.enableShow(editbtn);
+            funcs.disableHide(addbtn);
             categorycb.Enabled = false;
         }
     }

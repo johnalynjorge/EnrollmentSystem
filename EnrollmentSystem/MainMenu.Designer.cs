@@ -30,6 +30,7 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.indicator = new System.Windows.Forms.Panel();
             this.curBtn = new System.Windows.Forms.Button();
             this.Logoutbtn = new System.Windows.Forms.Button();
             this.ScheduleMngt = new System.Windows.Forms.Button();
@@ -45,7 +46,8 @@ namespace EnrollmentSystem
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(212)))), ((int)(((byte)(209)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.panel1.Controls.Add(this.indicator);
             this.panel1.Controls.Add(this.curBtn);
             this.panel1.Controls.Add(this.Logoutbtn);
             this.panel1.Controls.Add(this.ScheduleMngt);
@@ -54,19 +56,28 @@ namespace EnrollmentSystem
             this.panel1.Controls.Add(this.SubjectMngt);
             this.panel1.Controls.Add(this.CourseMngt);
             this.panel1.Controls.Add(this.studentMbtn);
-            this.panel1.Location = new System.Drawing.Point(-2, 1);
+            this.panel1.Location = new System.Drawing.Point(-2, -7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(241, 633);
+            this.panel1.Size = new System.Drawing.Size(241, 811);
             this.panel1.TabIndex = 0;
+            // 
+            // indicator
+            // 
+            this.indicator.BackColor = System.Drawing.Color.White;
+            this.indicator.Location = new System.Drawing.Point(0, 78);
+            this.indicator.Name = "indicator";
+            this.indicator.Size = new System.Drawing.Size(10, 60);
+            this.indicator.TabIndex = 15;
             // 
             // curBtn
             // 
-            this.curBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.curBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.curBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curBtn.Location = new System.Drawing.Point(29, 290);
+            this.curBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.curBtn.FlatAppearance.BorderSize = 0;
+            this.curBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.curBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.curBtn.Location = new System.Drawing.Point(11, 402);
             this.curBtn.Name = "curBtn";
-            this.curBtn.Size = new System.Drawing.Size(190, 35);
+            this.curBtn.Size = new System.Drawing.Size(227, 60);
             this.curBtn.TabIndex = 14;
             this.curBtn.Text = "Curriculum Management";
             this.curBtn.UseVisualStyleBackColor = false;
@@ -74,12 +85,13 @@ namespace EnrollmentSystem
             // 
             // Logoutbtn
             // 
-            this.Logoutbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.Logoutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Logoutbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logoutbtn.Location = new System.Drawing.Point(29, 449);
+            this.Logoutbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.Logoutbtn.FlatAppearance.BorderSize = 0;
+            this.Logoutbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Logoutbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logoutbtn.Location = new System.Drawing.Point(11, 645);
             this.Logoutbtn.Name = "Logoutbtn";
-            this.Logoutbtn.Size = new System.Drawing.Size(190, 35);
+            this.Logoutbtn.Size = new System.Drawing.Size(227, 60);
             this.Logoutbtn.TabIndex = 12;
             this.Logoutbtn.Text = "Log Out";
             this.Logoutbtn.UseVisualStyleBackColor = false;
@@ -87,12 +99,13 @@ namespace EnrollmentSystem
             // 
             // ScheduleMngt
             // 
-            this.ScheduleMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.ScheduleMngt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ScheduleMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheduleMngt.Location = new System.Drawing.Point(29, 396);
+            this.ScheduleMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.ScheduleMngt.FlatAppearance.BorderSize = 0;
+            this.ScheduleMngt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ScheduleMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleMngt.Location = new System.Drawing.Point(14, 564);
             this.ScheduleMngt.Name = "ScheduleMngt";
-            this.ScheduleMngt.Size = new System.Drawing.Size(190, 35);
+            this.ScheduleMngt.Size = new System.Drawing.Size(227, 60);
             this.ScheduleMngt.TabIndex = 11;
             this.ScheduleMngt.Text = "Schedule Management";
             this.ScheduleMngt.UseVisualStyleBackColor = false;
@@ -100,12 +113,13 @@ namespace EnrollmentSystem
             // 
             // SectionMngt
             // 
-            this.SectionMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.SectionMngt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SectionMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionMngt.Location = new System.Drawing.Point(29, 343);
+            this.SectionMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.SectionMngt.FlatAppearance.BorderSize = 0;
+            this.SectionMngt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SectionMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SectionMngt.Location = new System.Drawing.Point(11, 483);
             this.SectionMngt.Name = "SectionMngt";
-            this.SectionMngt.Size = new System.Drawing.Size(190, 35);
+            this.SectionMngt.Size = new System.Drawing.Size(227, 60);
             this.SectionMngt.TabIndex = 10;
             this.SectionMngt.Text = "Section Management";
             this.SectionMngt.UseVisualStyleBackColor = false;
@@ -113,12 +127,13 @@ namespace EnrollmentSystem
             // 
             // FacultyMngt
             // 
-            this.FacultyMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.FacultyMngt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.FacultyMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FacultyMngt.Location = new System.Drawing.Point(29, 237);
+            this.FacultyMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.FacultyMngt.FlatAppearance.BorderSize = 0;
+            this.FacultyMngt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FacultyMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FacultyMngt.Location = new System.Drawing.Point(11, 321);
             this.FacultyMngt.Name = "FacultyMngt";
-            this.FacultyMngt.Size = new System.Drawing.Size(190, 35);
+            this.FacultyMngt.Size = new System.Drawing.Size(227, 60);
             this.FacultyMngt.TabIndex = 9;
             this.FacultyMngt.Text = "Faculty Management";
             this.FacultyMngt.UseVisualStyleBackColor = false;
@@ -126,12 +141,13 @@ namespace EnrollmentSystem
             // 
             // SubjectMngt
             // 
-            this.SubjectMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.SubjectMngt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SubjectMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubjectMngt.Location = new System.Drawing.Point(29, 184);
+            this.SubjectMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.SubjectMngt.FlatAppearance.BorderSize = 0;
+            this.SubjectMngt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubjectMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubjectMngt.Location = new System.Drawing.Point(11, 240);
             this.SubjectMngt.Name = "SubjectMngt";
-            this.SubjectMngt.Size = new System.Drawing.Size(190, 35);
+            this.SubjectMngt.Size = new System.Drawing.Size(227, 60);
             this.SubjectMngt.TabIndex = 8;
             this.SubjectMngt.Text = "Subject Management";
             this.SubjectMngt.UseVisualStyleBackColor = false;
@@ -139,12 +155,13 @@ namespace EnrollmentSystem
             // 
             // CourseMngt
             // 
-            this.CourseMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.CourseMngt.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.CourseMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CourseMngt.Location = new System.Drawing.Point(29, 131);
+            this.CourseMngt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.CourseMngt.FlatAppearance.BorderSize = 0;
+            this.CourseMngt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CourseMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CourseMngt.Location = new System.Drawing.Point(11, 159);
             this.CourseMngt.Name = "CourseMngt";
-            this.CourseMngt.Size = new System.Drawing.Size(190, 35);
+            this.CourseMngt.Size = new System.Drawing.Size(227, 60);
             this.CourseMngt.TabIndex = 7;
             this.CourseMngt.Text = "Course Management";
             this.CourseMngt.UseVisualStyleBackColor = false;
@@ -152,12 +169,13 @@ namespace EnrollmentSystem
             // 
             // studentMbtn
             // 
-            this.studentMbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(185)))), ((int)(((byte)(185)))));
-            this.studentMbtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.studentMbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentMbtn.Location = new System.Drawing.Point(29, 78);
+            this.studentMbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.studentMbtn.FlatAppearance.BorderSize = 0;
+            this.studentMbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.studentMbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentMbtn.Location = new System.Drawing.Point(11, 78);
             this.studentMbtn.Name = "studentMbtn";
-            this.studentMbtn.Size = new System.Drawing.Size(190, 35);
+            this.studentMbtn.Size = new System.Drawing.Size(227, 60);
             this.studentMbtn.TabIndex = 0;
             this.studentMbtn.Text = "Student Management";
             this.studentMbtn.UseVisualStyleBackColor = false;
@@ -165,18 +183,18 @@ namespace EnrollmentSystem
             // 
             // mainpanel
             // 
-            this.mainpanel.Location = new System.Drawing.Point(245, 29);
+            this.mainpanel.Location = new System.Drawing.Point(242, -4);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(987, 605);
+            this.mainpanel.Size = new System.Drawing.Size(1109, 808);
             this.mainpanel.TabIndex = 1;
             // 
             // btnmin
             // 
-            this.btnmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(212)))), ((int)(((byte)(209)))));
+            this.btnmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
             this.btnmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnmin.Location = new System.Drawing.Point(1179, -7);
+            this.btnmin.Location = new System.Drawing.Point(1298, -7);
             this.btnmin.Name = "btnmin";
             this.btnmin.Size = new System.Drawing.Size(53, 30);
             this.btnmin.TabIndex = 2;
@@ -188,7 +206,8 @@ namespace EnrollmentSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 632);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1350, 800);
             this.Controls.Add(this.btnmin);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.panel1);
@@ -215,5 +234,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button FacultyMngt;
         private System.Windows.Forms.Button SubjectMngt;
         private System.Windows.Forms.Button CourseMngt;
+        private System.Windows.Forms.Panel indicator;
     }
 }

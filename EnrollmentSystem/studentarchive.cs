@@ -22,6 +22,9 @@ namespace EnrollmentSystem
         private void studentarchive_Load(object sender, EventArgs e)
         {
             DisplayData();
+            funcs.disableHide(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(addbtn);
         }
         public void DisplayData()
         {
@@ -54,9 +57,9 @@ namespace EnrollmentSystem
             emailtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[12].Value.ToString();
             bdaytxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[13].Value.ToString();
             addresstxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[14].Value.ToString();
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
-            addbtn.Enabled = true;
+            funcs.enableShow(clearbtn);
+            funcs.enableShow(deletebtn);
+            funcs.enableShow(addbtn);
         }
 
         private void dataGridViewstudent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -71,9 +74,9 @@ namespace EnrollmentSystem
             funcs.ClearCombobox2(this.Controls);
             funcs.ClearTextboxes(this.Controls);
             DisplayData();
-            addbtn.Enabled = false;
-            deletebtn.Enabled = false;
-            clearbtn.Enabled = false;
+            funcs.disableHide(clearbtn);
+            funcs.disableHide(deletebtn);
+            funcs.disableHide(addbtn);
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -82,7 +85,7 @@ namespace EnrollmentSystem
             {
                 checker.RestoreStudent(idtxt.Text);
                 checker.DeleteStudentArchive(idtxt.Text);
-                MessageBox.Show("Student restored successfully.", "Student Restored");
+                MessageBox.Show("Student restored successfully.", "Student Restored",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 ClearData();
             }
             catch (Exception ex)
@@ -99,13 +102,13 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' permanently?", "Delete Student?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' permanently?", "Delete Student?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
                     checker.DeleteStudentArchive(idtxt.Text);
-                    MessageBox.Show("Student deleted permanently.", "Student Deleted");
+                    MessageBox.Show("Student deleted permanently.", "Student Deleted", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     ClearData();
                 }
                 catch (Exception ex)

@@ -29,6 +29,10 @@ namespace EnrollmentSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.totalunits = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,129 +69,148 @@ namespace EnrollmentSystem
             // 
             this.label5.AutoSize = true;
             this.label5.CausesValidation = false;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(375, 43);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(459, 46);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 24);
+            this.label5.Size = new System.Drawing.Size(159, 25);
             this.label5.TabIndex = 48;
             this.label5.Text = "Edit Curriculum";
             // 
             // totalunits
             // 
             this.totalunits.Enabled = false;
-            this.totalunits.Location = new System.Drawing.Point(702, 116);
+            this.totalunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalunits.Location = new System.Drawing.Point(781, 139);
             this.totalunits.Name = "totalunits";
-            this.totalunits.Size = new System.Drawing.Size(75, 20);
+            this.totalunits.Size = new System.Drawing.Size(106, 26);
             this.totalunits.TabIndex = 58;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 100);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(777, 116);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(89, 20);
             this.label3.TabIndex = 57;
             this.label3.Text = "Total Units:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(562, 99);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(619, 116);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.Size = new System.Drawing.Size(82, 20);
             this.label16.TabIndex = 55;
             this.label16.Text = "Semester:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(425, 99);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(460, 114);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.Size = new System.Drawing.Size(82, 20);
             this.label7.TabIndex = 53;
             this.label7.Text = "Year level:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(290, 99);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(294, 116);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.Size = new System.Drawing.Size(64, 20);
             this.label9.TabIndex = 51;
             this.label9.Text = "Course:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 99);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(65, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(130, 20);
             this.label2.TabIndex = 50;
             this.label2.Text = "Curriculum Code:";
             // 
             // curriculumcodetxt
             // 
             this.curriculumcodetxt.Enabled = false;
-            this.curriculumcodetxt.Location = new System.Drawing.Point(68, 115);
+            this.curriculumcodetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.curriculumcodetxt.Location = new System.Drawing.Point(68, 139);
             this.curriculumcodetxt.Name = "curriculumcodetxt";
-            this.curriculumcodetxt.Size = new System.Drawing.Size(187, 20);
+            this.curriculumcodetxt.Size = new System.Drawing.Size(187, 26);
             this.curriculumcodetxt.TabIndex = 49;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(288, 153);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(291, 198);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 65;
             this.label1.Text = "Subject Name:";
             // 
             // sntxt
             // 
             this.sntxt.Enabled = false;
-            this.sntxt.Location = new System.Drawing.Point(291, 169);
+            this.sntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sntxt.Location = new System.Drawing.Point(294, 221);
             this.sntxt.Name = "sntxt";
-            this.sntxt.Size = new System.Drawing.Size(381, 20);
+            this.sntxt.Size = new System.Drawing.Size(381, 26);
             this.sntxt.TabIndex = 64;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 150);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(64, 198);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 63;
             this.label4.Text = "Subject Code:";
             // 
             // sctxt
             // 
             this.sctxt.Enabled = false;
-            this.sctxt.Location = new System.Drawing.Point(68, 169);
+            this.sctxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sctxt.Location = new System.Drawing.Point(69, 221);
             this.sctxt.Name = "sctxt";
-            this.sctxt.Size = new System.Drawing.Size(187, 20);
+            this.sctxt.Size = new System.Drawing.Size(187, 26);
             this.sctxt.TabIndex = 62;
             this.sctxt.TextChanged += new System.EventHandler(this.sctxt_TextChanged);
             // 
             // deletebtn
             // 
+            this.deletebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(140)))), ((int)(((byte)(130)))));
             this.deletebtn.Enabled = false;
-            this.deletebtn.Location = new System.Drawing.Point(774, 217);
+            this.deletebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletebtn.ForeColor = System.Drawing.Color.White;
+            this.deletebtn.Location = new System.Drawing.Point(891, 301);
             this.deletebtn.Name = "deletebtn";
-            this.deletebtn.Size = new System.Drawing.Size(114, 23);
+            this.deletebtn.Size = new System.Drawing.Size(150, 30);
             this.deletebtn.TabIndex = 68;
             this.deletebtn.Text = "Delete Subject";
-            this.deletebtn.UseVisualStyleBackColor = true;
+            this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
             // addbtn
             // 
+            this.addbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(157)))), ((int)(((byte)(222)))));
             this.addbtn.Enabled = false;
-            this.addbtn.Location = new System.Drawing.Point(616, 217);
+            this.addbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addbtn.ForeColor = System.Drawing.Color.White;
+            this.addbtn.Location = new System.Drawing.Point(703, 301);
             this.addbtn.Name = "addbtn";
-            this.addbtn.Size = new System.Drawing.Size(114, 23);
+            this.addbtn.Size = new System.Drawing.Size(150, 30);
             this.addbtn.TabIndex = 66;
             this.addbtn.Text = "Add Subject";
-            this.addbtn.UseVisualStyleBackColor = true;
+            this.addbtn.UseVisualStyleBackColor = false;
             this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
             // dataGridViewsubs
@@ -196,13 +219,30 @@ namespace EnrollmentSystem
             this.dataGridViewsubs.AllowUserToDeleteRows = false;
             this.dataGridViewsubs.AllowUserToResizeRows = false;
             this.dataGridViewsubs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewsubs.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewsubs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewsubs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewsubs.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewsubs.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewsubs.Location = new System.Drawing.Point(489, 338);
+            this.dataGridViewsubs.Location = new System.Drawing.Point(578, 434);
             this.dataGridViewsubs.Name = "dataGridViewsubs";
             this.dataGridViewsubs.RowHeadersVisible = false;
             this.dataGridViewsubs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewsubs.Size = new System.Drawing.Size(400, 200);
+            this.dataGridViewsubs.Size = new System.Drawing.Size(462, 247);
             this.dataGridViewsubs.TabIndex = 69;
             this.dataGridViewsubs.VirtualMode = true;
             this.dataGridViewsubs.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewsubs_CellDoubleClick);
@@ -213,13 +253,30 @@ namespace EnrollmentSystem
             this.dataGridViewAddedSub.AllowUserToDeleteRows = false;
             this.dataGridViewAddedSub.AllowUserToResizeRows = false;
             this.dataGridViewAddedSub.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewAddedSub.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAddedSub.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewAddedSub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAddedSub.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewAddedSub.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewAddedSub.Location = new System.Drawing.Point(68, 338);
+            this.dataGridViewAddedSub.Location = new System.Drawing.Point(52, 434);
             this.dataGridViewAddedSub.Name = "dataGridViewAddedSub";
             this.dataGridViewAddedSub.RowHeadersVisible = false;
             this.dataGridViewAddedSub.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAddedSub.Size = new System.Drawing.Size(400, 200);
+            this.dataGridViewAddedSub.Size = new System.Drawing.Size(462, 247);
             this.dataGridViewAddedSub.TabIndex = 70;
             this.dataGridViewAddedSub.VirtualMode = true;
             this.dataGridViewAddedSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAddedSub_CellDoubleClick);
@@ -229,7 +286,7 @@ namespace EnrollmentSystem
             this.label6.AutoSize = true;
             this.label6.CausesValidation = false;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(67, 278);
+            this.label6.Location = new System.Drawing.Point(48, 361);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(212, 24);
             this.label6.TabIndex = 71;
@@ -240,7 +297,7 @@ namespace EnrollmentSystem
             this.label8.AutoSize = true;
             this.label8.CausesValidation = false;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(485, 278);
+            this.label8.Location = new System.Drawing.Point(574, 361);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 24);
             this.label8.TabIndex = 72;
@@ -248,96 +305,109 @@ namespace EnrollmentSystem
             // 
             // clearbtn
             // 
+            this.clearbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(229)))), ((int)(((byte)(239)))));
             this.clearbtn.Enabled = false;
-            this.clearbtn.Location = new System.Drawing.Point(458, 217);
+            this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearbtn.Location = new System.Drawing.Point(515, 301);
             this.clearbtn.Name = "clearbtn";
-            this.clearbtn.Size = new System.Drawing.Size(114, 23);
+            this.clearbtn.Size = new System.Drawing.Size(150, 30);
             this.clearbtn.TabIndex = 73;
             this.clearbtn.Text = "Clear";
-            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // searchalready
             // 
-            this.searchalready.Location = new System.Drawing.Point(116, 312);
+            this.searchalready.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchalready.Location = new System.Drawing.Point(118, 388);
             this.searchalready.Name = "searchalready";
-            this.searchalready.Size = new System.Drawing.Size(352, 20);
+            this.searchalready.Size = new System.Drawing.Size(396, 26);
             this.searchalready.TabIndex = 74;
             this.searchalready.TextChanged += new System.EventHandler(this.searchalready_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 315);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(48, 394);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.Size = new System.Drawing.Size(64, 20);
             this.label10.TabIndex = 76;
             this.label10.Text = "Search:";
             // 
             // searchtxt
             // 
-            this.searchtxt.Location = new System.Drawing.Point(536, 312);
+            this.searchtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchtxt.Location = new System.Drawing.Point(644, 388);
             this.searchtxt.Name = "searchtxt";
-            this.searchtxt.Size = new System.Drawing.Size(352, 20);
+            this.searchtxt.Size = new System.Drawing.Size(396, 26);
             this.searchtxt.TabIndex = 77;
             this.searchtxt.TextChanged += new System.EventHandler(this.searchtxt_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(486, 315);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(574, 394);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.Size = new System.Drawing.Size(64, 20);
             this.label11.TabIndex = 78;
             this.label11.Text = "Search:";
             // 
             // coursecb
             // 
+            this.coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursecb.FormattingEnabled = true;
-            this.coursecb.Location = new System.Drawing.Point(291, 116);
+            this.coursecb.Location = new System.Drawing.Point(298, 137);
             this.coursecb.Name = "coursecb";
-            this.coursecb.Size = new System.Drawing.Size(98, 21);
+            this.coursecb.Size = new System.Drawing.Size(124, 28);
             this.coursecb.TabIndex = 79;
             this.coursecb.SelectedIndexChanged += new System.EventHandler(this.courcecb_SelectedIndexChanged);
             // 
             // ylcb
             // 
+            this.ylcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ylcb.FormattingEnabled = true;
-            this.ylcb.Location = new System.Drawing.Point(428, 116);
+            this.ylcb.Location = new System.Drawing.Point(465, 139);
             this.ylcb.Name = "ylcb";
-            this.ylcb.Size = new System.Drawing.Size(98, 21);
+            this.ylcb.Size = new System.Drawing.Size(114, 28);
             this.ylcb.TabIndex = 80;
             // 
             // semcb
             // 
+            this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.semcb.FormattingEnabled = true;
-            this.semcb.Location = new System.Drawing.Point(565, 116);
+            this.semcb.Location = new System.Drawing.Point(622, 139);
             this.semcb.Name = "semcb";
-            this.semcb.Size = new System.Drawing.Size(98, 21);
+            this.semcb.Size = new System.Drawing.Size(116, 28);
             this.semcb.TabIndex = 81;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(804, 100);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(930, 114);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(80, 13);
+            this.label12.Size = new System.Drawing.Size(119, 20);
             this.label12.TabIndex = 82;
             this.label12.Text = "Units Required:";
             // 
             // required
             // 
             this.required.Enabled = false;
-            this.required.Location = new System.Drawing.Point(807, 117);
+            this.required.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.required.Location = new System.Drawing.Point(930, 139);
             this.required.Name = "required";
-            this.required.Size = new System.Drawing.Size(75, 20);
+            this.required.Size = new System.Drawing.Size(106, 26);
             this.required.TabIndex = 83;
             // 
             // editcurriculum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 566);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1084, 761);
             this.Controls.Add(this.required);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.semcb);

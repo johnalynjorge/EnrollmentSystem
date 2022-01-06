@@ -40,7 +40,7 @@ namespace EnrollmentSystem
 
             if (username == "" || password == "")
             {
-                MessageBox.Show("Please provide username and password.", "Login Error");
+                MessageBox.Show("Please provide username and password.", "Login Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {
@@ -53,7 +53,7 @@ namespace EnrollmentSystem
                     }
                     else
                     {
-                        MessageBox.Show("Please check your username and password.", "Login Error");
+                        MessageBox.Show("Please check your username and password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch (Exception ex)
@@ -65,7 +65,7 @@ namespace EnrollmentSystem
 
         private void exitbtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to exit application?", "Exit", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to exit application?", "Exit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 this.Hide();
@@ -77,5 +77,11 @@ namespace EnrollmentSystem
         {
             Passwordtxt.PasswordChar = show.Checked ? '\0' : '*';
         }
+
+        private void btnmin_Click(object sender, EventArgs e)
+        {
+                this.WindowState = FormWindowState.Minimized;
+            }
+        }
     }
-}
+

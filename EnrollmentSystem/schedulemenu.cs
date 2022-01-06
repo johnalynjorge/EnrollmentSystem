@@ -47,7 +47,10 @@ namespace EnrollmentSystem
             
             daycb.Items.AddRange((object[])f.DaysValues());
             typecb.Items.AddRange((object[])f.TypeValues());
-
+            f.enableShow(clearbtn);
+            f.disableHide(deletebtn);
+            f.disableHide(editbtn);
+            f.enableShow(createbtn);
         }
 
         private void sectioncb_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,10 +215,10 @@ namespace EnrollmentSystem
             sectioncb.Enabled = false;
             subjectcb.Enabled = false;
             typecb.Enabled = false;
-            deletebtn.Enabled = true;
-            clearbtn.Enabled = true;
-            createbtn.Enabled = false;
-            editbtn.Enabled = true;
+            f.enableShow(clearbtn);
+            f.enableShow(deletebtn);
+            f.enableShow(editbtn);
+            f.disableHide(createbtn);
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
@@ -226,10 +229,10 @@ namespace EnrollmentSystem
         }
         public void buttonDone()
         {
-            deletebtn.Enabled = false;
-            clearbtn.Enabled = false;
-            createbtn.Enabled = true;
-            editbtn.Enabled = false;
+            f.enableShow(clearbtn);
+            f.disableHide(deletebtn);
+            f.disableHide(editbtn);
+            f.enableShow(createbtn);
             sectioncb.Enabled = true;
             subjectcb.Enabled = true;
             typecb.Enabled = true;
