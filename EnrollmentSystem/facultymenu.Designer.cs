@@ -49,6 +49,7 @@ namespace EnrollmentSystem
             this.editbtn = new System.Windows.Forms.Button();
             this.createbtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfaculty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +99,8 @@ namespace EnrollmentSystem
             // 
             // Depcombo
             // 
+            this.Depcombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Depcombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Depcombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Depcombo.FormattingEnabled = true;
             this.Depcombo.Location = new System.Drawing.Point(412, 219);
@@ -264,6 +267,14 @@ namespace EnrollmentSystem
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(411, 217);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(310, 32);
+            this.panel1.TabIndex = 90;
+            // 
             // facultymenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +299,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.fLasttxt);
             this.Controls.Add(this.fIDtxt);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "facultymenu";
             this.Text = "facultymenu";
@@ -318,5 +330,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button createbtn;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -29,6 +29,7 @@ namespace EnrollmentSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.label1 = new System.Windows.Forms.Label();
             this.LoginButon = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@ namespace EnrollmentSystem
             this.exitbtn = new System.Windows.Forms.Button();
             this.show = new System.Windows.Forms.CheckBox();
             this.btnmin = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -56,11 +58,14 @@ namespace EnrollmentSystem
             // 
             this.LoginButon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(157)))), ((int)(((byte)(222)))));
             this.LoginButon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LoginButon.Location = new System.Drawing.Point(244, 246);
+            this.LoginButon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LoginButon.ImageIndex = 1;
+            this.LoginButon.ImageList = this.imageList1;
+            this.LoginButon.Location = new System.Drawing.Point(229, 250);
             this.LoginButon.Name = "LoginButon";
-            this.LoginButon.Size = new System.Drawing.Size(132, 30);
+            this.LoginButon.Size = new System.Drawing.Size(150, 40);
             this.LoginButon.TabIndex = 1;
             this.LoginButon.Text = "Login";
             this.LoginButon.UseVisualStyleBackColor = false;
@@ -77,20 +82,20 @@ namespace EnrollmentSystem
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, 131);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(100, 131);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username: ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(107, 186);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(100, 186);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 20);
+            this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Password: ";
             // 
@@ -106,11 +111,14 @@ namespace EnrollmentSystem
             // 
             this.exitbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(140)))), ((int)(((byte)(130)))));
             this.exitbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.exitbtn.Location = new System.Drawing.Point(244, 298);
+            this.exitbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exitbtn.ImageIndex = 0;
+            this.exitbtn.ImageList = this.imageList1;
+            this.exitbtn.Location = new System.Drawing.Point(229, 306);
             this.exitbtn.Name = "exitbtn";
-            this.exitbtn.Size = new System.Drawing.Size(132, 30);
+            this.exitbtn.Size = new System.Drawing.Size(150, 40);
             this.exitbtn.TabIndex = 6;
             this.exitbtn.Text = "Exit";
             this.exitbtn.UseVisualStyleBackColor = false;
@@ -119,10 +127,10 @@ namespace EnrollmentSystem
             // show
             // 
             this.show.AutoSize = true;
-            this.show.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.show.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.show.Location = new System.Drawing.Point(431, 186);
             this.show.Name = "show";
-            this.show.Size = new System.Drawing.Size(141, 24);
+            this.show.Size = new System.Drawing.Size(154, 24);
             this.show.TabIndex = 7;
             this.show.Text = "Show Password";
             this.show.UseVisualStyleBackColor = true;
@@ -141,6 +149,13 @@ namespace EnrollmentSystem
             this.btnmin.Text = "___";
             this.btnmin.UseVisualStyleBackColor = false;
             this.btnmin.Click += new System.EventHandler(this.btnmin_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "exit.jpg");
+            this.imageList1.Images.SetKeyName(1, "login.png");
             // 
             // login
             // 
@@ -180,6 +195,7 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button exitbtn;
         private System.Windows.Forms.CheckBox show;
         private System.Windows.Forms.Button btnmin;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

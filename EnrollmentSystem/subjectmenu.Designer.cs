@@ -48,6 +48,7 @@ namespace EnrollmentSystem
             this.label6 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsubs)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,6 +101,8 @@ namespace EnrollmentSystem
             // 
             // categorycb
             // 
+            this.categorycb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categorycb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categorycb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categorycb.FormattingEnabled = true;
             this.categorycb.Location = new System.Drawing.Point(93, 231);
@@ -245,6 +248,14 @@ namespace EnrollmentSystem
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(92, 229);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 33);
+            this.panel1.TabIndex = 89;
+            // 
             // subjectmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +278,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.sctxt);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "subjectmenu";
@@ -296,5 +308,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox searchtxt;
         private System.Windows.Forms.Button clearbtn;
+        private System.Windows.Forms.Panel panel1;
     }
 }

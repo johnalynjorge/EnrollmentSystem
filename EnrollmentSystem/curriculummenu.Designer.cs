@@ -29,8 +29,8 @@ namespace EnrollmentSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.end = new System.Windows.Forms.ComboBox();
@@ -43,7 +43,13 @@ namespace EnrollmentSystem
             this.deletebtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
             this.start = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -69,11 +75,14 @@ namespace EnrollmentSystem
             // 
             // end
             // 
+            this.end.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.end.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.end.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.end.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.end.FormattingEnabled = true;
-            this.end.Location = new System.Drawing.Point(458, 157);
+            this.end.Location = new System.Drawing.Point(0, 0);
             this.end.Name = "end";
-            this.end.Size = new System.Drawing.Size(167, 28);
+            this.end.Size = new System.Drawing.Size(174, 28);
             this.end.TabIndex = 18;
             this.end.SelectedIndexChanged += new System.EventHandler(this.Coursecb_SelectedIndexChanged);
             this.end.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
@@ -114,23 +123,23 @@ namespace EnrollmentSystem
             this.dataGridViewcurr.AllowUserToResizeRows = false;
             this.dataGridViewcurr.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewcurr.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewcurr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewcurr.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewcurr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewcurr.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewcurr.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewcurr.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewcurr.Location = new System.Drawing.Point(110, 413);
             this.dataGridViewcurr.Name = "dataGridViewcurr";
@@ -198,14 +207,44 @@ namespace EnrollmentSystem
             // 
             // start
             // 
+            this.start.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.start.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start.FormattingEnabled = true;
-            this.start.Location = new System.Drawing.Point(144, 157);
+            this.start.Location = new System.Drawing.Point(0, 0);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(174, 28);
             this.start.TabIndex = 47;
             this.start.SelectedIndexChanged += new System.EventHandler(this.start_SelectedIndexChanged);
             this.start.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Coursecb_KeyDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Location = new System.Drawing.Point(144, 157);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(176, 32);
+            this.panel1.TabIndex = 89;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.start);
+            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(176, 32);
+            this.panel2.TabIndex = 90;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.end);
+            this.panel3.Location = new System.Drawing.Point(458, 157);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(176, 32);
+            this.panel3.TabIndex = 90;
             // 
             // curriculummenu
             // 
@@ -213,7 +252,6 @@ namespace EnrollmentSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 800);
-            this.Controls.Add(this.start);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.dataGridViewcurr);
             this.Controls.Add(this.label4);
@@ -221,15 +259,19 @@ namespace EnrollmentSystem
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
             this.Controls.Add(this.createbtn);
-            this.Controls.Add(this.end);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "curriculummenu";
             this.Text = "Curriculumn Menu";
             this.Load += new System.EventHandler(this.curriculummenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewcurr)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +291,8 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button clearbtn;
         private System.Windows.Forms.ComboBox start;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

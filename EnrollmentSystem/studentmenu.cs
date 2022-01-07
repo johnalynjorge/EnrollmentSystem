@@ -64,8 +64,6 @@ namespace EnrollmentSystem
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);
             
-
-
         }
 
         private void backbtn_Click(object sender, EventArgs e)
@@ -78,13 +76,13 @@ namespace EnrollmentSystem
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            int age;
+            int age, contactnum;
             if (checkParts())
             {
                 MessageBox.Show("Please check all information", "Missing information",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 flag = false;
             }
-            else if (int.TryParse(agetxt.Text, out age))
+            else if (int.TryParse(agetxt.Text, out age)&& int.TryParse(numtxt.Text, out contactnum))
             {
                 try
                 {
@@ -101,7 +99,7 @@ namespace EnrollmentSystem
             }
             else
             {
-                MessageBox.Show("Invalid age", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid age or mobile number.", "Invalid Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
         }
@@ -221,8 +219,10 @@ namespace EnrollmentSystem
 
         private void SYcb_KeyDown(object sender, KeyEventArgs e)
         {
-            e.SuppressKeyPress = true;
+            e.Handled = true;
         }
+
+       
 
         public Boolean checkParts()
         {

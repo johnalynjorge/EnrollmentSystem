@@ -61,6 +61,9 @@ namespace EnrollmentSystem
             this.semcb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.required = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsubs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddedSub)).BeginInit();
             this.SuspendLayout();
@@ -357,6 +360,8 @@ namespace EnrollmentSystem
             // 
             // coursecb
             // 
+            this.coursecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.coursecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursecb.FormattingEnabled = true;
             this.coursecb.Location = new System.Drawing.Point(298, 137);
@@ -367,20 +372,24 @@ namespace EnrollmentSystem
             // 
             // ylcb
             // 
+            this.ylcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ylcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ylcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ylcb.FormattingEnabled = true;
             this.ylcb.Location = new System.Drawing.Point(465, 139);
             this.ylcb.Name = "ylcb";
-            this.ylcb.Size = new System.Drawing.Size(114, 28);
+            this.ylcb.Size = new System.Drawing.Size(124, 28);
             this.ylcb.TabIndex = 80;
             // 
             // semcb
             // 
+            this.semcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.semcb.FormattingEnabled = true;
             this.semcb.Location = new System.Drawing.Point(622, 139);
             this.semcb.Name = "semcb";
-            this.semcb.Size = new System.Drawing.Size(116, 28);
+            this.semcb.Size = new System.Drawing.Size(124, 28);
             this.semcb.TabIndex = 81;
             // 
             // label12
@@ -401,6 +410,30 @@ namespace EnrollmentSystem
             this.required.Name = "required";
             this.required.Size = new System.Drawing.Size(106, 26);
             this.required.TabIndex = 83;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(297, 136);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(129, 32);
+            this.panel1.TabIndex = 90;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(463, 137);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(130, 32);
+            this.panel2.TabIndex = 90;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(620, 137);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(129, 32);
+            this.panel3.TabIndex = 91;
             // 
             // editcurriculum
             // 
@@ -436,6 +469,9 @@ namespace EnrollmentSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.curriculumcodetxt);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
             this.Name = "editcurriculum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Curriculum";
@@ -477,5 +513,8 @@ namespace EnrollmentSystem
         private System.Windows.Forms.ComboBox semcb;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox required;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }

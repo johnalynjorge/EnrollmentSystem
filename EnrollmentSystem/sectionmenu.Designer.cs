@@ -29,8 +29,8 @@ namespace EnrollmentSystem
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +51,10 @@ namespace EnrollmentSystem
             this.label5 = new System.Windows.Forms.Label();
             this.numtxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsetion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -158,23 +162,23 @@ namespace EnrollmentSystem
             this.dataGridViewsetion.AllowUserToResizeRows = false;
             this.dataGridViewsetion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewsetion.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewsetion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewsetion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewsetion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewsetion.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewsetion.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewsetion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewsetion.Location = new System.Drawing.Point(111, 394);
             this.dataGridViewsetion.Name = "dataGridViewsetion";
@@ -206,6 +210,8 @@ namespace EnrollmentSystem
             // 
             // Currrcb
             // 
+            this.Currrcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Currrcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Currrcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Currrcb.FormattingEnabled = true;
             this.Currrcb.Location = new System.Drawing.Point(445, 138);
@@ -217,6 +223,8 @@ namespace EnrollmentSystem
             // 
             // coursecb
             // 
+            this.coursecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.coursecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursecb.FormattingEnabled = true;
             this.coursecb.Location = new System.Drawing.Point(779, 138);
@@ -238,6 +246,8 @@ namespace EnrollmentSystem
             // 
             // ylcb
             // 
+            this.ylcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ylcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ylcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ylcb.FormattingEnabled = true;
             this.ylcb.Location = new System.Drawing.Point(111, 220);
@@ -259,6 +269,8 @@ namespace EnrollmentSystem
             // 
             // semcb
             // 
+            this.semcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.semcb.FormattingEnabled = true;
             this.semcb.Location = new System.Drawing.Point(445, 220);
@@ -297,6 +309,38 @@ namespace EnrollmentSystem
             this.label6.TabIndex = 90;
             this.label6.Text = "Number of Students:";
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(444, 136);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(210, 32);
+            this.panel1.TabIndex = 92;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(777, 136);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(210, 32);
+            this.panel2.TabIndex = 93;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(109, 218);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(210, 32);
+            this.panel3.TabIndex = 94;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Location = new System.Drawing.Point(443, 217);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(210, 32);
+            this.panel4.TabIndex = 95;
+            // 
             // sectionmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +367,10 @@ namespace EnrollmentSystem
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "sectionmenu";
             this.Text = "sectionmenu";
@@ -355,5 +403,9 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox numtxt;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
