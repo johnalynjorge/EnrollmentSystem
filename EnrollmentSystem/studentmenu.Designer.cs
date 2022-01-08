@@ -67,7 +67,6 @@ namespace EnrollmentSystem
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.editbtn = new System.Windows.Forms.Button();
             this.addbtn = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.searchsecttxt = new System.Windows.Forms.TextBox();
             this.dataGridViewstudent = new System.Windows.Forms.DataGridView();
             this.clearbtn = new System.Windows.Forms.Button();
@@ -79,6 +78,7 @@ namespace EnrollmentSystem
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewstudent)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -397,13 +397,14 @@ namespace EnrollmentSystem
             this.deletebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletebtn.ForeColor = System.Drawing.Color.White;
             this.deletebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deletebtn.ImageIndex = 3;
+            this.deletebtn.ImageKey = "delete.png";
             this.deletebtn.ImageList = this.imageList1;
-            this.deletebtn.Location = new System.Drawing.Point(909, 364);
+            this.deletebtn.Location = new System.Drawing.Point(910, 365);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(120, 50);
             this.deletebtn.TabIndex = 35;
             this.deletebtn.Text = "Delete Student";
+            this.deletebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
@@ -411,10 +412,11 @@ namespace EnrollmentSystem
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png.ico");
+            this.imageList1.Images.SetKeyName(0, "add.png");
             this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "edit.jpg");
-            this.imageList1.Images.SetKeyName(3, "delete.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            this.imageList1.Images.SetKeyName(4, "archive.png");
             // 
             // editbtn
             // 
@@ -424,13 +426,14 @@ namespace EnrollmentSystem
             this.editbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editbtn.ForeColor = System.Drawing.Color.White;
             this.editbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.editbtn.ImageIndex = 2;
+            this.editbtn.ImageKey = "edit.jpg";
             this.editbtn.ImageList = this.imageList1;
-            this.editbtn.Location = new System.Drawing.Point(769, 364);
+            this.editbtn.Location = new System.Drawing.Point(784, 365);
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(120, 50);
             this.editbtn.TabIndex = 34;
             this.editbtn.Text = "Edit \r\nStudent";
+            this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editbtn.UseVisualStyleBackColor = false;
             // 
             // addbtn
@@ -440,32 +443,23 @@ namespace EnrollmentSystem
             this.addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addbtn.ForeColor = System.Drawing.Color.White;
             this.addbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addbtn.ImageKey = "add.png.ico";
+            this.addbtn.ImageKey = "add.png";
             this.addbtn.ImageList = this.imageList1;
-            this.addbtn.Location = new System.Drawing.Point(629, 364);
+            this.addbtn.Location = new System.Drawing.Point(658, 365);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(120, 50);
             this.addbtn.TabIndex = 33;
             this.addbtn.Text = "Add \r\nStudent";
+            this.addbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addbtn.UseVisualStyleBackColor = false;
             this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(108, 432);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 20);
-            this.label17.TabIndex = 85;
-            this.label17.Text = "Search:";
             // 
             // searchsecttxt
             // 
             this.searchsecttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchsecttxt.Location = new System.Drawing.Point(185, 429);
+            this.searchsecttxt.Location = new System.Drawing.Point(186, 429);
             this.searchsecttxt.Name = "searchsecttxt";
-            this.searchsecttxt.Size = new System.Drawing.Size(847, 26);
+            this.searchsecttxt.Size = new System.Drawing.Size(846, 26);
             this.searchsecttxt.TabIndex = 84;
             this.searchsecttxt.TextChanged += new System.EventHandler(this.searchsecttxt_TextChanged);
             // 
@@ -510,13 +504,14 @@ namespace EnrollmentSystem
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.clearbtn.ImageIndex = 1;
+            this.clearbtn.ImageKey = "clear.png";
             this.clearbtn.ImageList = this.imageList1;
-            this.clearbtn.Location = new System.Drawing.Point(489, 364);
+            this.clearbtn.Location = new System.Drawing.Point(532, 365);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(120, 50);
             this.clearbtn.TabIndex = 86;
             this.clearbtn.Text = "Clear";
+            this.clearbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
@@ -524,12 +519,16 @@ namespace EnrollmentSystem
             // 
             this.archivebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(229)))), ((int)(((byte)(239)))));
             this.archivebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archivebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.archivebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.archivebtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.archivebtn.ImageKey = "archive.png";
+            this.archivebtn.ImageList = this.imageList1;
             this.archivebtn.Location = new System.Drawing.Point(882, 718);
             this.archivebtn.Name = "archivebtn";
-            this.archivebtn.Size = new System.Drawing.Size(150, 30);
+            this.archivebtn.Size = new System.Drawing.Size(120, 50);
             this.archivebtn.TabIndex = 87;
             this.archivebtn.Text = "Archive";
+            this.archivebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.archivebtn.UseVisualStyleBackColor = false;
             this.archivebtn.Click += new System.EventHandler(this.archivebtn_Click);
             // 
@@ -597,6 +596,16 @@ namespace EnrollmentSystem
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(120, 33);
             this.panel6.TabIndex = 93;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(109, 432);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 20);
+            this.label17.TabIndex = 85;
+            this.label17.Text = "Search:";
             // 
             // studentmenu
             // 
@@ -697,7 +706,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button addbtn;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox searchsecttxt;
         private System.Windows.Forms.DataGridView dataGridViewstudent;
         private System.Windows.Forms.Button clearbtn;
@@ -709,6 +717,7 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ImageList imageList1;
     }
 }

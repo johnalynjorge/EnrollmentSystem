@@ -33,6 +33,7 @@ namespace EnrollmentSystem
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.label1 = new System.Windows.Forms.Label();
             this.LoginButon = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Usernametxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,7 +41,8 @@ namespace EnrollmentSystem
             this.exitbtn = new System.Windows.Forms.Button();
             this.show = new System.Windows.Forms.CheckBox();
             this.btnmin = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +50,7 @@ namespace EnrollmentSystem
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(175, 63);
+            this.label1.Location = new System.Drawing.Point(202, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 31);
             this.label1.TabIndex = 0;
@@ -70,6 +72,13 @@ namespace EnrollmentSystem
             this.LoginButon.Text = "Login";
             this.LoginButon.UseVisualStyleBackColor = false;
             this.LoginButon.Click += new System.EventHandler(this.LoginButon_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "exit.jpg");
+            this.imageList1.Images.SetKeyName(1, "login.png");
             // 
             // Usernametxt
             // 
@@ -150,12 +159,15 @@ namespace EnrollmentSystem
             this.btnmin.UseVisualStyleBackColor = false;
             this.btnmin.Click += new System.EventHandler(this.btnmin_Click);
             // 
-            // imageList1
+            // pictureBox1
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "exit.jpg");
-            this.imageList1.Images.SetKeyName(1, "login.png");
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(146, 52);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // login
             // 
@@ -163,6 +175,7 @@ namespace EnrollmentSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnmin);
             this.Controls.Add(this.show);
             this.Controls.Add(this.exitbtn);
@@ -179,6 +192,7 @@ namespace EnrollmentSystem
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +210,7 @@ namespace EnrollmentSystem
         private System.Windows.Forms.CheckBox show;
         private System.Windows.Forms.Button btnmin;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

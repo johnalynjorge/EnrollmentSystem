@@ -239,12 +239,12 @@ namespace EnrollmentSystem
                     if (ctrl.Name == btn.Name)
                     {
                         ctrl.BackColor = Color.FromArgb(112, 169, 165);
-                        ctrl.ForeColor = Color.White;
+                        //ctrl.ForeColor = Color.White;
                     }
                     else
                     {
                         ctrl.BackColor = Color.FromArgb(68, 203, 191);
-                        ctrl.ForeColor = Color.Black;
+                        //ctrl.ForeColor = Color.Black;
                     }
                 }
             }
