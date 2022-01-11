@@ -83,6 +83,12 @@
     <Compile Include="facultymenu.Designer.cs">
       <DependentUpon>facultymenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="findirregular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="findirregular.Designer.cs">
+      <DependentUpon>findirregular.cs</DependentUpon>
+    </Compile>
     <Compile Include="formFuncs.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="facultymenu.resx">
       <DependentUpon>facultymenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="findirregular.resx">
+      <DependentUpon>findirregular.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

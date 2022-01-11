@@ -109,7 +109,7 @@ namespace EnrollmentSystem
         private void editbtn_Click(object sender, EventArgs e)
         {
             editor = new editcurriculum(start.SelectedItem.ToString() + "-" + end.SelectedItem.ToString());
-            editor.Show();
+            editor.ShowDialog();
         }
 
         private void Coursecb_KeyDown(object sender, KeyEventArgs e)

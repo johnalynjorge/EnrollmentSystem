@@ -30,9 +30,9 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(schedulemenu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.sectioncb = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,18 +53,19 @@ namespace EnrollmentSystem
             this.instxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.createbtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.dataGridViewsched = new System.Windows.Forms.DataGridView();
             this.starttime = new System.Windows.Forms.DateTimePicker();
             this.endtime = new System.Windows.Forms.DateTimePicker();
             this.deletebtn = new System.Windows.Forms.Button();
-            this.editbtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.irregsched = new System.Windows.Forms.Button();
+            this.editbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsched)).BeginInit();
             this.SuspendLayout();
             // 
@@ -285,6 +286,16 @@ namespace EnrollmentSystem
             this.createbtn.UseVisualStyleBackColor = false;
             this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "clear.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            this.imageList1.Images.SetKeyName(4, "person icon.png");
+            // 
             // dataGridViewsched
             // 
             this.dataGridViewsched.AllowUserToAddRows = false;
@@ -292,25 +303,25 @@ namespace EnrollmentSystem
             this.dataGridViewsched.AllowUserToResizeRows = false;
             this.dataGridViewsched.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewsched.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewsched.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewsched.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewsched.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewsched.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewsched.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridViewsched.Location = new System.Drawing.Point(106, 445);
+            this.dataGridViewsched.Location = new System.Drawing.Point(106, 423);
             this.dataGridViewsched.Name = "dataGridViewsched";
             this.dataGridViewsched.RowHeadersVisible = false;
             this.dataGridViewsched.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -358,24 +369,6 @@ namespace EnrollmentSystem
             this.deletebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
-            // 
-            // editbtn
-            // 
-            this.editbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
-            this.editbtn.Enabled = false;
-            this.editbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editbtn.ForeColor = System.Drawing.Color.White;
-            this.editbtn.ImageKey = "edit.jpg";
-            this.editbtn.ImageList = this.imageList1;
-            this.editbtn.Location = new System.Drawing.Point(710, 336);
-            this.editbtn.Name = "editbtn";
-            this.editbtn.Size = new System.Drawing.Size(150, 50);
-            this.editbtn.TabIndex = 85;
-            this.editbtn.Text = "Edit Schedule";
-            this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.editbtn.UseVisualStyleBackColor = false;
-            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
             // 
             // clearbtn
             // 
@@ -434,14 +427,39 @@ namespace EnrollmentSystem
             this.panel5.Size = new System.Drawing.Size(156, 32);
             this.panel5.TabIndex = 94;
             // 
-            // imageList1
+            // irregsched
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "delete.png");
-            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            this.irregsched.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(229)))), ((int)(((byte)(239)))));
+            this.irregsched.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.irregsched.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.irregsched.ImageKey = "person icon.png";
+            this.irregsched.ImageList = this.imageList1;
+            this.irregsched.Location = new System.Drawing.Point(866, 729);
+            this.irregsched.Name = "irregsched";
+            this.irregsched.Size = new System.Drawing.Size(150, 50);
+            this.irregsched.TabIndex = 95;
+            this.irregsched.Text = "Irregular Students";
+            this.irregsched.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.irregsched.UseVisualStyleBackColor = false;
+            this.irregsched.Click += new System.EventHandler(this.irregsched_Click);
+            // 
+            // editbtn
+            // 
+            this.editbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
+            this.editbtn.Enabled = false;
+            this.editbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editbtn.ForeColor = System.Drawing.Color.White;
+            this.editbtn.ImageKey = "edit.jpg";
+            this.editbtn.ImageList = this.imageList1;
+            this.editbtn.Location = new System.Drawing.Point(710, 336);
+            this.editbtn.Name = "editbtn";
+            this.editbtn.Size = new System.Drawing.Size(150, 50);
+            this.editbtn.TabIndex = 85;
+            this.editbtn.Text = "Edit Schedule";
+            this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.editbtn.UseVisualStyleBackColor = false;
+            this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
             // 
             // schedulemenu
             // 
@@ -449,6 +467,7 @@ namespace EnrollmentSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 800);
+            this.Controls.Add(this.irregsched);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.editbtn);
@@ -516,7 +535,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.DateTimePicker starttime;
         private System.Windows.Forms.DateTimePicker endtime;
         private System.Windows.Forms.Button deletebtn;
-        private System.Windows.Forms.Button editbtn;
         private System.Windows.Forms.Button clearbtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -524,5 +542,7 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button irregsched;
+        private System.Windows.Forms.Button editbtn;
     }
 }

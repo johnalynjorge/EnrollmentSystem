@@ -26,7 +26,7 @@ namespace EnrollmentSystem
 
         private void facultymenu_Load(object sender, EventArgs e)
         {
-            string[] depts = { "Gneral Education", "Information Technology", "Business" };
+            string[] depts = { "General Education", "Information Technology", "Business" };
             Depcombo.Items.AddRange(depts);
             ClearData();
         }

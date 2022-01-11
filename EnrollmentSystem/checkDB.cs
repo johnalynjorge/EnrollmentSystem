@@ -733,7 +733,7 @@ namespace EnrollmentSystem
         {
             con.Open();
             sda = new SqlDataAdapter("SELECT [StudentID],[Last Name],[First Name] FROM tbl_student WHERE [School year] = '" + schoolyear + "' AND [Course Code] = '" + course + "' " +
-                "AND [Year Level] = '" + yearlevel + "' AND [Semester] = '" + sem + "'", con);
+                "AND [Year Level] = '" + yearlevel + "' AND [Semester] = '" + sem + "' AND [Status] = 'Regular' ", con);
             ds = new DataSet();
             sda.Fill(ds, "Student");
             con.Close();
@@ -810,6 +810,34 @@ namespace EnrollmentSystem
             sda.Fill(ds, "Subjects");
             con.Close();
             return ds.Tables["Subjects"];
+        }
+        public DataTable FillIrregular()
+        {
+            sda = new SqlDataAdapter("SELECT [StudentID] FROM tbl_student WHERE [Status] = 'Irregular'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Student");
+            con.Close();
+            return ds.Tables["Student"];
+        }
+        public Array returnStudentName(string code)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT [First Name], [Last Name] FROM tbl_student WHERE [StudentID] = '" + code + "'", con);
+            dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            string[] array;
+            array = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            return array;
+
+        }
+        public DataTable FillAllSubjects()
+        {
+            sda = new SqlDataAdapter("SELECT [Subject Code] FROM tbl_subject", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Subject");
+            con.Close();
+            return ds.Tables["Subject"];
         }
     }
 }

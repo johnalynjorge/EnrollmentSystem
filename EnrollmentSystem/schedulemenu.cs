@@ -18,6 +18,7 @@ namespace EnrollmentSystem
         string[] instructorvalues;
         formFuncs f = new formFuncs();
         bool flag;
+        findirregular formfind;
         public schedulemenu()
         {
             InitializeComponent();
@@ -226,6 +227,7 @@ namespace EnrollmentSystem
             clearData();
             buttonDone();
             dataGridViewsched.DataSource = null;
+            subjectcb.Enabled = false;
         }
         public void buttonDone()
         {
@@ -260,10 +262,7 @@ namespace EnrollmentSystem
                 }
 
             }
-            else
-            {
-
-            }
+            
         }
 
         private void editbtn_Click(object sender, EventArgs e)
@@ -297,6 +296,12 @@ namespace EnrollmentSystem
 
             }
             
+        }
+
+        private void irregsched_Click(object sender, EventArgs e)
+        {
+            formfind = new findirregular();
+            formfind.ShowDialog();
         }
     }
 }

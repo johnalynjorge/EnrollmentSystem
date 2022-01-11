@@ -30,16 +30,17 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editsection));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label11 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.searchalready = new System.Windows.Forms.TextBox();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewAddedSt = new System.Windows.Forms.DataGridView();
@@ -63,15 +64,8 @@ namespace EnrollmentSystem
             this.sectiontxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddedSt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewstudents)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label11
@@ -129,14 +123,23 @@ namespace EnrollmentSystem
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "clear.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.CausesValidation = false;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(578, 368);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(563, 368);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(105, 24);
+            this.label8.Size = new System.Drawing.Size(118, 24);
             this.label8.TabIndex = 101;
             this.label8.Text = "Student list:";
             // 
@@ -144,10 +147,10 @@ namespace EnrollmentSystem
             // 
             this.label6.AutoSize = true;
             this.label6.CausesValidation = false;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(61, 368);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(52, 368);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(213, 24);
+            this.label6.Size = new System.Drawing.Size(236, 24);
             this.label6.TabIndex = 100;
             this.label6.Text = "Students already added:";
             // 
@@ -158,23 +161,23 @@ namespace EnrollmentSystem
             this.dataGridViewAddedSt.AllowUserToResizeRows = false;
             this.dataGridViewAddedSt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewAddedSt.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAddedSt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAddedSt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewAddedSt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewAddedSt.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewAddedSt.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAddedSt.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewAddedSt.Location = new System.Drawing.Point(56, 437);
             this.dataGridViewAddedSt.Name = "dataGridViewAddedSt";
@@ -192,23 +195,23 @@ namespace EnrollmentSystem
             this.dataGridViewstudents.AllowUserToResizeRows = false;
             this.dataGridViewstudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewstudents.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewstudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewstudents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewstudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewstudents.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewstudents.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewstudents.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewstudents.Location = new System.Drawing.Point(571, 437);
             this.dataGridViewstudents.Name = "dataGridViewstudents";
@@ -308,7 +311,7 @@ namespace EnrollmentSystem
             // 
             this.numtxt.Enabled = false;
             this.numtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numtxt.Location = new System.Drawing.Point(908, 133);
+            this.numtxt.Location = new System.Drawing.Point(908, 137);
             this.numtxt.Name = "numtxt";
             this.numtxt.Size = new System.Drawing.Size(121, 26);
             this.numtxt.TabIndex = 118;
@@ -325,12 +328,12 @@ namespace EnrollmentSystem
             // 
             // semcb
             // 
-            this.semcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.semcb.Enabled = false;
             this.semcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.semcb.FormattingEnabled = true;
-            this.semcb.Location = new System.Drawing.Point(747, 133);
+            this.semcb.Location = new System.Drawing.Point(747, 135);
             this.semcb.Name = "semcb";
             this.semcb.Size = new System.Drawing.Size(121, 28);
             this.semcb.TabIndex = 116;
@@ -347,12 +350,12 @@ namespace EnrollmentSystem
             // 
             // ylcb
             // 
-            this.ylcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ylcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.ylcb.Enabled = false;
             this.ylcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ylcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ylcb.FormattingEnabled = true;
-            this.ylcb.Location = new System.Drawing.Point(0, 1);
+            this.ylcb.Location = new System.Drawing.Point(573, 135);
             this.ylcb.Name = "ylcb";
             this.ylcb.Size = new System.Drawing.Size(121, 28);
             this.ylcb.TabIndex = 114;
@@ -369,12 +372,12 @@ namespace EnrollmentSystem
             // 
             // coursecb
             // 
-            this.coursecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.coursecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.coursecb.Enabled = false;
             this.coursecb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursecb.FormattingEnabled = true;
-            this.coursecb.Location = new System.Drawing.Point(401, 133);
+            this.coursecb.Location = new System.Drawing.Point(401, 135);
             this.coursecb.Name = "coursecb";
             this.coursecb.Size = new System.Drawing.Size(121, 28);
             this.coursecb.TabIndex = 112;
@@ -391,12 +394,12 @@ namespace EnrollmentSystem
             // 
             // Currrcb
             // 
-            this.Currrcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Currrcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.Currrcb.Enabled = false;
             this.Currrcb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Currrcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Currrcb.FormattingEnabled = true;
-            this.Currrcb.Location = new System.Drawing.Point(1, 0);
+            this.Currrcb.Location = new System.Drawing.Point(227, 135);
             this.Currrcb.Name = "Currrcb";
             this.Currrcb.Size = new System.Drawing.Size(121, 28);
             this.Currrcb.TabIndex = 110;
@@ -430,55 +433,14 @@ namespace EnrollmentSystem
             this.label13.TabIndex = 107;
             this.label13.Text = "Section code:";
             // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.Currrcb);
-            this.panel1.Location = new System.Drawing.Point(225, 134);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(126, 30);
-            this.panel1.TabIndex = 119;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(400, 132);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(126, 30);
-            this.panel2.TabIndex = 120;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.ylcb);
-            this.panel3.Location = new System.Drawing.Point(572, 133);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(126, 30);
-            this.panel3.TabIndex = 121;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(745, 132);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(126, 30);
-            this.panel4.TabIndex = 122;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "delete.png");
-            this.imageList1.Images.SetKeyName(3, "edit.jpg");
-            // 
             // editsection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1084, 761);
+            this.Controls.Add(this.ylcb);
+            this.Controls.Add(this.Currrcb);
             this.Controls.Add(this.numtxt);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.semcb);
@@ -505,18 +467,12 @@ namespace EnrollmentSystem
             this.Controls.Add(this.label4);
             this.Controls.Add(this.idtxt);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
             this.Name = "editsection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Section";
             this.Load += new System.EventHandler(this.editsection_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAddedSt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewstudents)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,10 +507,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.TextBox sectiontxt;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ImageList imageList1;
     }
 }
