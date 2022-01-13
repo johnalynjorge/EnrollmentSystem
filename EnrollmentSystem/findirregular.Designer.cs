@@ -31,10 +31,10 @@ namespace EnrollmentSystem
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(findirregular));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.clearbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
@@ -64,9 +64,9 @@ namespace EnrollmentSystem
             this.panel1 = new System.Windows.Forms.Panel();
             this.studentnametxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewirregsched = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsched)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewirregsched)).BeginInit();
             this.SuspendLayout();
             // 
             // imageList1
@@ -82,7 +82,6 @@ namespace EnrollmentSystem
             // clearbtn
             // 
             this.clearbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(229)))), ((int)(((byte)(239)))));
-            this.clearbtn.Enabled = false;
             this.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearbtn.ImageKey = "clear.png";
@@ -94,6 +93,7 @@ namespace EnrollmentSystem
             this.clearbtn.Text = "Clear";
             this.clearbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.clearbtn.UseVisualStyleBackColor = false;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
             // 
             // deletebtn
             // 
@@ -111,6 +111,7 @@ namespace EnrollmentSystem
             this.deletebtn.Text = "Delete Schedule";
             this.deletebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deletebtn.UseVisualStyleBackColor = false;
+            this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
             // endtime
             // 
@@ -141,25 +142,25 @@ namespace EnrollmentSystem
             this.dataGridViewsched.AllowUserToAddRows = false;
             this.dataGridViewsched.AllowUserToDeleteRows = false;
             this.dataGridViewsched.AllowUserToResizeRows = false;
-            this.dataGridViewsched.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewsched.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridViewsched.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewsched.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewsched.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewsched.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewsched.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewsched.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewsched.Location = new System.Drawing.Point(551, 404);
             this.dataGridViewsched.Name = "dataGridViewsched";
@@ -168,6 +169,7 @@ namespace EnrollmentSystem
             this.dataGridViewsched.Size = new System.Drawing.Size(500, 283);
             this.dataGridViewsched.TabIndex = 115;
             this.dataGridViewsched.VirtualMode = true;
+            this.dataGridViewsched.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewsched_CellDoubleClick);
             // 
             // createbtn
             // 
@@ -184,6 +186,7 @@ namespace EnrollmentSystem
             this.createbtn.Text = "Create Schedule";
             this.createbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.createbtn.UseVisualStyleBackColor = false;
+            this.createbtn.Click += new System.EventHandler(this.createbtn_Click);
             // 
             // instxt
             // 
@@ -215,6 +218,7 @@ namespace EnrollmentSystem
             this.inscb.Name = "inscb";
             this.inscb.Size = new System.Drawing.Size(121, 30);
             this.inscb.TabIndex = 111;
+            this.inscb.SelectedIndexChanged += new System.EventHandler(this.inscb_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -349,6 +353,7 @@ namespace EnrollmentSystem
             this.subjectcb.Name = "subjectcb";
             this.subjectcb.Size = new System.Drawing.Size(121, 30);
             this.subjectcb.TabIndex = 98;
+            this.subjectcb.SelectedIndexChanged += new System.EventHandler(this.subjectcb_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -410,38 +415,39 @@ namespace EnrollmentSystem
             this.label12.TabIndex = 126;
             this.label12.Text = "Student Name:";
             // 
-            // dataGridView1
+            // dataGridViewirregsched
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 404);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 283);
-            this.dataGridView1.TabIndex = 128;
-            this.dataGridView1.VirtualMode = true;
+            this.dataGridViewirregsched.AllowUserToAddRows = false;
+            this.dataGridViewirregsched.AllowUserToDeleteRows = false;
+            this.dataGridViewirregsched.AllowUserToResizeRows = false;
+            this.dataGridViewirregsched.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewirregsched.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewirregsched.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewirregsched.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewirregsched.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewirregsched.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridViewirregsched.Location = new System.Drawing.Point(31, 404);
+            this.dataGridViewirregsched.Name = "dataGridViewirregsched";
+            this.dataGridViewirregsched.RowHeadersVisible = false;
+            this.dataGridViewirregsched.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewirregsched.Size = new System.Drawing.Size(500, 283);
+            this.dataGridViewirregsched.TabIndex = 128;
+            this.dataGridViewirregsched.VirtualMode = true;
+            this.dataGridViewirregsched.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewirregsched_CellDoubleClick);
             // 
             // findirregular
             // 
@@ -449,7 +455,7 @@ namespace EnrollmentSystem
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1084, 711);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewirregsched);
             this.Controls.Add(this.studentnametxt);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.clearbtn);
@@ -483,7 +489,7 @@ namespace EnrollmentSystem
             this.Text = "Irregular Student Schedule";
             this.Load += new System.EventHandler(this.findirregular_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsched)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewirregsched)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,6 +526,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox studentnametxt;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewirregsched;
     }
 }

@@ -120,7 +120,7 @@ namespace EnrollmentSystem
             }
             else if (checker.IfScheduleExist(sectioncb.SelectedItem.ToString(),subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString()))
             {
-                MessageBox.Show("The schedule for that subject already exist.", "Already exist");
+                MessageBox.Show("The schedule for that subject already exist.", "Schedule Already Exist");
             }
             else
             {
@@ -268,7 +268,7 @@ namespace EnrollmentSystem
         private void editbtn_Click(object sender, EventArgs e)
         {
             string section = sectioncb.SelectedItem.ToString();
-            ; DialogResult result = MessageBox.Show("Do you want to save changes the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
+            DialogResult result = MessageBox.Show("Do you want to save changes the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
                  subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {

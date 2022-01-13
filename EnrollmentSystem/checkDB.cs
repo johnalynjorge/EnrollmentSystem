@@ -839,5 +839,77 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Subject"];
         }
+        public DataTable DisplaySched()
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_schedule" , con);
+            ds = new DataSet();
+            sda.Fill(ds, "schedule");
+            con.Close();
+            return ds.Tables["schedule"];
+        }
+        public void AddIrregSched(string student, string section, string subject, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("INSERT INTO tbl_irregularsched ([StudentID], [Section Code], [Subject Code], [Type]) " +
+                "VALUES (@id,@sec, @sub, @type)", con);
+            cmd.Parameters.AddWithValue("@id", student);
+            cmd.Parameters.AddWithValue("@sec", section);
+            cmd.Parameters.AddWithValue("@sub", subject);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable DisplayIrregSched(string ID)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_irregularsched WHERE [StudentID] = '" + ID + "'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "schedule");
+            con.Close();
+            return ds.Tables["schedule"];
+        }
+        public Array returnSchedule(string sectiom, string subject, string type)
+        {
+            con.Open();
+            sda = new SqlDataAdapter("SELECT * FROM tbl_schedule WHERE [Section Code] = '" + sectiom + "' AND [Subject Code] = '" + subject + "' AND " +
+                " [Type] = '" + type + "'", con);
+            dt = new DataTable();
+            sda.Fill(dt);
+            con.Close();
+            string[] array;
+            array = dt.Rows[0].ItemArray.Select(x => x.ToString()).ToArray();
+            return array;
+
+        }
+        public void DeleteIrregSched(string student, string sub, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_irregularsched WHERE [StudentID] = @st AND [Subject Code] = @sub AND [Type] = @type", con);
+            cmd.Parameters.AddWithValue("@st", student);
+            cmd.Parameters.AddWithValue("@sub", sub);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean IfIrregSchedExist(string student, string sub, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_irregularsched WHERE ([StudentID] = @student AND [Subject Code] = @subject AND [Type] = @type)", con);
+            cmd.Parameters.AddWithValue("@student", student);
+            cmd.Parameters.AddWithValue("@subject", sub);
+            cmd.Parameters.AddWithValue("@type", type);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
     }
 }
