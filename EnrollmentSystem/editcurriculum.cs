@@ -17,7 +17,6 @@ namespace EnrollmentSystem
         formFuncs f = new formFuncs();
         ArrayList arraylist = new ArrayList();
         string currcode;
-        string[] values;
         double units;
         
         public editcurriculum(string currcodes)
@@ -30,12 +29,7 @@ namespace EnrollmentSystem
         {
             curriculumcodetxt.Text = currcode;
             DisplaySubs();
-            DisplayCurSub();
-            string[] yls = { "First Year", "Second  Year", "Third Year", "Fourth Year" };
-            ylcb.Items.AddRange(yls);
-
-            string[] sems = { "First Sem", "Second Sem" };
-            semcb.Items.AddRange(sems);
+            
             try
             {
                 foreach (DataRow dset in checker.FillCourse().Rows)
@@ -50,7 +44,7 @@ namespace EnrollmentSystem
             {
                 MessageBox.Show(ex.Message);
             }
-            f.disableHide(clearbtn);
+            f.enableShow(clearbtn);
             f.disableHide(deletebtn);
             f.disableHide(addbtn);
         }
@@ -73,7 +67,7 @@ namespace EnrollmentSystem
         {
             try
             {
-                dataGridViewAddedSub.DataSource = checker.DisplayCurrSub(currcode).DefaultView;
+                dataGridViewAddedSub.DataSource = checker.DisplayCurrSub(currcode, coursecb.SelectedItem.ToString()).DefaultView;
             }
             catch (Exception ex)
             {
@@ -103,11 +97,10 @@ namespace EnrollmentSystem
             sctxt.Clear();
             semcb.SelectedItem = null;
             ylcb.SelectedItem = null;
-            f.disableHide(clearbtn);
+            f.enableShow(clearbtn);
             f.disableHide(deletebtn);
             f.disableHide(addbtn);
             DisplaySubs();
-            DisplayCurSub();
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
@@ -130,20 +123,24 @@ namespace EnrollmentSystem
         {
             try
             {
-                if (checker.IfSubCurrExist(currcode, sctxt.Text))
+                if (checker.IfSubCurrExist(currcode, sctxt.Text, coursecb.SelectedItem.ToString()))
                 {
-                    MessageBox.Show("Subject is already added to the curriculum.", "Subject already added");
+                    MessageBox.Show("Subject is already added to the curriculum.", "Subject already added",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (coursecb.SelectedItem == null || ylcb.SelectedItem == null || semcb.SelectedItem == null)
                 {
-                    MessageBox.Show("Empty fields.", "Missing Information");
+                    MessageBox.Show("Some fields are missing information. ", "Missing Information", MessageBoxButtons.OK , MessageBoxIcon.Error);
                 }
                 else
                 {
+                    string courses = coursecb.SelectedItem.ToString();
                     checker.AddCurrSub(currcode,coursecb.SelectedItem.ToString(), sctxt.Text, ylcb.SelectedItem.ToString(), semcb.SelectedItem.ToString());
-                    MessageBox.Show("Subject added successfully.", "Subject Added");
+                    MessageBox.Show("Subject added successfully.", "Subject Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
+                    coursecb.SelectedItem = courses;
                     ComputeUnits();
+                    checkUnits();
+                    DisplayCurSub();
                 }
             }
             catch (Exception ex)
@@ -155,15 +152,26 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to remove the subject '" + sctxt.Text + "' ?", "Remove Subject?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to remove the subject '" + sctxt.Text + "' ?", "Remove Subject?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    checker.RemoveSubCurr(currcode, sctxt.Text, coursecb.SelectedItem.ToString());
-                    MessageBox.Show("Subject removed successfully.", "Subject Removed");
-                    ClearData();
-                    ComputeUnits();
+                   if (checker.IfScheduleForSubject(sctxt.Text))
+                    {
+                        MessageBox.Show("Cannot remove the subject beacause there is a schedule set for this subject.", "Cannot Remove Subject", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        string courses = coursecb.SelectedItem.ToString();
+                        checker.RemoveSubCurr(currcode, sctxt.Text, coursecb.SelectedItem.ToString());
+                        MessageBox.Show("Subject removed successfully.", "Subject Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearData();
+                        coursecb.SelectedItem = courses;
+                        ComputeUnits();
+                        checkUnits();
+                        DisplayCurSub();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -178,7 +186,7 @@ namespace EnrollmentSystem
             try
             {
                 string sc = searchalready.Text.Trim();
-                dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc, currcode).DefaultView;
+                dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc, currcode, coursecb.SelectedItem.ToString()).DefaultView;
 
             }
             catch (Exception ex)
@@ -203,10 +211,26 @@ namespace EnrollmentSystem
 
         private void courcecb_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ylcb.Items.Clear();
+            semcb.Items.Clear();
+            ylcb.DropDownHeight = 106;
+            semcb.DropDownHeight = 106;
             if (coursecb.SelectedItem != null)
             {
                 required.Text = checker.returnCourseUnits(coursecb.SelectedItem.ToString());
                 ComputeUnits();
+                    try
+                    {
+                        ylcb.Items.AddRange(f.ReturnYearLevel(checker.ReturnCourseYears(coursecb.SelectedItem.ToString())).ToArray());
+                        semcb.Items.AddRange(f.ReturnSems(checker.ReturnCourseSems(coursecb.SelectedItem.ToString())).ToArray());
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                checkUnits();
+                DisplayCurSub();
+                
             }
         }
 
@@ -233,6 +257,18 @@ namespace EnrollmentSystem
             f.disableHide(addbtn);
         }
 
-        
+        public void checkUnits()
+        {
+            if (required.Text == totalunits.Text)
+            {
+                required.BackColor = Color.FromArgb(68, 203, 191);
+                totalunits.BackColor = Color.FromArgb(68, 203, 191); 
+            }
+            else
+            {
+                required.BackColor = Color.FromArgb(255, 140, 130);
+                totalunits.BackColor = Color.FromArgb(255, 140, 130);
+            }
+        }
     }
 }

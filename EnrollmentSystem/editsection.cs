@@ -138,7 +138,7 @@ namespace EnrollmentSystem
             {
                 if (checker.IfStudentAlreadyInSection(idtxt.Text))
                 {
-                    MessageBox.Show("Student already added in a section.", "Student Already added");
+                    MessageBox.Show("Student already added in a section.", "Student Already added", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ClearData();
                 }
                 else
@@ -147,7 +147,7 @@ namespace EnrollmentSystem
                     num++;
                     checker.EditNumStudents(sectiontxt.Text, num);
                     numtxt.Text = num.ToString();
-                    MessageBox.Show("Student added successfully.", "Student added");
+                    MessageBox.Show("Student added successfully.", "Student added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                 }
             }
@@ -159,7 +159,7 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to remove the student '"+ idtxt.Text+ " from " + sectiontxt.Text + "' ?", "Remove Student?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to remove the student '"+ idtxt.Text+ " from " + sectiontxt.Text + "' ?", "Remove Student?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
@@ -168,7 +168,7 @@ namespace EnrollmentSystem
                     num--;
                     checker.EditNumStudents(sectiontxt.Text, num);
                     numtxt.Text = num.ToString();
-                    MessageBox.Show("Student removed successfully.", "Student removed");
+                    MessageBox.Show("Student removed successfully.", "Student removed",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                 }
                 catch (Exception ex)

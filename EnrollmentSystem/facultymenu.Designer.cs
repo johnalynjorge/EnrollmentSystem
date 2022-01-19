@@ -48,11 +48,11 @@ namespace EnrollmentSystem
             this.label7 = new System.Windows.Forms.Label();
             this.searchtxt = new System.Windows.Forms.TextBox();
             this.deletebtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.editbtn = new System.Windows.Forms.Button();
             this.createbtn = new System.Windows.Forms.Button();
             this.clearbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewfaculty)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +96,7 @@ namespace EnrollmentSystem
             // 
             this.contacttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contacttxt.Location = new System.Drawing.Point(125, 219);
+            this.contacttxt.MaxLength = 11;
             this.contacttxt.Name = "contacttxt";
             this.contacttxt.Size = new System.Drawing.Size(205, 26);
             this.contacttxt.TabIndex = 6;
@@ -148,9 +149,9 @@ namespace EnrollmentSystem
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(121, 196);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 20);
+            this.label5.Size = new System.Drawing.Size(144, 20);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Contact Number::";
+            this.label5.Text = "Contact Number:";
             // 
             // label6
             // 
@@ -232,6 +233,15 @@ namespace EnrollmentSystem
             this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "clear.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            // 
             // editbtn
             // 
             this.editbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(203)))), ((int)(((byte)(191)))));
@@ -244,7 +254,7 @@ namespace EnrollmentSystem
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(150, 50);
             this.editbtn.TabIndex = 50;
-            this.editbtn.Text = "Edit Instructor";
+            this.editbtn.Text = "Save Changes";
             this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editbtn.UseVisualStyleBackColor = false;
             this.editbtn.Click += new System.EventHandler(this.editbtn_Click);
@@ -289,15 +299,6 @@ namespace EnrollmentSystem
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 32);
             this.panel1.TabIndex = 90;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "delete.png");
-            this.imageList1.Images.SetKeyName(3, "edit.jpg");
             // 
             // facultymenu
             // 

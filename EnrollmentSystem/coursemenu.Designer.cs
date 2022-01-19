@@ -158,6 +158,7 @@ namespace EnrollmentSystem
             // 
             this.yearstxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearstxt.Location = new System.Drawing.Point(93, 237);
+            this.yearstxt.MaxLength = 2;
             this.yearstxt.Name = "yearstxt";
             this.yearstxt.Size = new System.Drawing.Size(266, 26);
             this.yearstxt.TabIndex = 48;
@@ -166,6 +167,7 @@ namespace EnrollmentSystem
             // 
             this.semstxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.semstxt.Location = new System.Drawing.Point(414, 237);
+            this.semstxt.MaxLength = 1;
             this.semstxt.Name = "semstxt";
             this.semstxt.Size = new System.Drawing.Size(266, 26);
             this.semstxt.TabIndex = 49;
@@ -265,7 +267,7 @@ namespace EnrollmentSystem
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(120, 50);
             this.editbtn.TabIndex = 88;
-            this.editbtn.Text = "Edit Course";
+            this.editbtn.Text = "Save Changes";
             this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editbtn.UseVisualStyleBackColor = false;
             this.editbtn.Click += new System.EventHandler(this.editbtn_Click);

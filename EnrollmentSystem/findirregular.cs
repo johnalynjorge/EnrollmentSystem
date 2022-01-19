@@ -184,18 +184,18 @@ namespace EnrollmentSystem
             id = studentcb.SelectedItem.ToString();
             if (studentcb.SelectedItem == null)
             {
-                MessageBox.Show("Pick an irregualr student for this schedule", "Pick a student");
+                MessageBox.Show("Pick an irregualr student for this schedule", "Pick a student", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (checker.IfIrregSchedExist(studentcb.SelectedItem.ToString(), subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString()))
             {
-                MessageBox.Show("The schedule for that student already exist.", "Schedule Already Exist");
+                MessageBox.Show("The schedule for that student already exist.", "Schedule Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 try
                 {
                     checker.AddIrregSched(studentcb.SelectedItem.ToString(), section, subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString());
-                    MessageBox.Show("Student added to the schedule successfully", "Student Added To SChedule");
+                    MessageBox.Show("Student added to the schedule successfully", "Student Added To SChedule", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Cleardata();
                     studentcb.SelectedItem = id;
                     DisplayData2();
@@ -211,13 +211,13 @@ namespace EnrollmentSystem
         {
             id = studentcb.SelectedItem.ToString();
             DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + studentcb.SelectedItem.ToString() + " / " +
-               subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Delete Schedule?", MessageBoxButtons.YesNo);
+               subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
                     checker.DeleteIrregSched(studentcb.SelectedItem.ToString(), subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString());
-                    MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted");
+                    MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted", MessageBoxButtons.OK , MessageBoxIcon.Information);
                     Cleardata();
                     studentcb.SelectedItem = id;
                     DisplayData2();

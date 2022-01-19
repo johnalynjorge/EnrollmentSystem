@@ -180,7 +180,7 @@ namespace EnrollmentSystem
             this.editbtn.Name = "editbtn";
             this.editbtn.Size = new System.Drawing.Size(120, 50);
             this.editbtn.TabIndex = 43;
-            this.editbtn.Text = "Edit \r\nSubject";
+            this.editbtn.Text = "Save Changes";
             this.editbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editbtn.UseVisualStyleBackColor = false;
             this.editbtn.Click += new System.EventHandler(this.editbtn_Click);

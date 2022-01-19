@@ -36,7 +36,7 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Courses"];
         }
-        public void AddCourse(string coursecode, string coursename, double years, double sems, double rus)
+        public void AddCourse(string coursecode, string coursename, int years, int sems, double rus)
         {
             con.Open();
             cmd = new SqlCommand("INSERT INTO tbl_course ([Course Code], [Course Name],[Years],[Semesters],[Required Units]) VALUES (@ccode,@cname,@years,@sems,@rus)", con);
@@ -65,7 +65,7 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public void EditCourse(string coursecode, string coursename, double years, double sems, double rus, string temp)
+        public void EditCourse(string coursecode, string coursename, int years, int sems, double rus, string temp)
         {
             con.Open();
             cmd = new SqlCommand("UPDATE tbl_course SET [Course Code] = @ccode, [Course Name] = @cname, [Years] = @years, [Semesters] = @sems, [Required Units] = @rus WHERE [Course Code] = @tcode", con);
@@ -302,10 +302,10 @@ namespace EnrollmentSystem
             con.Close();
             return ds.Tables["Subject"];
         }
-        public DataTable DisplayCurrSub(string code)
+        public DataTable DisplayCurrSub(string code, string course)
         {
             con.Open();
-            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum_subject WHERE  [Curriculum Code] = '" + code + "'", con);
+            sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum_subject WHERE  [Curriculum Code] = '" + code + "' AND [Course Code] = '" + course + "'", con);
             ds = new DataSet();
             sda.Fill(ds, "CurrSub");
             con.Close();
@@ -356,12 +356,13 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public Boolean IfSubCurrExist(string ccode, string scode)
+        public Boolean IfSubCurrExist(string ccode, string scode, string course)
         {
             con.Open();
-            cmd = new SqlCommand("SELECT * FROM tbl_curriculum_subject WHERE [Subject Code] = @scode AND [Curriculum Code] = @ccode", con);
+            cmd = new SqlCommand("SELECT * FROM tbl_curriculum_subject WHERE [Subject Code] = @scode AND [Curriculum Code] = @ccode AND [Course Code] = @course", con);
             cmd.Parameters.AddWithValue("@scode", scode);
             cmd.Parameters.AddWithValue("@ccode", ccode);
+            cmd.Parameters.AddWithValue("@course", course);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
@@ -374,11 +375,11 @@ namespace EnrollmentSystem
                 return false;
             }
         }
-        public DataTable SearchCurrSub(string sc, string curr)
+        public DataTable SearchCurrSub(string sc, string curr, string course)
         {
             con.Open();
             sda = new SqlDataAdapter("SELECT * FROM tbl_curriculum_subject " +
-                "WHERE  [Curriculum Code] = '" + curr + "' AND  ([Subject Code] LIKE '%" + sc + "%' OR [Curriculum Code] LIKE '%" + sc + "%' OR [Course Code] LIKE '%" + sc + "%' OR  [Year Level] LIKE '%" + sc + "%' OR [Semester] LIKE '%" + sc + "%')", con);
+                "WHERE  [Curriculum Code] = '" + curr + "' AND   [Course Code] = '" + course + "' AND ([Subject Code] LIKE '%" + sc + "%' OR [Curriculum Code] LIKE '%" + sc + "%' OR [Course Code] LIKE '%" + sc + "%' OR  [Year Level] LIKE '%" + sc + "%' OR [Semester] LIKE '%" + sc + "%')", con);
             ds = new DataSet();
             sda.Fill(ds, "CurrSub");
             con.Close();
@@ -910,6 +911,231 @@ namespace EnrollmentSystem
                 con.Close();
                 return false;
             }
+
+        }
+        public int ReturnCourseYears(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT [Years] FROM tbl_course WHERE [Course Code] = '" + code + "'", con);
+            int years = (int)cmd.ExecuteScalar();
+            con.Close();
+            return years;
+        }
+        public int ReturnCourseSems(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT [Semesters] FROM tbl_course WHERE [Course Code] = '" + code + "'", con);
+            int sem = (int)cmd.ExecuteScalar();
+            con.Close();
+            return sem;
+        }
+        public void EditStudent(string id, string last, string first, string middle, string schoolyear, string level, string sem, string status, string course, int age, string gender, string number, string email, string birth, string address)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_student SET [Last Name] = @last, [First Name] = @first, [Middle Name] = @middle, [School Year] = @school, [Year Level] = @year, [Semester] = @sem, [Status] = @status, [Course Code] = @course, [Age] = @age, [Gender] = @gender, [Mobile Number] = @num, [Email] = @email, [Birthdate] = @birth, [Address] = @address" +
+                " WHERE [StudentID] = @id", con);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@last", last);
+            cmd.Parameters.AddWithValue("@first", first);
+            cmd.Parameters.AddWithValue("@middle", middle);
+            cmd.Parameters.AddWithValue("@school", schoolyear);
+            cmd.Parameters.AddWithValue("@year", level);
+            cmd.Parameters.AddWithValue("@sem", sem);
+            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@course", course);
+            cmd.Parameters.AddWithValue("@age", age);
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@num", number);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@birth", birth);
+            cmd.Parameters.AddWithValue("@address", address);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public DataTable FillSelectedCourse(string curr)
+        {
+            sda = new SqlDataAdapter("SELECT DISTINCT [Course Code] FROM tbl_curriculum_subject WHERE [Curriculum Code] = '" + curr + "'", con);
+            ds = new DataSet();
+            sda.Fill(ds, "Courses");
+            con.Close();
+            return ds.Tables["Courses"];
+        }
+        public Boolean IfSubNameExist(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_subject WHERE ([Subject Name] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteIrregSchedFromMain(string section,  string sub, string type)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_irregularsched WHERE [Section Code] = @st AND [Subject Code] = @sub AND [Type] = @type", con);
+            cmd.Parameters.AddWithValue("@st", section);
+            cmd.Parameters.AddWithValue("@sub", sub);
+            cmd.Parameters.AddWithValue("@type", type);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean IFInsSetToSched(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_schedule WHERE ([InstructorID] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public Boolean ifInCurriculum(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_curriculum_subject WHERE ([Subject Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteSchedBySection(string section)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_schedule WHERE [Section Code] = @st", con);
+            cmd.Parameters.AddWithValue("@st", section);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void DeleteSchedBySectionIrregular(string section)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_irregularsched WHERE [Section Code] = @st", con);
+            cmd.Parameters.AddWithValue("@st", section);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean IfScheduleForSubject(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_schedule WHERE ([Subject Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public Boolean IfStudentSchoolYear(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_student WHERE ([School Year] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public Boolean IfSectionSchoolYear(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_section WHERE ([Curriculum Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteSchoolYearonEdit(string section)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_curriculum_subject WHERE [Curriculum Code] = @st", con);
+            cmd.Parameters.AddWithValue("@st", section);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public string returnSectionofStudent(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT [Section Code] FROM tbl_section_student WHERE [StudentID] = '" + code + "'", con);
+            string section = (string)cmd.ExecuteScalar();
+            con.Close();
+            return section;
+        }
+        public int returnSectionNumberofStudents(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT [Number of Students] FROM tbl_section WHERE [Section Code] = '" + code + "'", con);
+            int num = (int)cmd.ExecuteScalar();
+            con.Close();
+            return num;
+        }
+        public Boolean IfIrregStudentSched(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_irregularsched WHERE ([StudentID] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteStudentIrregular_Sched(string section)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_irregularsched WHERE [StudentID] = @st", con);
+            cmd.Parameters.AddWithValue("@st", section);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

@@ -274,7 +274,7 @@ namespace EnrollmentSystem
             this.nametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nametxt.Location = new System.Drawing.Point(401, 215);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(425, 26);
+            this.nametxt.Size = new System.Drawing.Size(467, 26);
             this.nametxt.TabIndex = 94;
             // 
             // label4
@@ -293,7 +293,7 @@ namespace EnrollmentSystem
             this.idtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idtxt.Location = new System.Drawing.Point(56, 215);
             this.idtxt.Name = "idtxt";
-            this.idtxt.Size = new System.Drawing.Size(275, 26);
+            this.idtxt.Size = new System.Drawing.Size(292, 26);
             this.idtxt.TabIndex = 92;
             // 
             // label5

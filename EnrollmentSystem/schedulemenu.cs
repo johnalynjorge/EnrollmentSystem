@@ -58,6 +58,7 @@ namespace EnrollmentSystem
         {
             subjectcb.Items.Clear();
             subjectcb.Text = "";
+            subjectcb.DropDownHeight = 106;
             if (sectioncb.SelectedItem != null)
             {
                 subjectcb.Enabled = true;
@@ -115,12 +116,12 @@ namespace EnrollmentSystem
         {
             if (checkParts())
             {
-                MessageBox.Show("Please check all information", "Missing information");
+                MessageBox.Show("Please check all information", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 flag = false;
             }
             else if (checker.IfScheduleExist(sectioncb.SelectedItem.ToString(),subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString()))
             {
-                MessageBox.Show("The schedule for that subject already exist.", "Schedule Already Exist");
+                MessageBox.Show("The schedule for that subject already exist.", "Schedule Already Exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -133,7 +134,7 @@ namespace EnrollmentSystem
                 try
                 {
                     checker.AddSchedule(section, subject, ins, day, starttime.Text.ToString(), endtime.Text.ToString(), room, type);
-                    MessageBox.Show("Schedule created successfully", "Schedule Created");
+                    MessageBox.Show("Schedule created successfully", "Schedule Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
                     sectioncb.SelectedItem = section;
                 }
@@ -243,14 +244,16 @@ namespace EnrollmentSystem
         private void deletebtn_Click(object sender, EventArgs e)
         {
             string section = sectioncb.SelectedItem.ToString();
-;            DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + sectioncb.SelectedItem.ToString() + " / " + 
-                subjectcb.SelectedItem.ToString() + " / "+ typecb.SelectedItem.ToString() + "' ?", "Delete Schedule?", MessageBoxButtons.YesNo);
+;            DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
+                subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "'? \n" +
+                "If you will delete this, the schedule of the irregular students that are also set on this schedule will also be deleted", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
+                    checker.DeleteIrregSchedFromMain(sectioncb.SelectedItem.ToString(), subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString());
                     checker.DeleteSched(sectioncb.SelectedItem.ToString(), subjectcb.SelectedItem.ToString(), typecb.SelectedItem.ToString());
-                    MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted");
+                    MessageBox.Show("Schedule deleted successfully.", "Schedule Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
                     buttonDone();
                     sectioncb.SelectedItem = section;
@@ -269,11 +272,11 @@ namespace EnrollmentSystem
         {
             string section = sectioncb.SelectedItem.ToString();
             DialogResult result = MessageBox.Show("Do you want to save changes the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
-                 subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
+                 subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Save Changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 if (checkParts()) {
-                    MessageBox.Show("Please check all information", "Missing information");
+                    MessageBox.Show("Please check all information", "Missing information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     flag = false;
                 }
                 else
@@ -281,7 +284,7 @@ namespace EnrollmentSystem
                     try
                     {
                         checker.EditSchedule(section, subjectcb.SelectedItem.ToString(), inscb.SelectedItem.ToString(), daycb.SelectedItem.ToString(), starttime.Text.ToString(), endtime.Text.ToString(), roomtxt.Text, typecb.SelectedItem.ToString());
-                        MessageBox.Show("Schedule edited successfully.", "Schedule Edited");
+                        MessageBox.Show("Schedule edited successfully.", "Schedule Edited", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clearData();
                         buttonDone();
                         sectioncb.SelectedItem = section;

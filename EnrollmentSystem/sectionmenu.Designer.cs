@@ -30,14 +30,15 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(sectionmenu));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sectiontxt = new System.Windows.Forms.TextBox();
             this.clearbtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.deletebtn = new System.Windows.Forms.Button();
             this.editbtn = new System.Windows.Forms.Button();
             this.addbtn = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@ namespace EnrollmentSystem
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewsetion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,6 +116,15 @@ namespace EnrollmentSystem
             this.clearbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "clear.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
             // 
             // deletebtn
             // 
@@ -177,23 +186,23 @@ namespace EnrollmentSystem
             this.dataGridViewsetion.AllowUserToResizeRows = false;
             this.dataGridViewsetion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewsetion.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewsetion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewsetion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewsetion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewsetion.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewsetion.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewsetion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewsetion.Location = new System.Drawing.Point(111, 394);
             this.dataGridViewsetion.Name = "dataGridViewsetion";
@@ -246,7 +255,7 @@ namespace EnrollmentSystem
             this.coursecb.Name = "coursecb";
             this.coursecb.Size = new System.Drawing.Size(207, 28);
             this.coursecb.TabIndex = 85;
-            this.coursecb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.coursecb.SelectedIndexChanged += new System.EventHandler(this.coursecb_SelectedIndexChanged);
             this.coursecb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
             // 
             // label3
@@ -269,7 +278,7 @@ namespace EnrollmentSystem
             this.ylcb.Name = "ylcb";
             this.ylcb.Size = new System.Drawing.Size(207, 28);
             this.ylcb.TabIndex = 87;
-            this.ylcb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.ylcb.SelectedIndexChanged += new System.EventHandler(this.ylcb_SelectedIndexChanged);
             this.ylcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
             // 
             // label4
@@ -292,7 +301,7 @@ namespace EnrollmentSystem
             this.semcb.Name = "semcb";
             this.semcb.Size = new System.Drawing.Size(207, 28);
             this.semcb.TabIndex = 89;
-            this.semcb.SelectedIndexChanged += new System.EventHandler(this.Currrcb_SelectedIndexChanged);
+            this.semcb.SelectedIndexChanged += new System.EventHandler(this.ylcb_SelectedIndexChanged);
             this.semcb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Currrcb_KeyDown);
             // 
             // label5
@@ -355,15 +364,6 @@ namespace EnrollmentSystem
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(210, 32);
             this.panel4.TabIndex = 95;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "delete.png");
-            this.imageList1.Images.SetKeyName(3, "edit.jpg");
             // 
             // sectionmenu
             // 

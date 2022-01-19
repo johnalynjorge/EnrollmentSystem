@@ -84,10 +84,10 @@ namespace EnrollmentSystem
             // 
             // totalunits
             // 
-            this.totalunits.Enabled = false;
             this.totalunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalunits.Location = new System.Drawing.Point(781, 139);
             this.totalunits.Name = "totalunits";
+            this.totalunits.ReadOnly = true;
             this.totalunits.Size = new System.Drawing.Size(106, 26);
             this.totalunits.TabIndex = 58;
             // 
@@ -166,7 +166,7 @@ namespace EnrollmentSystem
             this.sntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sntxt.Location = new System.Drawing.Point(294, 221);
             this.sntxt.Name = "sntxt";
-            this.sntxt.Size = new System.Drawing.Size(381, 26);
+            this.sntxt.Size = new System.Drawing.Size(452, 26);
             this.sntxt.TabIndex = 64;
             // 
             // label4
@@ -202,7 +202,7 @@ namespace EnrollmentSystem
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(120, 50);
             this.deletebtn.TabIndex = 68;
-            this.deletebtn.Text = "Delete Subject";
+            this.deletebtn.Text = "Remove Subject";
             this.deletebtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.deletebtn.UseVisualStyleBackColor = false;
             this.deletebtn.Click += new System.EventHandler(this.deletebtn_Click);
@@ -425,10 +425,10 @@ namespace EnrollmentSystem
             // 
             // required
             // 
-            this.required.Enabled = false;
             this.required.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.required.Location = new System.Drawing.Point(930, 139);
             this.required.Name = "required";
+            this.required.ReadOnly = true;
             this.required.Size = new System.Drawing.Size(106, 26);
             this.required.TabIndex = 83;
             // 

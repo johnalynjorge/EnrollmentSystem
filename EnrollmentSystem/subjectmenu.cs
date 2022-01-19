@@ -25,8 +25,7 @@ namespace EnrollmentSystem
 
         private void subjectmenu_Load(object sender, EventArgs e)
         {
-            string[] categs = { "GE", "IT", "BM" };
-            categorycb.Items.AddRange(categs);
+            categorycb.Items.AddRange((object[])funcs.DeptValues());
             clearData();
         }
 
@@ -59,6 +58,7 @@ namespace EnrollmentSystem
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);
             funcs.enableShow(addbtn);
+            utxt.ReadOnly = false;
         }
 
         private void categorycb_KeyDown(object sender, KeyEventArgs e)
@@ -72,7 +72,11 @@ namespace EnrollmentSystem
             string un = utxt.Text.Trim();
             if ((categorycb.SelectedItem == null) || (sn == "") || (un == ""))
             {
-                MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                MessageBox.Show("Please check all the information you entered.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (checker.IfSubNameExist(sn))
+            {
+                MessageBox.Show("That subject is already added", "Already added", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -83,7 +87,7 @@ namespace EnrollmentSystem
                     try
                     {
                         checker.AddSubject(finalsubcode, sn, uni, cat);
-                        MessageBox.Show("Subject added successfully.", "Subject Added");
+                        MessageBox.Show("Subject added successfully.", "Subject Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clearData();
                     }
 
@@ -94,7 +98,7 @@ namespace EnrollmentSystem
                 }
                 else
                 {
-                    MessageBox.Show("Please input numbers only for Units.", "Units Error");
+                    MessageBox.Show("Please input numbers only for Units.", "Units Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -107,14 +111,21 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the subject '" + tempsc + "' ?", "Delete Subject?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the subject '" + tempsc + "' ?", "Delete Subject?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    checker.DeleteSubject(tempsc);
-                    MessageBox.Show("Subject deleted successfully.", "Subject Deleted");
-                    clearData();
+                    if (checker.ifInCurriculum(tempsc))
+                    {
+                        MessageBox.Show("Cannot delete a subject added into a curriculum. \nRemove it from the curriculum first.", "Cannot Delete Subject", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        checker.DeleteSubject(tempsc);
+                        MessageBox.Show("Subject deleted successfully.", "Subject Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearData();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -128,12 +139,12 @@ namespace EnrollmentSystem
         {
             string sn = sntxt.Text.Trim();
             string un = utxt.Text.Trim();
-            DialogResult result = MessageBox.Show("Do you want to save changes to the subject '" + tempsc + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save changes to the subject '" + tempsc + "' ?", "Save Changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 if ((sn == "") || (un == ""))
                 {
-                    MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                    MessageBox.Show("Please check all the information you entered.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -143,7 +154,7 @@ namespace EnrollmentSystem
                         try
                         {
                             checker.EditSubject(tempsc, sn, uni);
-                            MessageBox.Show("Subject updated successfully.", "Subject Updated");
+                            MessageBox.Show("Subject updated successfully.", "Subject Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             clearData();
                         }
                         catch (Exception ex)
@@ -153,7 +164,7 @@ namespace EnrollmentSystem
                     }
                     else
                     {
-                        MessageBox.Show("Please input numbers only for Units.", "Units Error");
+                        MessageBox.Show("Please input numbers only for Units.", "Units Error", MessageBoxButtons.OK , MessageBoxIcon.Error);
                     }
 
                 }
@@ -205,6 +216,7 @@ namespace EnrollmentSystem
             funcs.enableShow(editbtn);
             funcs.disableHide(addbtn);
             categorycb.Enabled = false;
+            utxt.ReadOnly = true;
         }
     }
 }

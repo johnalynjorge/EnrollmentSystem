@@ -104,5 +104,59 @@ namespace EnrollmentSystem
             btn.Enabled = true;
             btn.Show();
         }
+        public ArrayList ReturnYearLevel(int years)
+        {
+            arrayList = new ArrayList();
+            string ext;
+            for (int num= 1; num <= years; num++){
+                switch (num)
+                {
+                    case 1:
+                        ext =  "st";
+                        break;
+                    case 2:
+                        ext = "nd";
+                        break;
+                    case 3:
+                        ext = "rd";
+                        break;
+                    default:
+                        ext = "th";
+                        break;
+                }
+                arrayList.Add(num.ToString() + ext + " year");
+            }
+            return arrayList;
+        }
+        public ArrayList ReturnSems(int sem)
+        {
+            arrayList = new ArrayList();
+            string ext;
+            for (int num = 1; num <= sem; num++)
+            {
+                switch (num)
+                {
+                    case 1:
+                        ext = "st";
+                        break;
+                    case 2:
+                        ext = "nd";
+                        break;
+                    case 3:
+                        ext = "rd";
+                        break;
+                    default:
+                        ext = "th";
+                        break;
+                }
+                arrayList.Add(num.ToString() + ext + " sem");
+            }
+            return arrayList;
+        }
+        public Array DeptValues()
+        {
+            string[] array = { "GE", "IT", "BM" };
+            return array;
+        }
     }
 }

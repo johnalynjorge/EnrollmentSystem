@@ -56,9 +56,10 @@ namespace EnrollmentSystem
         {
             string coursec = cctxt.Text.Trim();
             string coursen = cntxt.Text.Trim();
-            double years, sems, rus;
+            double  rus;
+            int years, sems;
 
-            if ((double.TryParse(yearstxt.Text, out years)) && (double.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus))){
+            if ((int.TryParse(yearstxt.Text, out years)) && (int.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus))){
                 if (coursec == "" || coursen == "")
                 {
                     MessageBox.Show("Please check all the information you entered.", "Missing Information",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -93,9 +94,10 @@ namespace EnrollmentSystem
             string coursec = cctxt.Text.Trim();
             string coursen = cntxt.Text.Trim();
 
-            double years, sems, rus;
+            double  rus;
+            int years, sems;
 
-            if ((double.TryParse(yearstxt.Text, out years)) && (double.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus)))
+            if ((int.TryParse(yearstxt.Text, out years)) && (int.TryParse(semstxt.Text, out sems)) && (double.TryParse(rutxt.Text, out rus)))
             {
 
                 DialogResult result = MessageBox.Show("Do you want to save changes to the course '" + coursec + "' ?", "Save Changes?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);

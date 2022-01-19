@@ -26,8 +26,7 @@ namespace EnrollmentSystem
 
         private void facultymenu_Load(object sender, EventArgs e)
         {
-            string[] depts = { "General Education", "Information Technology", "Business" };
-            Depcombo.Items.AddRange(depts);
+            Depcombo.Items.AddRange((object[])funcs.DeptValues());
             ClearData();
         }
 
@@ -83,20 +82,25 @@ namespace EnrollmentSystem
             string first = fFirsttxt.Text.Trim();
             string contact = contacttxt.Text.Trim();
             string dep = Depcombo.SelectedItem.ToString();
+            long contactnum;
 
-            DialogResult result = MessageBox.Show("Do you want to save changes to the instructor '" + temid + "' ?", "Save Changes?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to save changes to the instructor '" + temid + "' ?", "Save Changes?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 if ((last =="")|| (first=="")|| (contact == ""))
                 {
-                    MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                    MessageBox.Show("Please check all the information you entered.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (long.TryParse(contact, out contactnum) == false)
+                {
+                    MessageBox.Show("Please check all the information you entered.", "Invalid Contact Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     try
                     {
                         checker.Editfaculty(temid, first, last, contact, dep);
-                        MessageBox.Show("Instructor updated successfully.", "Instructor Updated");
+                        MessageBox.Show("Instructor updated successfully.", "Instructor Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearData();
                     }
                     catch (Exception ex)
@@ -108,14 +112,21 @@ namespace EnrollmentSystem
         }
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the instructor '" + temid + "' ?", "Delete Instructor record?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the instructor '" + temid + "' ?", "Delete Instructor Record?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
                 {
-                    checker.DeleteFaculty(temid);
-                    MessageBox.Show("Instructor record deleted successfully.", "Instructor Deleted");
-                    ClearData();
+                    if (checker.IFInsSetToSched(temid))
+                    {
+                        MessageBox.Show("Cannot delete intsuctor because it was assigned to a schedule.\nChange the instructor first.", "Cannot Delete The Instructor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        checker.DeleteFaculty(temid);
+                        MessageBox.Show("Instructor record deleted successfully.", "Instructor Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClearData();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -155,9 +166,14 @@ namespace EnrollmentSystem
             string last = fLasttxt.Text.Trim();
             string first = fFirsttxt.Text.Trim();
             string contact = contacttxt.Text.Trim();
+            long contactnum;
             if ((Depcombo.SelectedItem == null) || (last =="") || (first == "") || (contact == ""))
             {
-                MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                MessageBox.Show("Please check all the information you entered.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (long.TryParse(contact,out contactnum) == false)
+            {
+                MessageBox.Show("Please check all the information you entered.", "Invalid Contact Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -165,7 +181,7 @@ namespace EnrollmentSystem
                 try
                 {
                     checker.Addfaculty(finalfcode, first, last, contact, dept);
-                    MessageBox.Show("Instructor added successfully.", "Instructor Added");
+                    MessageBox.Show("Instructor added successfully.", "Instructor Added",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                 }
                 catch (Exception ex)

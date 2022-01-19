@@ -50,11 +50,15 @@ namespace EnrollmentSystem
         {
             if ((end.SelectedItem ==  null) || (start.SelectedItem == null))
             {
-                MessageBox.Show("Please check all the information you entered.", "Missing Information");
+                MessageBox.Show("Please check all the information you entered.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (end.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please choose another end year", "Invalid Year",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else if (checker.IfCurrCodeExist(start.SelectedItem.ToString() + "-" + end.SelectedItem.ToString()))
             {
-                MessageBox.Show("The curriculum already exist.", "Already exist");
+                MessageBox.Show("The curriculum already exist.", "Already exist", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -62,7 +66,7 @@ namespace EnrollmentSystem
                 {
                     finalcurrcode = start.SelectedItem.ToString() + "-" + end.SelectedItem.ToString();
                     checker.CreateCurr(finalcurrcode);
-                    MessageBox.Show("Curriculum created successfully.", "Curriculum Created");
+                    MessageBox.Show("Curriculum created successfully.", "Curriculum Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearData();
                 }
                 catch (Exception ex)
@@ -75,15 +79,24 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the curriculum '" + tempcur + "' ?", "Delete Curriculum?", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Do you want to delete the curriculum '" + tempcur + "' ?", "Delete Curriculum?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                try
                    {
-                    checker.DeleteCurr(tempcur);
-                    MessageBox.Show("Curriculum deleted successfully.", "Curriculum Deleted");
-                    clearData();
+                    if (checker.IfStudentSchoolYear(tempcur)|| checker.IfSectionSchoolYear(tempcur))
+                    {
+                        MessageBox.Show("Cannot delete the curriculum, either there is a student enrolled in this curriculum or there is a section under this curriculum.",
+                            "Cannot Delete Curriculum", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        checker.DeleteCurr(tempcur);
+                        checker.DeleteSchoolYearonEdit(tempcur);
+                        MessageBox.Show("Curriculum deleted successfully.", "Curriculum Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearData();
+                    }
+                   }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
@@ -154,9 +167,7 @@ namespace EnrollmentSystem
                 getTempVal(e);
             }
 
-        }
-
-
+        }   
 
         public void getTempVal(DataGridViewCellEventArgs e)
         {
@@ -171,8 +182,5 @@ namespace EnrollmentSystem
             start.Enabled = false;
 
         }
-
-
-
     }
 }
