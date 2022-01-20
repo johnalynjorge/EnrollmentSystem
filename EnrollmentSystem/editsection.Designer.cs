@@ -270,11 +270,11 @@ namespace EnrollmentSystem
             // 
             // nametxt
             // 
-            this.nametxt.Enabled = false;
             this.nametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nametxt.Location = new System.Drawing.Point(401, 215);
             this.nametxt.Name = "nametxt";
-            this.nametxt.Size = new System.Drawing.Size(467, 26);
+            this.nametxt.ReadOnly = true;
+            this.nametxt.Size = new System.Drawing.Size(628, 26);
             this.nametxt.TabIndex = 94;
             // 
             // label4
@@ -289,10 +289,10 @@ namespace EnrollmentSystem
             // 
             // idtxt
             // 
-            this.idtxt.Enabled = false;
             this.idtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idtxt.Location = new System.Drawing.Point(56, 215);
             this.idtxt.Name = "idtxt";
+            this.idtxt.ReadOnly = true;
             this.idtxt.Size = new System.Drawing.Size(292, 26);
             this.idtxt.TabIndex = 92;
             // 
@@ -309,10 +309,10 @@ namespace EnrollmentSystem
             // 
             // numtxt
             // 
-            this.numtxt.Enabled = false;
             this.numtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numtxt.Location = new System.Drawing.Point(908, 137);
             this.numtxt.Name = "numtxt";
+            this.numtxt.ReadOnly = true;
             this.numtxt.Size = new System.Drawing.Size(121, 26);
             this.numtxt.TabIndex = 118;
             // 
@@ -406,10 +406,10 @@ namespace EnrollmentSystem
             // 
             // sectiontxt
             // 
-            this.sectiontxt.Enabled = false;
             this.sectiontxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sectiontxt.Location = new System.Drawing.Point(56, 135);
             this.sectiontxt.Name = "sectiontxt";
+            this.sectiontxt.ReadOnly = true;
             this.sectiontxt.Size = new System.Drawing.Size(121, 26);
             this.sectiontxt.TabIndex = 109;
             // 

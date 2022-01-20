@@ -154,7 +154,6 @@ namespace EnrollmentSystem
             funcs.ClearTextboxes(this.Controls);
             funcs.ClearCombobox(this.Controls);
             beingEdit = false;
-            fIDtxt.Enabled = false;
             funcs.enableShow(clearbtn);
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);

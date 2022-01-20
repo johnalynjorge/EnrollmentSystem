@@ -1137,5 +1137,47 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        public Boolean IfStudentEnrolledInCourse(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_student WHERE ([Course Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public Boolean IfSectionEnrolledInCourse(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM tbl_section WHERE ([Course Code] = @code)", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                con.Close();
+                return true;
+            }
+            else
+            {
+                con.Close();
+                return false;
+            }
+        }
+        public void DeleteCourse_Curr(string code)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_curriculum_subject WHERE [Course Code] = @code", con);
+            cmd.Parameters.AddWithValue("@code", code);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }

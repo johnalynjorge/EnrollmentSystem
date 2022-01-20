@@ -138,10 +138,10 @@ namespace EnrollmentSystem
             // 
             // subjectn
             // 
-            this.subjectn.Enabled = false;
             this.subjectn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectn.Location = new System.Drawing.Point(424, 123);
             this.subjectn.Name = "subjectn";
+            this.subjectn.ReadOnly = true;
             this.subjectn.Size = new System.Drawing.Size(417, 26);
             this.subjectn.TabIndex = 58;
             // 
@@ -201,6 +201,7 @@ namespace EnrollmentSystem
             // 
             // roomtxt
             // 
+            this.roomtxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.roomtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roomtxt.Location = new System.Drawing.Point(106, 269);
             this.roomtxt.Name = "roomtxt";
@@ -252,11 +253,11 @@ namespace EnrollmentSystem
             // 
             // instxt
             // 
-            this.instxt.Enabled = false;
             this.instxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instxt.Location = new System.Drawing.Point(256, 199);
             this.instxt.Name = "instxt";
-            this.instxt.Size = new System.Drawing.Size(410, 26);
+            this.instxt.ReadOnly = true;
+            this.instxt.Size = new System.Drawing.Size(585, 26);
             this.instxt.TabIndex = 80;
             // 
             // label11

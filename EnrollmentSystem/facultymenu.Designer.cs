@@ -68,15 +68,16 @@ namespace EnrollmentSystem
             // 
             // fIDtxt
             // 
-            this.fIDtxt.Enabled = false;
             this.fIDtxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fIDtxt.Location = new System.Drawing.Point(124, 139);
             this.fIDtxt.Name = "fIDtxt";
+            this.fIDtxt.ReadOnly = true;
             this.fIDtxt.Size = new System.Drawing.Size(206, 26);
             this.fIDtxt.TabIndex = 3;
             // 
             // fLasttxt
             // 
+            this.fLasttxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.fLasttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fLasttxt.Location = new System.Drawing.Point(412, 139);
             this.fLasttxt.Name = "fLasttxt";
@@ -86,6 +87,7 @@ namespace EnrollmentSystem
             // 
             // fFirsttxt
             // 
+            this.fFirsttxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.fFirsttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fFirsttxt.Location = new System.Drawing.Point(742, 139);
             this.fFirsttxt.Name = "fFirsttxt";

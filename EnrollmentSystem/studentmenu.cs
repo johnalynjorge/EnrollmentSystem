@@ -31,10 +31,10 @@ namespace EnrollmentSystem
         {
             DisplayData();
 
-            string[] stats = {"Regular","Irregular"};
+            string[] stats = {"REGULAR","IRREGULAR"};
             Statuscb.Items.AddRange(stats);
 
-            string[] genders = {"Male","Female"}; 
+            string[] genders = {"MALE","FEMALE"}; 
             Gendercb.Items.AddRange(genders);
 
             try
@@ -75,7 +75,7 @@ namespace EnrollmentSystem
             }
             else if (checkAge(Convert.ToInt32(agetxt.Text)))
             {
-                MessageBox.Show("Please check your birthdate.", "Invalid birthdate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Age needs to be 15 and above.", "Invalid Age", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (int.TryParse(agetxt.Text, out age)&& long.TryParse(numtxt.Text, out contactnum))
             {
@@ -262,7 +262,7 @@ namespace EnrollmentSystem
                 }
                 else if (checkAge(Convert.ToInt32(agetxt.Text)))
                 {
-                    MessageBox.Show("Please check your birthdate.", "Invalid birthdate", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Age needs to be 15 and above.", "Invalid Age", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else if (int.TryParse(agetxt.Text, out age) && long.TryParse(numtxt.Text, out contactnum))
                 {
@@ -367,7 +367,7 @@ namespace EnrollmentSystem
         }
         private bool checkAge(int age)
         {
-            if (age<=0)
+            if (age<15)
             {
                 return true;
             }

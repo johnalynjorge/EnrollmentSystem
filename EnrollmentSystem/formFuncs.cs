@@ -40,7 +40,7 @@ namespace EnrollmentSystem
         }
         public Array DaysValues()
         {
-            string[] array = {"Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+            string[] array = {"MONDAY","TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
             return array;
         }
         public ArrayList Hours()
@@ -112,19 +112,19 @@ namespace EnrollmentSystem
                 switch (num)
                 {
                     case 1:
-                        ext =  "st";
+                        ext = "ST";
                         break;
                     case 2:
-                        ext = "nd";
+                        ext = "ND";
                         break;
                     case 3:
-                        ext = "rd";
+                        ext = "RD";
                         break;
                     default:
-                        ext = "th";
+                        ext = "TH";
                         break;
                 }
-                arrayList.Add(num.ToString() + ext + " year");
+                arrayList.Add(num.ToString() + ext + " YEAR");
             }
             return arrayList;
         }
@@ -137,19 +137,19 @@ namespace EnrollmentSystem
                 switch (num)
                 {
                     case 1:
-                        ext = "st";
+                        ext = "ST";
                         break;
                     case 2:
-                        ext = "nd";
+                        ext = "ND";
                         break;
                     case 3:
-                        ext = "rd";
+                        ext = "RD";
                         break;
                     default:
-                        ext = "th";
+                        ext = "TH";
                         break;
                 }
-                arrayList.Add(num.ToString() + ext + " sem");
+                arrayList.Add(num.ToString() + ext + " SEM");
             }
             return arrayList;
         }

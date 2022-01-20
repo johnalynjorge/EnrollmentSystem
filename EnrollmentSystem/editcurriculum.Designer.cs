@@ -84,6 +84,7 @@ namespace EnrollmentSystem
             // 
             // totalunits
             // 
+            this.totalunits.BackColor = System.Drawing.Color.White;
             this.totalunits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalunits.Location = new System.Drawing.Point(781, 139);
             this.totalunits.Name = "totalunits";
@@ -143,10 +144,11 @@ namespace EnrollmentSystem
             // 
             // curriculumcodetxt
             // 
-            this.curriculumcodetxt.Enabled = false;
+            this.curriculumcodetxt.BackColor = System.Drawing.SystemColors.Control;
             this.curriculumcodetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.curriculumcodetxt.Location = new System.Drawing.Point(68, 139);
             this.curriculumcodetxt.Name = "curriculumcodetxt";
+            this.curriculumcodetxt.ReadOnly = true;
             this.curriculumcodetxt.Size = new System.Drawing.Size(187, 26);
             this.curriculumcodetxt.TabIndex = 49;
             // 
@@ -162,11 +164,12 @@ namespace EnrollmentSystem
             // 
             // sntxt
             // 
-            this.sntxt.Enabled = false;
+            this.sntxt.BackColor = System.Drawing.SystemColors.Control;
             this.sntxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sntxt.Location = new System.Drawing.Point(294, 221);
             this.sntxt.Name = "sntxt";
-            this.sntxt.Size = new System.Drawing.Size(452, 26);
+            this.sntxt.ReadOnly = true;
+            this.sntxt.Size = new System.Drawing.Size(747, 26);
             this.sntxt.TabIndex = 64;
             // 
             // label4
@@ -181,10 +184,11 @@ namespace EnrollmentSystem
             // 
             // sctxt
             // 
-            this.sctxt.Enabled = false;
+            this.sctxt.BackColor = System.Drawing.SystemColors.Control;
             this.sctxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sctxt.Location = new System.Drawing.Point(69, 221);
             this.sctxt.Name = "sctxt";
+            this.sctxt.ReadOnly = true;
             this.sctxt.Size = new System.Drawing.Size(187, 26);
             this.sctxt.TabIndex = 62;
             this.sctxt.TextChanged += new System.EventHandler(this.sctxt_TextChanged);
@@ -425,6 +429,7 @@ namespace EnrollmentSystem
             // 
             // required
             // 
+            this.required.BackColor = System.Drawing.Color.White;
             this.required.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.required.Location = new System.Drawing.Point(930, 139);
             this.required.Name = "required";

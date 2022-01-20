@@ -49,7 +49,9 @@ namespace EnrollmentSystem
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);
             funcs.enableShow(addbtn);
-            cctxt.Enabled = true;
+            cctxt.ReadOnly = false;
+            yearstxt.ReadOnly = false;
+            semstxt.ReadOnly = false;
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -138,11 +140,16 @@ namespace EnrollmentSystem
                 {
                     MessageBox.Show("Please provide course code to delete", "Delete Course Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if (checker.IfStudentEnrolledInCourse(coursec)|| checker.IfSectionEnrolledInCourse(coursec))
+                {
+                    MessageBox.Show("Cannot delete course because either a student was enrolled in this course or a section is created under this course.", "Cannot Delete Course", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 else
                 {
                     try
                     {
                         checker.DeleteCourse(coursec);
+                        checker.DeleteCourse_Curr(coursec);
                         MessageBox.Show("Course deleted successfully.", "Course Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClearData();
                     }
@@ -193,7 +200,9 @@ namespace EnrollmentSystem
             funcs.enableShow(deletebtn);
             funcs.enableShow(editbtn);
             funcs.disableHide(addbtn);
-            cctxt.Enabled = false;
+            cctxt.ReadOnly = true;
+            yearstxt.ReadOnly = true;
+            semstxt.ReadOnly = true;
         }
         
     }

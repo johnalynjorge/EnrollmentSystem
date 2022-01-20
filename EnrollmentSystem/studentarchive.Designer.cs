@@ -30,16 +30,16 @@ namespace EnrollmentSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(studentarchive));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(studentarchive));
             this.clearbtn = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.searchsecttxt = new System.Windows.Forms.TextBox();
             this.dataGridViewstudent = new System.Windows.Forms.DataGridView();
             this.deletebtn = new System.Windows.Forms.Button();
             this.addbtn = new System.Windows.Forms.Button();
-            this.semcb = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.addresstxt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -49,17 +49,12 @@ namespace EnrollmentSystem
             this.label13 = new System.Windows.Forms.Label();
             this.numtxt = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.Gendercb = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.agetxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.Coursecb = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.Statuscb = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.YLcb = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.SYcb = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.idtxt = new System.Windows.Forms.TextBox();
             this.middletxt = new System.Windows.Forms.TextBox();
@@ -70,7 +65,12 @@ namespace EnrollmentSystem
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.Gendercb = new System.Windows.Forms.TextBox();
+            this.SYcb = new System.Windows.Forms.TextBox();
+            this.YLcb = new System.Windows.Forms.TextBox();
+            this.semcb = new System.Windows.Forms.TextBox();
+            this.Statuscb = new System.Windows.Forms.TextBox();
+            this.Coursecb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewstudent)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +90,16 @@ namespace EnrollmentSystem
             this.clearbtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.clearbtn.UseVisualStyleBackColor = false;
             this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "clear.png");
+            this.imageList1.Images.SetKeyName(2, "delete.png");
+            this.imageList1.Images.SetKeyName(3, "edit.jpg");
+            this.imageList1.Images.SetKeyName(4, "restore.jpg");
             // 
             // label17
             // 
@@ -180,23 +190,11 @@ namespace EnrollmentSystem
             this.addbtn.UseVisualStyleBackColor = false;
             this.addbtn.Click += new System.EventHandler(this.addbtn_Click);
             // 
-            // semcb
-            // 
-            this.semcb.BackColor = System.Drawing.Color.White;
-            this.semcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.semcb.Enabled = false;
-            this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.semcb.FormattingEnabled = true;
-            this.semcb.Location = new System.Drawing.Point(586, 99);
-            this.semcb.Name = "semcb";
-            this.semcb.Size = new System.Drawing.Size(118, 26);
-            this.semcb.TabIndex = 116;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(582, 79);
+            this.label16.Location = new System.Drawing.Point(738, 76);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 20);
             this.label16.TabIndex = 115;
@@ -283,18 +281,6 @@ namespace EnrollmentSystem
             this.label12.TabIndex = 107;
             this.label12.Text = "Mobile number:";
             // 
-            // Gendercb
-            // 
-            this.Gendercb.BackColor = System.Drawing.Color.White;
-            this.Gendercb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.Gendercb.Enabled = false;
-            this.Gendercb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gendercb.FormattingEnabled = true;
-            this.Gendercb.Location = new System.Drawing.Point(284, 229);
-            this.Gendercb.Name = "Gendercb";
-            this.Gendercb.Size = new System.Drawing.Size(145, 26);
-            this.Gendercb.TabIndex = 106;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -325,83 +311,35 @@ namespace EnrollmentSystem
             this.label10.TabIndex = 103;
             this.label10.Text = "Age:";
             // 
-            // Coursecb
-            // 
-            this.Coursecb.BackColor = System.Drawing.Color.White;
-            this.Coursecb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.Coursecb.Enabled = false;
-            this.Coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Coursecb.FormattingEnabled = true;
-            this.Coursecb.Location = new System.Drawing.Point(892, 99);
-            this.Coursecb.Name = "Coursecb";
-            this.Coursecb.Size = new System.Drawing.Size(118, 26);
-            this.Coursecb.TabIndex = 102;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(888, 76);
+            this.label9.Location = new System.Drawing.Point(434, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(71, 20);
             this.label9.TabIndex = 101;
             this.label9.Text = "Course:";
             // 
-            // Statuscb
-            // 
-            this.Statuscb.BackColor = System.Drawing.Color.White;
-            this.Statuscb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.Statuscb.Enabled = false;
-            this.Statuscb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Statuscb.FormattingEnabled = true;
-            this.Statuscb.Location = new System.Drawing.Point(739, 99);
-            this.Statuscb.Name = "Statuscb";
-            this.Statuscb.Size = new System.Drawing.Size(118, 26);
-            this.Statuscb.TabIndex = 100;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(735, 79);
+            this.label8.Location = new System.Drawing.Point(891, 76);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(67, 20);
             this.label8.TabIndex = 99;
             this.label8.Text = "Status:";
             // 
-            // YLcb
-            // 
-            this.YLcb.BackColor = System.Drawing.Color.White;
-            this.YLcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.YLcb.Enabled = false;
-            this.YLcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.YLcb.FormattingEnabled = true;
-            this.YLcb.Location = new System.Drawing.Point(433, 99);
-            this.YLcb.Name = "YLcb";
-            this.YLcb.Size = new System.Drawing.Size(118, 26);
-            this.YLcb.TabIndex = 98;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(429, 76);
+            this.label7.Location = new System.Drawing.Point(585, 76);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 20);
             this.label7.TabIndex = 97;
             this.label7.Text = "Year level:";
-            // 
-            // SYcb
-            // 
-            this.SYcb.BackColor = System.Drawing.Color.White;
-            this.SYcb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.SYcb.Enabled = false;
-            this.SYcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SYcb.FormattingEnabled = true;
-            this.SYcb.Location = new System.Drawing.Point(280, 99);
-            this.SYcb.Name = "SYcb";
-            this.SYcb.Size = new System.Drawing.Size(118, 26);
-            this.SYcb.TabIndex = 96;
             // 
             // label6
             // 
@@ -503,15 +441,65 @@ namespace EnrollmentSystem
             this.label1.TabIndex = 124;
             this.label1.Text = "Student Archive";
             // 
-            // imageList1
+            // Gendercb
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "clear.png");
-            this.imageList1.Images.SetKeyName(2, "delete.png");
-            this.imageList1.Images.SetKeyName(3, "edit.jpg");
-            this.imageList1.Images.SetKeyName(4, "restore.jpg");
+            this.Gendercb.BackColor = System.Drawing.Color.White;
+            this.Gendercb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gendercb.Location = new System.Drawing.Point(284, 229);
+            this.Gendercb.Name = "Gendercb";
+            this.Gendercb.ReadOnly = true;
+            this.Gendercb.Size = new System.Drawing.Size(136, 26);
+            this.Gendercb.TabIndex = 125;
+            // 
+            // SYcb
+            // 
+            this.SYcb.BackColor = System.Drawing.Color.White;
+            this.SYcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SYcb.Location = new System.Drawing.Point(280, 99);
+            this.SYcb.Name = "SYcb";
+            this.SYcb.ReadOnly = true;
+            this.SYcb.Size = new System.Drawing.Size(118, 26);
+            this.SYcb.TabIndex = 126;
+            // 
+            // YLcb
+            // 
+            this.YLcb.BackColor = System.Drawing.Color.White;
+            this.YLcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YLcb.Location = new System.Drawing.Point(589, 99);
+            this.YLcb.Name = "YLcb";
+            this.YLcb.ReadOnly = true;
+            this.YLcb.Size = new System.Drawing.Size(118, 26);
+            this.YLcb.TabIndex = 127;
+            // 
+            // semcb
+            // 
+            this.semcb.BackColor = System.Drawing.Color.White;
+            this.semcb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semcb.Location = new System.Drawing.Point(742, 99);
+            this.semcb.Name = "semcb";
+            this.semcb.ReadOnly = true;
+            this.semcb.Size = new System.Drawing.Size(118, 26);
+            this.semcb.TabIndex = 128;
+            // 
+            // Statuscb
+            // 
+            this.Statuscb.BackColor = System.Drawing.Color.White;
+            this.Statuscb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Statuscb.Location = new System.Drawing.Point(895, 99);
+            this.Statuscb.Name = "Statuscb";
+            this.Statuscb.ReadOnly = true;
+            this.Statuscb.Size = new System.Drawing.Size(118, 26);
+            this.Statuscb.TabIndex = 129;
+            // 
+            // Coursecb
+            // 
+            this.Coursecb.BackColor = System.Drawing.Color.White;
+            this.Coursecb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Coursecb.Location = new System.Drawing.Point(438, 99);
+            this.Coursecb.Name = "Coursecb";
+            this.Coursecb.ReadOnly = true;
+            this.Coursecb.Size = new System.Drawing.Size(118, 26);
+            this.Coursecb.TabIndex = 130;
             // 
             // studentarchive
             // 
@@ -520,6 +508,12 @@ namespace EnrollmentSystem
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1084, 761);
+            this.Controls.Add(this.Coursecb);
+            this.Controls.Add(this.Statuscb);
+            this.Controls.Add(this.semcb);
+            this.Controls.Add(this.YLcb);
+            this.Controls.Add(this.SYcb);
+            this.Controls.Add(this.Gendercb);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.label17);
@@ -527,7 +521,6 @@ namespace EnrollmentSystem
             this.Controls.Add(this.dataGridViewstudent);
             this.Controls.Add(this.deletebtn);
             this.Controls.Add(this.addbtn);
-            this.Controls.Add(this.semcb);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.addresstxt);
             this.Controls.Add(this.label15);
@@ -537,17 +530,12 @@ namespace EnrollmentSystem
             this.Controls.Add(this.label13);
             this.Controls.Add(this.numtxt);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.Gendercb);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.agetxt);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.Coursecb);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.Statuscb);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.YLcb);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.SYcb);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.idtxt);
             this.Controls.Add(this.middletxt);
@@ -576,7 +564,6 @@ namespace EnrollmentSystem
         private System.Windows.Forms.DataGridView dataGridViewstudent;
         private System.Windows.Forms.Button deletebtn;
         private System.Windows.Forms.Button addbtn;
-        private System.Windows.Forms.ComboBox semcb;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox addresstxt;
         private System.Windows.Forms.Label label15;
@@ -586,17 +573,12 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox numtxt;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox Gendercb;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox agetxt;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox Coursecb;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox Statuscb;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox YLcb;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox SYcb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox idtxt;
         private System.Windows.Forms.TextBox middletxt;
@@ -608,5 +590,11 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox Gendercb;
+        private System.Windows.Forms.TextBox SYcb;
+        private System.Windows.Forms.TextBox YLcb;
+        private System.Windows.Forms.TextBox semcb;
+        private System.Windows.Forms.TextBox Statuscb;
+        private System.Windows.Forms.TextBox Coursecb;
     }
 }

@@ -53,7 +53,6 @@ namespace EnrollmentSystem
             DisplayData();
             categorycb.SelectedItem = null;
             categorycb.Enabled = true;
-            sctxt.Enabled = false;
             funcs.enableShow(clearbtn);
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);

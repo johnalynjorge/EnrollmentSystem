@@ -82,6 +82,9 @@ namespace EnrollmentSystem
             f.enableShow(clearbtn);
             f.disableHide(deletebtn);
             f.enableShow(addbtn);
+            semcb.SelectedItem = null;
+            ylcb.SelectedItem = null;
+            EnableCombos();
         }
 
         private void dataGridViewsubs_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -101,6 +104,7 @@ namespace EnrollmentSystem
             f.disableHide(deletebtn);
             f.disableHide(addbtn);
             DisplaySubs();
+            EnableCombos();
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
@@ -109,6 +113,9 @@ namespace EnrollmentSystem
             coursecb.SelectedItem = null;
             totalunits.Text = null;
             required.Text = null;
+            required.BackColor = Color.White;
+            totalunits.BackColor = Color.White;
+            dataGridViewAddedSub.DataSource = null; 
         }
 
         private void dataGridViewAddedSub_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -171,6 +178,7 @@ namespace EnrollmentSystem
                         ComputeUnits();
                         checkUnits();
                         DisplayCurSub();
+                        EnableCombos();
                     }
                 }
                 catch (Exception ex)
@@ -255,6 +263,9 @@ namespace EnrollmentSystem
             f.enableShow(clearbtn);
             f.enableShow(deletebtn);
             f.disableHide(addbtn);
+            coursecb.Enabled = false;
+            ylcb.Enabled = false;
+            semcb.Enabled = false;
         }
 
         public void checkUnits()
@@ -269,6 +280,12 @@ namespace EnrollmentSystem
                 required.BackColor = Color.FromArgb(255, 140, 130);
                 totalunits.BackColor = Color.FromArgb(255, 140, 130);
             }
+        }
+        private void EnableCombos()
+        {
+            coursecb.Enabled = true;
+            ylcb.Enabled = true;
+            semcb.Enabled = true;
         }
     }
 }
