@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 
 namespace EnrollmentSystem
-{
+{ 
     class checkDB
     {
         static string cs = @"Data Source=DESKTOP-3K8PAME\SQLEXPRESS;Initial Catalog=EnrollmentSystemDB;Integrated Security=True";
@@ -280,15 +280,16 @@ namespace EnrollmentSystem
             cmd.ExecuteNonQuery();
             con.Close();
         }
-        public void EditSubject(string sc, string sn, double u)
+        public void EditSubject(string sc, string sn, double u, string newcode , string newcat)
         {
             con.Open();
-            cmd = new SqlCommand("UPDATE tbl_subject SET [Subject Name] = @sn, [Units] = @u " +
+            cmd = new SqlCommand("UPDATE tbl_subject SET [Subject Name] = @sn, [Units] = @u, [Subject Code] =@newcode, [Category]=@newcat " +
                 "WHERE [Subject Code] = @sc", con);
             cmd.Parameters.AddWithValue("@sc", sc);
             cmd.Parameters.AddWithValue("@sn", sn);
             cmd.Parameters.AddWithValue("@u", u);
-            //cmd.Parameters.AddWithValue("@cat", cat);
+            cmd.Parameters.AddWithValue("@newcode", newcode);
+            cmd.Parameters.AddWithValue("@newcat", newcat);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -1176,6 +1177,56 @@ namespace EnrollmentSystem
             con.Open();
             cmd = new SqlCommand("DELETE tbl_curriculum_subject WHERE [Course Code] = @code", con);
             cmd.Parameters.AddWithValue("@code", code);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public Boolean CheckIfLastInCurr(string curr, string course)
+        {
+            sda = new SqlDataAdapter("SELECT COUNT(*) FROM tbl_curriculum_subject WHERE [Curriculum Code] = '" + curr + "' AND [Course Code] = '" + course + "'", con);
+            dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows[0][0].ToString() == "1")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void DeleteSection_Curr(string curr, string course)
+        {
+            con.Open();
+            cmd = new SqlCommand("DELETE tbl_section WHERE [Curriculum Code] = @curr AND [Course Code] = @course", con);
+            cmd.Parameters.AddWithValue("@curr", curr);
+            cmd.Parameters.AddWithValue("@course", course);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void editSubjectCodeCS(string old,string newcode)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_curriculum_subject SET [Subject Code] = @newcode WHERE [Subject Code] = @old", con);
+            cmd.Parameters.AddWithValue("@newcode", newcode);
+            cmd.Parameters.AddWithValue("@old", old);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void editSubjectCodeSched(string old, string newcode)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_schedule SET [Subject Code] = @newcode WHERE [Subject Code] = @old", con);
+            cmd.Parameters.AddWithValue("@newcode", newcode);
+            cmd.Parameters.AddWithValue("@old", old);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public void editSubjectCodeSchedIrregular (string old, string newcode)
+        {
+            con.Open();
+            cmd = new SqlCommand("UPDATE tbl_irregularsched SET [Subject Code] = @newcode WHERE [Subject Code] = @old", con);
+            cmd.Parameters.AddWithValue("@newcode", newcode);
+            cmd.Parameters.AddWithValue("@old", old);
             cmd.ExecuteNonQuery();
             con.Close();
         }

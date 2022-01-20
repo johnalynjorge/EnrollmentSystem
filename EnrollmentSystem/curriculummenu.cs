@@ -79,7 +79,7 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the curriculum '" + tempcur + "' ?", "Delete Curriculum?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you want to delete the curriculum '" + tempcur + "'?\nThis action cannot be undone. ", "Delete Curriculum?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                try

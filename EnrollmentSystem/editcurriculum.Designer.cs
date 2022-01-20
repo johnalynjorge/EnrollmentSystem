@@ -52,7 +52,7 @@ namespace EnrollmentSystem
             this.addbtn = new System.Windows.Forms.Button();
             this.dataGridViewsubs = new System.Windows.Forms.DataGridView();
             this.dataGridViewAddedSub = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
+            this.text1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.clearbtn = new System.Windows.Forms.Button();
             this.searchalready = new System.Windows.Forms.TextBox();
@@ -306,16 +306,16 @@ namespace EnrollmentSystem
             this.dataGridViewAddedSub.VirtualMode = true;
             this.dataGridViewAddedSub.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAddedSub_CellDoubleClick);
             // 
-            // label6
+            // text1
             // 
-            this.label6.AutoSize = true;
-            this.label6.CausesValidation = false;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(48, 361);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(235, 24);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Subjects already added:";
+            this.text1.AutoSize = true;
+            this.text1.CausesValidation = false;
+            this.text1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text1.Location = new System.Drawing.Point(48, 361);
+            this.text1.Name = "text1";
+            this.text1.Size = new System.Drawing.Size(235, 24);
+            this.text1.TabIndex = 71;
+            this.text1.Text = "Subjects already added:";
             // 
             // label8
             // 
@@ -478,7 +478,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.searchalready);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.text1);
             this.Controls.Add(this.dataGridViewAddedSub);
             this.Controls.Add(this.dataGridViewsubs);
             this.Controls.Add(this.deletebtn);
@@ -498,6 +498,7 @@ namespace EnrollmentSystem
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "editcurriculum";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Curriculum";
@@ -527,7 +528,7 @@ namespace EnrollmentSystem
         private System.Windows.Forms.Button addbtn;
         private System.Windows.Forms.DataGridView dataGridViewsubs;
         private System.Windows.Forms.DataGridView dataGridViewAddedSub;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label text1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button clearbtn;
         private System.Windows.Forms.TextBox searchalready;

@@ -211,7 +211,7 @@ namespace EnrollmentSystem
         {
             id = studentcb.SelectedItem.ToString();
             DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + studentcb.SelectedItem.ToString() + " / " +
-               subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "' ?", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+               subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "'?\nThis action cannot be undone.", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try

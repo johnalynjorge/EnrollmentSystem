@@ -102,7 +102,7 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' permanently?", "Delete Student?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you want to delete the student '" + idtxt.Text + "' permanently?\nThis action cannot be undone.", "Delete Student?", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try

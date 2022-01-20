@@ -159,6 +159,12 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
+            if (checker.CheckIfLastInCurr(currcode, coursecb.SelectedItem.ToString()))
+            {
+                MessageBox.Show("This is the last subject in this course under this curriculum.\n" +
+                    "Sections under this same course and curriculum will be deleted if you will confirm to remove this subject..", "Section will be deleted.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
             DialogResult result = MessageBox.Show("Do you want to remove the subject '" + sctxt.Text + "' ?", "Remove Subject?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -170,6 +176,7 @@ namespace EnrollmentSystem
                     }
                     else
                     {
+                        checker.DeleteSection_Curr(currcode, coursecb.SelectedItem.ToString());
                         string courses = coursecb.SelectedItem.ToString();
                         checker.RemoveSubCurr(currcode, sctxt.Text, coursecb.SelectedItem.ToString());
                         MessageBox.Show("Subject removed successfully.", "Subject Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -191,15 +198,24 @@ namespace EnrollmentSystem
 
         private void searchalready_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (searchalready.Text != "")
             {
-                string sc = searchalready.Text.Trim();
-                dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc, currcode, coursecb.SelectedItem.ToString()).DefaultView;
+                try
+                {
+                    string sc = searchalready.Text.Trim();
+                    dataGridViewAddedSub.DataSource = checker.SearchCurrSub(sc, currcode, coursecb.SelectedItem.ToString()).DefaultView;
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                }
+                catch (NullReferenceException ex)
+                {
+                    searchalready.Text = "";
+                    MessageBox.Show("Select a couse first.", "No Course Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -287,5 +303,6 @@ namespace EnrollmentSystem
             ylcb.Enabled = true;
             semcb.Enabled = true;
         }
+        
     }
 }

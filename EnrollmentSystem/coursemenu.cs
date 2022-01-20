@@ -132,8 +132,10 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
+
             string coursec = cctxt.Text.Trim();
-            DialogResult result = MessageBox.Show("Do you want to delete the course '" + coursec + "' ?", "Delete Course?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you want to delete the course '" + coursec + "'? \n" +
+                "This would also delete the records of this course at the curriculum management.\nThis action cannot be undone. ", "Delete Course?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 if (coursec == "")

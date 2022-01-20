@@ -110,7 +110,7 @@ namespace EnrollmentSystem
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to delete the subject '" + tempsc + "' ?", "Delete Subject?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Do you want to delete the subject '" + tempsc + "'? \nThis action cannot be undone.", "Delete Subject?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try
@@ -152,7 +152,10 @@ namespace EnrollmentSystem
                     {
                         try
                         {
-                            checker.EditSubject(tempsc, sn, uni);
+                            checker.EditSubject(tempsc, sn, uni,sctxt.Text, categorycb.SelectedItem.ToString());
+                            checker.editSubjectCodeCS(tempsc, sctxt.Text);
+                            checker.editSubjectCodeSched(tempsc, sctxt.Text);
+                            checker.editSubjectCodeSchedIrregular(tempsc, sctxt.Text);
                             MessageBox.Show("Subject updated successfully.", "Subject Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             clearData();
                         }
@@ -214,7 +217,6 @@ namespace EnrollmentSystem
             funcs.enableShow(deletebtn);
             funcs.enableShow(editbtn);
             funcs.disableHide(addbtn);
-            categorycb.Enabled = false;
             utxt.ReadOnly = true;
         }
     }

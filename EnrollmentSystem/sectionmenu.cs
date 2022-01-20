@@ -94,7 +94,7 @@ namespace EnrollmentSystem
         private void deletebtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to delete the section '" + sectiontxt.Text + "'?\n" +
-                "Schedules under this section will also be deleted.", "Delete Section?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                "Schedules under this section will also be deleted.\nThis action cannot be undone. ", "Delete Section?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try

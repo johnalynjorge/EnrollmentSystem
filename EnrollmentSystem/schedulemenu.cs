@@ -246,7 +246,8 @@ namespace EnrollmentSystem
             string section = sectioncb.SelectedItem.ToString();
 ;            DialogResult result = MessageBox.Show("Do you want to delete the schedule for '" + sectioncb.SelectedItem.ToString() + " / " +
                 subjectcb.SelectedItem.ToString() + " / " + typecb.SelectedItem.ToString() + "'? \n" +
-                "If you will delete this, the schedule of the irregular students that are also set on this schedule will also be deleted", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                "If you will delete this, the schedule of the irregular students that are also set on this schedule will also be deleted" +
+                "\nThis action cannot be undone. ", "Delete Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 try

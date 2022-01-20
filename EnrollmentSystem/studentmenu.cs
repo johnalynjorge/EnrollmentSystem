@@ -31,10 +31,10 @@ namespace EnrollmentSystem
         {
             DisplayData();
 
-            string[] stats = {"REGULAR","IRREGULAR"};
+            string[] stats = { "REGULAR", "IRREGULAR" };
             Statuscb.Items.AddRange(stats);
 
-            string[] genders = {"MALE","FEMALE"}; 
+            string[] genders = { "MALE", "FEMALE" };
             Gendercb.Items.AddRange(genders);
 
             try
@@ -46,22 +46,14 @@ namespace EnrollmentSystem
                 SYcb.Items.AddRange(arrayList.ToArray());
                 arrayList.Clear();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
             funcs.enableShow(clearbtn);
             funcs.disableHide(deletebtn);
             funcs.disableHide(editbtn);
-            
-        }
 
-        private void backbtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            menu mn = new menu();
-            mn.ShowDialog();
-            this.Close();
         }
 
         private void addbtn_Click(object sender, EventArgs e)
@@ -137,28 +129,35 @@ namespace EnrollmentSystem
         }
         public void getTempVal(DataGridViewCellEventArgs e)
         {
+            try
+            {
 
-            
-            lasttxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[1].Value.ToString();
-            idtxt.Text= dataGridViewstudent.Rows[e.RowIndex].Cells[0].Value.ToString();
-            firsttxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
-            middletxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
-            SYcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
-            Statuscb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[7].Value.ToString();
-            Coursecb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[8].Value.ToString();
-            YLcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
-            semcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[6].Value.ToString();
-            agetxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[9].Value.ToString();
-            Gendercb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[10].Value.ToString();
-            numtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[11].Value.ToString();
-            emailtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[12].Value.ToString();
-            bdaytxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[13].Value.ToString();
-            addresstxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[14].Value.ToString();
-            funcs.enableShow(deletebtn);
-            funcs.enableShow(editbtn);
-            funcs.disableHide(addbtn);
-            beingEdit = true;
-            getData();
+                lasttxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[1].Value.ToString();
+                idtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[0].Value.ToString();
+                firsttxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[2].Value.ToString();
+                middletxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[3].Value.ToString();
+                SYcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[4].Value.ToString();
+                Statuscb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[7].Value.ToString();
+                Coursecb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[8].Value.ToString();
+                YLcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[5].Value.ToString();
+                semcb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[6].Value.ToString();
+                agetxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[9].Value.ToString();
+                Gendercb.SelectedItem = dataGridViewstudent.Rows[e.RowIndex].Cells[10].Value.ToString();
+                numtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[11].Value.ToString();
+                emailtxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[12].Value.ToString();
+                bdaytxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[13].Value.ToString();
+                addresstxt.Text = dataGridViewstudent.Rows[e.RowIndex].Cells[14].Value.ToString();
+                funcs.enableShow(deletebtn);
+                funcs.enableShow(editbtn);
+                funcs.disableHide(addbtn);
+                beingEdit = true;
+                getData();
+            }
+            catch(NullReferenceException ne)
+            {
+                MessageBox.Show("There are some changes to the academic description of the student since deletion.\n" +
+                    "Please update the student's information", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
